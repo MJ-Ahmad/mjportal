@@ -1,0 +1,53 @@
+.hero-banner {
+    padding: 2rem;
+    border-radius: 16px;
+    background: linear-gradient(
+        135deg,
+        rgba(25,118,210,.12),
+        rgba(3,218,198,.15)
+    );
+    border: 1px solid rgba(120,120,120,.25);
+    margin: 1rem 0 2rem 0;
+}
+
+.hero-banner h3 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+    border-radius: 16px;
+    transition: all .25s ease;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.md-typeset table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.md-typeset h1 {
+    font-weight: 800;
+}
+
+.md-typeset h2 {
+    margin-top: 2.5rem;
+}
+
+.md-typeset blockquote {
+    border-left: 4px solid var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .hero-banner {
+    background: linear-gradient(
+        135deg,
+        rgba(88,166,255,.12),
+        rgba(56,189,248,.12)
+    );
+}
