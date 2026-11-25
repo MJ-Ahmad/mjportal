@@ -1,0 +1,948 @@
+{
+ "_readme": "শুধু মান বদলান, কাঠামো নয়। সতর্কতা: এই ফাইলটি পাতার লিংক জানা যে কেউ সরাসরি পড়তে পারে। তাই এখানে কোনো এনআইডি, ফোন নম্বর, অভিযুক্তের পরিচয় বা স্পর্শকাতর প্রমাণ রাখবেন না।",
+ "site": {
+  "title": {
+   "bn": "পুনরুদ্ধার মিশন — CYB-2026-0061",
+   "en": "Operation Return — CYB-2026-0061"
+  },
+  "brand": {
+   "bn": "এমজে আহমদ — কেস সহায়তা",
+   "en": "MJ Ahmad — Case Support"
+  },
+  "logo": "assets/logo.png",
+  "homeUrl": "https://mj-ahmad.github.io/mj/",
+  "defaultLang": "bn",
+  "timezone": "Asia/Dhaka",
+  "currencySymbol": "৳",
+  "currencyWord": {
+   "bn": "টাকা",
+   "en": "Tk."
+  },
+  "clockLabel": {
+   "bn": "বাংলাদেশ সময়",
+   "en": "Bangladesh time"
+  }
+ },
+ "security": {
+  "passwordSha256": "0f0f64116a5ce01fa7c0df0f926fe0d2c59cc38edffe1300b16ee198cb3a9ca3"
+ },
+ "lockScreen": {
+  "greeting": {
+   "bn": "আসসালামু আলাইকুম",
+   "en": "As-salamu alaykum"
+  },
+  "title": {
+   "bn": "পাসওয়ার্ড প্রয়োজন",
+   "en": "Password required"
+  },
+  "profileFor": {
+   "bn": "মোঃ আল-আমিন ইসলামের ব্যক্তিগত কেস পোর্টাল",
+   "en": "Private case portal of Md. Al-Amin Islam"
+  },
+  "subtitle": {
+   "bn": "এই পাতাটি সুরক্ষিত। দেখতে সঠিক পাসওয়ার্ড দিন।",
+   "en": "This page is protected. Enter the correct password to view it."
+  },
+  "passwordLabel": {
+   "bn": "পাসওয়ার্ড",
+   "en": "Password"
+  },
+  "placeholder": {
+   "bn": "পাসওয়ার্ড লিখুন",
+   "en": "Enter password"
+  },
+  "button": {
+   "bn": "খুলুন",
+   "en": "Unlock"
+  },
+  "wrongPassword": {
+   "bn": "পাসওয়ার্ড ভুল হয়েছে। আবার চেষ্টা করুন।",
+   "en": "Incorrect password. Please try again."
+  },
+  "contactNote": {
+   "bn": "পাসওয়ার্ড বা প্রশ্নের জন্য যোগাযোগ:",
+   "en": "For the password or questions, contact:"
+  },
+  "contactEmail": "mjahmad2024@outlook.com"
+ },
+ "client": {
+  "photo": "assets/alamin.png",
+  "monogram": {
+   "bn": "আ",
+   "en": "A"
+  },
+  "name": {
+   "bn": "মোঃ আল-আমিন ইসলাম",
+   "en": "Md. Al-Amin Islam"
+  },
+  "formalName": "CYB-2026-0061 · REG-000153",
+  "roles": [
+   {
+    "bn": "কেস: প্রাথমিক পর্যায়",
+    "en": "Case: initial phase"
+   },
+   {
+    "bn": "ব্যবসা: কাপড়",
+    "en": "Business: textiles"
+   },
+   {
+    "bn": "জেলা: নরসিংদী",
+    "en": "District: Narsingdi"
+   }
+  ],
+  "clientId": "CYB-2026-0061",
+  "regNo": "REG-000153",
+  "occupation": {
+   "bn": "কাপড় ব্যবসায়ী",
+   "en": "Cloth merchant"
+  },
+  "address": {
+   "bn": "নরসিংদী জেলা (স্থায়ী ঠিকানা চুক্তি স্বাক্ষরের সময় সংগৃহীত হবে)",
+   "en": "Narsingdi district (permanent address to be collected at signing)"
+  }
+ },
+ "founder": {
+  "name": {
+   "bn": "মোঃ জাফর আহমদ (এমজে আহমদ)",
+   "en": "Md. Jafar Ahmad (MJ Ahmad)"
+  },
+  "title": {
+   "bn": "কেস সমন্বয়ক ও ডকুমেন্টেশন সহায়ক",
+   "en": "Case coordinator & documentation assistant"
+  }
+ },
+ "investment": {
+  "total": 0,
+  "agreementDate": "2026-11-24",
+  "agreementTimeLabel": {
+   "bn": "সময় উল্লেখ নেই",
+   "en": "time not recorded"
+  }
+ },
+ "tasks": [
+  {
+   "status": "doing",
+   "title": {
+    "bn": "বিস্তারিত বর্ণনা শোনা ও লিখিত নেওয়া",
+    "en": "Hear and record the full account"
+   },
+   "note": {
+    "bn": "আজ রাতের বৈঠকে ঘটনার ধারাবাহিক বিবরণ, তারিখ ও স্থান লিপিবদ্ধ হবে।",
+    "en": "At tonight's meeting the sequence of events, dates and places will be written down."
+   },
+   "eta": 1
+  },
+  {
+   "status": "done",
+   "title": {
+    "bn": "চুক্তি ও ফি চূড়ান্ত করা",
+    "en": "Finalize agreement and fee"
+   },
+   "note": {
+    "bn": "চূড়ান্ত চুক্তি স্বাক্ষরিত হয়েছে। মোট ফি পরে নির্ধারিত হবে।",
+    "en": "The final agreement has been signed. The total fee will be set later."
+   },
+   "eta": 2
+  },
+  {
+   "status": "todo",
+   "title": {
+    "bn": "প্রমাণ ও কাগজপত্র গোছানো",
+    "en": "Gather evidence and papers"
+   },
+   "note": {
+    "bn": "হাসপাতালের কাগজ ও বিল, মোবাইলের আইএমইআই/কেনার রশিদ বা বক্স, টিকটক মেসেজের স্ক্রিনশট, প্রত্যক্ষদর্শী বন্ধুর নাম।",
+    "en": "Hospital papers and bill, phone IMEI and purchase receipt or box, screenshots of the TikTok message, name of the friend who was present."
+   },
+   "eta": 10
+  },
+  {
+   "status": "todo",
+   "title": {
+    "bn": "যাচাই-ফটক: বর্ণনা ও প্রমাণ মিলিয়ে দেখা",
+    "en": "Verification gate: cross-check account and evidence"
+   },
+   "note": {
+    "bn": "বর্ণনা ও প্রমাণ পর্যাপ্ত মিললে তবেই পরবর্তী আইনি ধাপে যাওয়া হবে।",
+    "en": "Only if the account and evidence sufficiently match do we move to the next legal steps."
+   },
+   "eta": 14
+  },
+  {
+   "status": "todo",
+   "title": {
+    "bn": "আইনজীবীর পরামর্শ",
+    "en": "Legal advice from a lawyer"
+   },
+   "note": {
+    "bn": "ঘটনা যে এলাকায় ঘটেছে সেখানকার এখতিয়ার ও সঠিক আইনি ধাপ আইনজীবীর কাছ থেকে জানা।",
+    "en": "Learn the correct jurisdiction and legal steps from a lawyer, based on where the incident happened."
+   },
+   "eta": 21
+  },
+  {
+   "status": "todo",
+   "title": {
+    "bn": "থানায় জিডি / অভিযোগ দাখিল",
+    "en": "File a GD / complaint at the police station"
+   },
+   "note": {
+    "bn": "অনুসন্ধান ও অবস্থান শনাক্তের কাজ পুলিশ আইনি প্রক্রিয়ায় করবে।",
+    "en": "Locating and investigating is done by the police through legal process."
+   },
+   "eta": 30
+  },
+  {
+   "status": "todo",
+   "title": {
+    "bn": "মোবাইল আইএমইআই সংক্রান্ত অনুরোধ",
+    "en": "Request regarding phone IMEI"
+   },
+   "note": {
+    "bn": "বিটিআরসি/অপারেটর/থানার মাধ্যমে প্রযোজ্য নিয়ম যাচাই করে আবেদন।",
+    "en": "Apply via BTRC / operator / police after verifying the applicable rules."
+   },
+   "eta": 45
+  },
+  {
+   "status": "todo",
+   "title": {
+    "bn": "নিয়মিত আপডেট",
+    "en": "Regular updates"
+   },
+   "note": {
+    "bn": "প্রতিটি ধাপ টাইমস্ট্যাম্পসহ এই পাতায় যুক্ত হবে।",
+    "en": "Every step is added to this page with a timestamp."
+   }
+  },
+  {
+   "status": "todo",
+   "title": {
+    "bn": "ফলাফল ও কেস সমাপ্তি",
+    "en": "Outcome and case closure"
+   },
+   "note": {
+    "bn": "চূড়ান্ত প্রতিবেদন ও নথি হস্তান্তর।",
+    "en": "Final report and handover of documents."
+   },
+   "eta": 90
+  }
+ ],
+ "ledger": {
+  "entries": [
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-23T08:30:00+06:00",
+    "title": {
+     "bn": "ক্লায়েন্ট প্রোফাইল ও কেস ডিরেক্টরি তৈরি",
+     "en": "Client profile and case directory created"
+    },
+    "note": {
+     "bn": "আইডি CYB-2026-0061, রেজিস্ট্রেশন REG-000153। প্রাথমিক ডকুমেন্টারি প্রস্তুত।",
+     "en": "ID CYB-2026-0061, registration REG-000153. Initial documentary prepared."
+    }
+   },
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-23T09:10:00+06:00",
+    "title": {
+     "bn": "পোর্টাল সংস্করণ ২: দ্বিভাষিক ও মিশন ট্র্যাকার",
+     "en": "Portal v2: bilingual and mission tracker"
+    },
+    "note": {
+     "bn": "মিশনের নাম 'পুনরুদ্ধার মিশন' নির্ধারিত; যাচাই-ফটক যুক্ত।",
+     "en": "Mission named 'Operation Return'; verification gate added."
+    }
+   },
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-23",
+    "title": {
+     "bn": "বৈঠকের প্রশ্নমালা, যাচাই ছক ও স্বাক্ষর পাতা প্রস্তুত",
+     "en": "Meeting questionnaire, verification matrix and signing sheet prepared"
+    },
+    "note": {
+     "bn": "পুনরুদ্ধার মিশনের তথ্য সংগ্রহ ধাপের নথি তৈরি সম্পন্ন।",
+     "en": "Documents for the information-gathering phase of Operation Return are ready."
+    }
+   },
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-23",
+    "title": {
+     "bn": "ডকুমেন্টারি ট্রি, সময়সীমা ও আইনি পাতা যুক্ত",
+     "en": "Document tree, timeline and legal pages added"
+    },
+    "note": {
+     "bn": "৯০ দিনের আনুমানিক লক্ষ্য নির্ধারিত।",
+     "en": "90-day estimated target set."
+    }
+   },
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-24",
+    "title": {
+     "bn": "মুখোমুখি বৈঠক: বিস্তারিত বর্ণনা ও চুক্তি পাঠ",
+     "en": "In-person meeting: full account and reading of the agreement"
+    },
+    "note": {
+     "bn": "বৈঠকে চুক্তি পাঠ ও স্বাক্ষর সম্পন্ন হয়েছে।",
+     "en": "The agreement was read and signed at the meeting."
+    }
+   },
+   {
+    "type": "agreement",
+    "status": "done",
+    "date": "2026-11-24",
+    "title": {
+     "bn": "চূড়ান্ত চুক্তি স্বাক্ষর",
+     "en": "Final agreement signed"
+    },
+    "note": {
+     "bn": "প্রযুক্তিগত সহযোগিতার চূড়ান্ত চুক্তি স্বাক্ষরিত (সময় উল্লেখ নেই)",
+     "en": "Final technology collaboration agreement signed (time not recorded)"
+    }
+   },
+   {
+    "type": "payment",
+    "countsAsPaid": true,
+    "date": "2026-11-24T18:30:00+06:00",
+    "amount": 800,
+    "title": {
+     "bn": "প্রাথমিক খরচ পরিশোধ",
+     "en": "Initial cost paid"
+    },
+    "note": {
+     "bn": "প্রাথমিক খরচ — হ্যান্ড ক্যাশে প্রদত্ত",
+     "en": "Initial cost — paid in hand cash"
+    },
+    "references": [
+     {
+      "label": {
+       "bn": "মাধ্যম",
+       "en": "Method"
+      },
+      "value": "হ্যান্ড ক্যাশ / Hand cash"
+     }
+    ]
+   }
+  ]
+ },
+ "ui": {
+  "summaryTitle": {
+   "bn": "সহায়তা খরচ (স্বচ্ছ হিসাব)",
+   "en": "Support cost (transparent ledger)"
+  },
+  "tiles": {
+   "total": {
+    "bn": "মোট সহায়তা খরচ",
+    "en": "Total support cost"
+   },
+   "paid": {
+    "bn": "পরিশোধিত",
+    "en": "Paid"
+   },
+   "due": {
+    "bn": "বাকি",
+    "en": "Remaining"
+   }
+  },
+  "tasksTitle": {
+   "bn": "কাজের ধাপ (রোডম্যাপ)",
+   "en": "Work steps (roadmap)"
+  },
+  "status": {
+   "done": {
+    "bn": "সম্পন্ন",
+    "en": "Done"
+   },
+   "doing": {
+    "bn": "চলমান",
+    "en": "In progress"
+   },
+   "todo": {
+    "bn": "অপেক্ষমাণ",
+    "en": "Pending"
+   },
+   "planned": {
+    "bn": "নির্ধারিত",
+    "en": "Scheduled"
+   }
+  },
+  "ledgerTitle": {
+   "bn": "অগ্রগতির টাইমলাইন",
+   "en": "Progress timeline"
+  },
+  "counted": {
+   "bn": "পরিশোধে গণ্য",
+   "en": "Counted as paid"
+  },
+  "infoTitle": {
+   "bn": "ক্লায়েন্টের তথ্য",
+   "en": "Client information"
+  },
+  "labels": {
+   "name": {
+    "bn": "নাম",
+    "en": "Name"
+   },
+   "clientId": {
+    "bn": "ক্লায়েন্ট আইডি",
+    "en": "Client ID"
+   },
+   "regNo": {
+    "bn": "রেজিস্ট্রেশন নম্বর",
+    "en": "Registration no."
+   },
+   "occupation": {
+    "bn": "পেশা",
+    "en": "Occupation"
+   },
+   "address": {
+    "bn": "ঠিকানা",
+    "en": "Address"
+   }
+  },
+  "agreementTitle": {
+   "bn": "চুক্তি ও সীমারেখা",
+   "en": "Agreement and boundaries"
+  },
+  "agreementText": {
+   "bn": "এই কাজ শুধু আইনসম্মত পথে হবে। চুক্তির খসড়াটি পড়ে দেখুন; স্বাক্ষর হবে মুখোমুখি বৈঠকে।",
+   "en": "This work proceeds through lawful means only. Read the draft agreement; signing takes place at the in-person meeting."
+  },
+  "viewContract": {
+   "bn": "চুক্তিনামা দেখুন",
+   "en": "View agreement"
+  },
+  "recordNote": {
+   "bn": "এই পাতা ক্লায়েন্টের নিজস্ব বর্ণনা ও কাজের অগ্রগতির রেকর্ড। বর্ণিত বিষয়গুলো এখনো যাচাইকৃত নয়; কোনো তথ্যে ভুল বা আপত্তি থাকলে জানান।",
+   "en": "This page records the client's own account and the progress of work. The matters described are not yet verified; tell us if anything is wrong or you object."
+  },
+  "close": {
+   "bn": "বন্ধ করুন",
+   "en": "Close"
+  },
+  "print": {
+   "bn": "প্রিন্ট / PDF",
+   "en": "Print / PDF"
+  },
+  "tbd": {
+   "bn": "নির্ধারিত হবে",
+   "en": "To be set"
+  },
+  "eta": {
+   "bn": "আনুমানিক লক্ষ্য: {d}",
+   "en": "Target: {d}"
+  },
+  "docsLink": {
+   "bn": "ডকুমেন্টারি ট্রি দেখুন",
+   "en": "View document tree"
+  },
+  "docsNav": {
+   "bn": "ডকুমেন্টারি ট্রি",
+   "en": "Document tree"
+  },
+  "privacy": {
+   "bn": "গোপনীয়তা নীতি",
+   "en": "Privacy"
+  },
+  "terms": {
+   "bn": "শর্তাবলি",
+   "en": "Terms"
+  },
+  "docsTitle": {
+   "bn": "ডকুমেন্টারি ট্রি",
+   "en": "Document tree"
+  },
+  "docsSub": {
+   "bn": "মিশনের প্রতিটি নথি, অবস্থা ও হালনাগাদের সময়",
+   "en": "Every mission document, its status and last update"
+  },
+  "expandAll": {
+   "bn": "সব খুলুন",
+   "en": "Expand all"
+  },
+  "collapseAll": {
+   "bn": "সব বন্ধ করুন",
+   "en": "Collapse all"
+  },
+  "back": {
+   "bn": "← মূল পাতা",
+   "en": "← Main page"
+  },
+  "open": {
+   "bn": "খুলুন",
+   "en": "Open"
+  },
+  "soon": {
+   "bn": "শীঘ্রই যুক্ত হবে",
+   "en": "Coming soon"
+  },
+  "updated": {
+   "bn": "হালনাগাদ",
+   "en": "Updated"
+  },
+  "docsDone": {
+   "bn": "নথি সম্পন্ন",
+   "en": "documents complete"
+  },
+  "docsNote": {
+   "bn": "সংবেদনশীল নথির মূল কপি এখানে প্রকাশ হয় না; শুধু অবস্থা দেখানো হয়। মূল কপি ক্লায়েন্ট ও নিরাপদ সংরক্ষণে থাকে।",
+   "en": "Originals of sensitive documents are not published here, only their status. Originals stay with the client and in secure storage."
+  }
+ },
+ "contract": {
+  "invocation": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+  "title": {
+   "bn": "সেবা ও সহযোগিতা চুক্তিনামা (খসড়া)",
+   "en": "Service and Cooperation Agreement (draft)"
+  },
+  "subtitle": {
+   "bn": "কেস CYB-2026-0061",
+   "en": "Case CYB-2026-0061"
+  },
+  "dateLabel": {
+   "bn": "খসড়ার তারিখ",
+   "en": "Draft date"
+  },
+  "partiesTitle": {
+   "bn": "চুক্তিবদ্ধ পক্ষ",
+   "en": "The parties"
+  },
+  "firstParty": {
+   "bn": "প্রথম পক্ষ (সহায়তাকারী)",
+   "en": "First party (supporter)"
+  },
+  "secondParty": {
+   "bn": "দ্বিতীয় পক্ষ (ক্লায়েন্ট)",
+   "en": "Second party (client)"
+  },
+  "recital": {
+   "bn": "{date} তারিখে {time} উভয় পক্ষ নিচের শর্তে সম্মত হলো। মোট সেবা ফি: {total}।",
+   "en": "On {date}, {time}, both parties agreed to the terms below. Total support cost: {total}."
+  },
+  "clausesTitle": {
+   "bn": "শর্তসমূহ",
+   "en": "Terms"
+  },
+  "clauses": [
+   {
+    "title": {
+     "bn": "কাজের পরিধি",
+     "en": "Scope of work"
+    },
+    "text": {
+     "bn": "প্রথম পক্ষ নথি গুছিয়ে দেওয়া, ধাপ পরিকল্পনা ও যোগাযোগ সমন্বয়ে সহায়তা করবেন। তিনি আইনজীবী বা পুলিশ নন এবং আইনি পরামর্শ দেন না।",
+     "en": "The first party will help organize documents, plan steps and coordinate communication. He is not a lawyer or police officer and gives no legal advice."
+    }
+   },
+   {
+    "title": {
+     "bn": "শুধু আইনসম্মত পথ",
+     "en": "Lawful means only"
+    },
+    "text": {
+     "bn": "কাজ হবে থানা, আদালত ও আইনজীবীর মাধ্যমে। হ্যাকিং, গোপন অনুসরণ, হুমকি, প্রকাশ্যে অপমান বা কারও তথ্য ফাঁস করা নিষিদ্ধ। ক্লায়েন্টও সংশ্লিষ্ট ব্যক্তির সাথে সরাসরি যোগাযোগ বা সামাজিক মাধ্যমে প্রচার করবেন না।",
+     "en": "Work goes through police, courts and lawyers. Hacking, covert tracking, threats, public shaming or leaking anyone's data is prohibited. The client will not contact the person concerned directly or campaign on social media."
+    }
+   },
+   {
+    "title": {
+     "bn": "তথ্যের সত্যতা",
+     "en": "Accuracy of information"
+    },
+    "text": {
+     "bn": "ক্লায়েন্ট জানাচ্ছেন তাঁর দেওয়া বিবরণ ও কাগজ সত্য। অভিযোগ যাচাইসাপেক্ষ; ফল বা উদ্ধারের কোনো নিশ্চয়তা দেওয়া হয় না।",
+     "en": "The client states that the account and papers he provides are true. The allegation is subject to verification; no result or recovery is guaranteed."
+    }
+   },
+   {
+    "title": {
+     "bn": "গোপনীয়তা",
+     "en": "Confidentiality"
+    },
+    "text": {
+     "bn": "তথ্য শুধু এই কেস ও আইনি প্রয়োজনে ব্যবহৃত হবে। সংশ্লিষ্ট অন্য ব্যক্তির পরিচয় এই পোর্টালে প্রকাশ করা হবে না।",
+     "en": "Information is used only for this case and legal needs. The identity of any other person involved will not be published on this portal."
+    }
+   },
+   {
+    "title": {
+     "bn": "সেবা ফি ও খরচ",
+     "en": "Support cost and expenses"
+    },
+    "text": {
+     "bn": "সেবা ফি {total}, যা ফলাফলের ওপর নির্ভরশীল নয়। আইনজীবী, ফি ও যাতায়াত খরচ আলাদা; আগে জানিয়ে ক্লায়েন্টের অনুমোদন নেওয়া হবে।",
+     "en": "The support cost is {total}, not dependent on the outcome. Lawyer, court fee and travel costs are separate; the client's approval is obtained in advance."
+    }
+   },
+   {
+    "title": {
+     "bn": "অগ্রগতি ও সমাপ্তি",
+     "en": "Progress and ending"
+    },
+    "text": {
+     "bn": "প্রতিটি ধাপ টাইমস্ট্যাম্পসহ পোর্টালে হালনাগাদ হবে। যেকোনো পক্ষ লিখিত জানিয়ে সরে যেতে পারবেন; সেক্ষেত্রে সম্পন্ন কাজের হিসাব মিটিয়ে নেওয়া হবে।",
+     "en": "Each step is updated on the portal with a timestamp. Either party may withdraw by written notice; completed work is then settled."
+    }
+   },
+   {
+    "title": {
+     "bn": "যাচাই ও অঙ্গীকার",
+     "en": "Verification and commitment"
+    },
+    "text": {
+     "bn": "অভিযোগ যাচাইয়ে সত্য প্রমাণিত হলে প্রথম পক্ষ সব বৈধ পথে মিশন এগিয়ে নেবেন। তথ্যে গরমিল বা মিথ্যা ধরা পড়লে সহায়তা বন্ধ করার অধিকার সংরক্ষিত।",
+     "en": "If the allegation is verified as true, the first party will pursue the mission through all lawful means. If inconsistencies or falsehoods are found, he reserves the right to stop support."
+    }
+   }
+  ],
+  "paymentsTitle": {
+   "bn": "পরিশোধের বিবরণ",
+   "en": "Payment record"
+  },
+  "table": {
+   "date": {
+    "bn": "তারিখ",
+    "en": "Date"
+   },
+   "detail": {
+    "bn": "বিবরণ",
+    "en": "Detail"
+   },
+   "amount": {
+    "bn": "পরিমাণ",
+    "en": "Amount"
+   }
+  },
+  "signatures": {
+   "line": {
+    "bn": "স্বাক্ষর",
+    "en": "Signature"
+   },
+   "witness": {
+    "bn": "সাক্ষী",
+    "en": "Witness"
+   }
+  },
+  "note": {
+   "bn": "এটি রেকর্ড ও পারস্পরিক বোঝাপড়ার খসড়া। আইনগত কার্যকারিতার জন্য যোগ্য আইনজীবীর পরামর্শ নিন।",
+   "en": "This is a draft record of mutual understanding. For legal effect, consult a qualified lawyer."
+  }
+ },
+ "footer": {
+  "copyright": {
+   "bn": "© ২০২৬ · গোপনীয় ক্লায়েন্ট রেকর্ড",
+   "en": "© 2026 · Confidential client record"
+  },
+  "tagline": {
+   "bn": "নথি, স্বচ্ছতা ও মর্যাদার সাথে সহযোগিতা",
+   "en": "Cooperation with documentation, transparency and dignity"
+  }
+ },
+ "mission": {
+  "label": {
+   "bn": "ক্লায়েন্ট কেস মিশন",
+   "en": "Client case mission"
+  },
+  "name": {
+   "bn": "পুনরুদ্ধার মিশন",
+   "en": "Operation Return"
+  },
+  "stage": {
+   "bn": "বর্তমান ধাপ: তথ্য সংগ্রহ ও যাচাই",
+   "en": "Current phase: information gathering & verification"
+  },
+  "notice": {
+   "bn": "ক্লায়েন্টের বর্ণনা অনুযায়ী, পরিচিত একজনের সাথে ঘটা একটি ঘটনার পর তাঁর মূল্যবান জিনিসপত্র খোয়া গেছে। বিষয়টি এখনো যাচাইয়ের অপেক্ষায়।",
+   "en": "As described by the client, valuables went missing after an incident involving someone he knew. The matter is awaiting verification."
+  },
+  "commitment": {
+   "bn": "তথ্য সংগ্রহ ও ডকুমেন্টারি প্রস্তুতের পর অভিযোগ সত্য প্রমাণিত হলে মিশনটি সব বৈধ পথে, যত কঠিন চ্যালেঞ্জই আসুক, শেষ পর্যন্ত অবিচলভাবে এগিয়ে নেওয়া হবে। এটি প্রচেষ্টার অঙ্গীকার, ফলাফলের নিশ্চয়তা নয়।",
+   "en": "Once information is gathered, the documentary is prepared and the allegation is verified as true, the mission will be pursued steadfastly through every lawful means, however hard the challenge. This is a commitment of effort, not a guarantee of outcome."
+  },
+  "progress": {
+   "bn": "মিশনের অগ্রগতি",
+   "en": "Mission progress"
+  },
+  "start": "2026-11-23",
+  "targetDays": 90,
+  "timeText": {
+   "bn": "দিন {d} / {n} · আনুমানিক লক্ষ্য: {end}",
+   "en": "Day {d} of {n} · Estimated target: {end}"
+  },
+  "timeNote": {
+   "bn": "সময়সীমা আনুমানিক; থানা ও আদালতের গতির ওপর নির্ভরশীল।",
+   "en": "The timeline is an estimate and depends on police and court pace."
+  }
+ },
+ "docs": [
+  {
+   "g": {
+    "bn": "১. পরিচয় ও চুক্তি",
+    "en": "1. Identity & agreement"
+   },
+   "i": [
+    {
+     "s": "done",
+     "t": {
+      "bn": "ক্লায়েন্ট প্রোফাইল ও আইডি",
+      "en": "Client profile & ID"
+     },
+     "f": [
+      "HTML"
+     ],
+     "d": "2026-11-23",
+     "h": ""
+    },
+    {
+     "s": "done",
+     "t": {
+      "bn": "সেবা ও সহযোগিতা চুক্তি",
+      "en": "Service agreement"
+     },
+     "f": [
+      "PDF"
+     ],
+     "d": "2026-11-24",
+     "h": ""
+    },
+    {
+     "s": "done",
+     "t": {
+      "bn": "স্বাক্ষরপত্র",
+      "en": "Signing sheet"
+     },
+     "f": [
+      "PDF"
+     ],
+     "d": "2026-11-24",
+     "h": ""
+    }
+   ]
+  },
+  {
+   "g": {
+    "bn": "২. ঘটনার বিবরণ",
+    "en": "2. Statement of events"
+   },
+   "i": [
+    {
+     "s": "doing",
+     "t": {
+      "bn": "ক্লায়েন্টের লিখিত বিবরণ",
+      "en": "Client written statement"
+     },
+     "f": [
+      "DOCX",
+      "PDF"
+     ],
+     "h": ""
+    },
+    {
+     "s": "todo",
+     "t": {
+      "bn": "ঘটনার ধারাবাহিক টাইমলাইন",
+      "en": "Event timeline"
+     },
+     "f": [
+      "PDF"
+     ],
+     "h": ""
+    },
+    {
+     "s": "todo",
+     "t": {
+      "bn": "প্রত্যক্ষদর্শীর (বন্ধু) বিবরণ",
+      "en": "Witness (friend) statement"
+     },
+     "f": [
+      "DOCX"
+     ],
+     "h": ""
+    }
+   ]
+  },
+  {
+   "g": {
+    "bn": "৩. চিকিৎসা নথি",
+    "en": "3. Medical records"
+   },
+   "i": [
+    {
+     "s": "todo",
+     "t": {
+      "bn": "ভর্তি ও ছাড়পত্র",
+      "en": "Admission & discharge papers"
+     },
+     "f": [
+      "PDF",
+      "JPG"
+     ],
+     "h": ""
+    },
+    {
+     "s": "todo",
+     "t": {
+      "bn": "খাতওয়ারি বিলের রসিদ",
+      "en": "Itemised bill receipts"
+     },
+     "f": [
+      "PDF",
+      "JPG"
+     ],
+     "h": ""
+    }
+   ]
+  },
+  {
+   "g": {
+    "bn": "৪. ক্ষতির প্রমাণ",
+    "en": "4. Proof of loss"
+   },
+   "i": [
+    {
+     "s": "todo",
+     "t": {
+      "bn": "মোবাইল: আইএমইআই ও কেনার রসিদ",
+      "en": "Phones: IMEI & purchase receipts"
+     },
+     "f": [
+      "PDF",
+      "JPG"
+     ],
+     "h": ""
+    },
+    {
+     "s": "todo",
+     "t": {
+      "bn": "নগদ টাকার উৎসের প্রমাণ",
+      "en": "Proof of cash source"
+     },
+     "f": [
+      "PDF"
+     ],
+     "h": ""
+    }
+   ]
+  },
+  {
+   "g": {
+    "bn": "৫. ডিজিটাল প্রমাণ",
+    "en": "5. Digital evidence"
+   },
+   "i": [
+    {
+     "s": "todo",
+     "t": {
+      "bn": "তারিখসহ যোগাযোগের স্ক্রিনশট",
+      "en": "Dated screenshots of communication"
+     },
+     "f": [
+      "PNG",
+      "PDF"
+     ],
+     "h": ""
+    }
+   ]
+  },
+  {
+   "g": {
+    "bn": "৬. যাচাই",
+    "en": "6. Verification"
+   },
+   "i": [
+    {
+     "s": "doing",
+     "t": {
+      "bn": "যাচাই ছক ও ফটকের সিদ্ধান্ত",
+      "en": "Verification matrix & gate decision"
+     },
+     "f": [
+      "XLSX",
+      "PDF"
+     ],
+     "d": "2026-11-23",
+     "h": ""
+    }
+   ]
+  },
+  {
+   "g": {
+    "bn": "৭. আইনি ধাপ",
+    "en": "7. Legal steps"
+   },
+   "i": [
+    {
+     "s": "todo",
+     "t": {
+      "bn": "আইনজীবীর পরামর্শ-নোট",
+      "en": "Lawyer advice note"
+     },
+     "f": [
+      "PDF"
+     ],
+     "h": ""
+    },
+    {
+     "s": "todo",
+     "t": {
+      "bn": "জিডি / এজাহারের কপি",
+      "en": "GD / complaint copy"
+     },
+     "f": [
+      "PDF"
+     ],
+     "h": ""
+    },
+    {
+     "s": "todo",
+     "t": {
+      "bn": "আইএমইআই সংক্রান্ত আবেদন",
+      "en": "IMEI request"
+     },
+     "f": [
+      "PDF"
+     ],
+     "h": ""
+    }
+   ]
+  },
+  {
+   "g": {
+    "bn": "৮. ফলাফল",
+    "en": "8. Outcome"
+   },
+   "i": [
+    {
+     "s": "todo",
+     "t": {
+      "bn": "চূড়ান্ত প্রতিবেদন",
+      "en": "Final report"
+     },
+     "f": [
+      "PDF"
+     ],
+     "h": ""
+    },
+    {
+     "s": "todo",
+     "t": {
+      "bn": "নথি হস্তান্তর রসিদ",
+      "en": "Handover receipt"
+     },
+     "f": [
+      "PDF"
+     ],
+     "h": ""
+    }
+   ]
+  }
+ ]
+}
