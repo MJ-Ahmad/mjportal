@@ -1,0 +1,46 @@
+{
+  "id": "REG-000153",
+  "formalName": "CYB-2026-0061 · REG-000153",
+  "name": {
+    "bn": "মোঃ আল-আমিন ইসলাম",
+    "en": "Md. Al-Amin Islam"
+  },
+  "photo": "assets/alamin.png",
+  "roles": [
+    {
+      "bn": "কেস: প্রাথমিক পর্যায়",
+      "en": "Case: initial phase"
+    },
+    {
+      "bn": "ব্যবসা: কাপড়",
+      "en": "Business: textiles"
+    },
+    {
+      "bn": "জেলা: নরসিংদী",
+      "en": "District: Narsingdi"
+    }
+  ],
+  "ledger": [
+    {
+      "date": "2026-11-24",
+      "type": "agreement",
+      "countsAsPaid": false,
+      "amount": 0,
+      "note": {
+        "bn": "প্রযুক্তিগত সহযোগিতার চূড়ান্ত চুক্তি স্বাক্ষরিত (সময় উল্লেখ নেই)",
+        "en": "Final technology collaboration agreement signed (time not recorded)"
+      }
+    },
+    {
+      "date": "2026-11-24T18:30:00+06:00",
+      "type": "payment",
+      "countsAsPaid": true,
+      "amount": 800,
+      "method": "hand-cash",
+      "note": {
+        "bn": "প্রাথমিক খরচ — হ্যান্ড ক্যাশে প্রদত্ত",
+        "en": "Initial cost — paid in hand cash"
+      }
+    }
+  ]
+}

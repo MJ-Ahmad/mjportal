@@ -1,0 +1,32 @@
+{
+  "_readme": "গ্যালারি: type = photo | video | audio। src-এ ফাইলের পথ বসান (private/assets/ বা private/media/ এর ভিতরে)। খালি থাকলে 'ফাইল যুক্ত হয়নি' দেখাবে।",
+  "items": [
+    {
+      "type": "photo",
+      "title": {
+        "bn": "আল-আমিন",
+        "en": "Al-Amin"
+      },
+      "src": "assets/alamin.png",
+      "date": "2026-11-24"
+    },
+    {
+      "type": "video",
+      "title": {
+        "bn": "ভিডিও (যুক্ত করুন)",
+        "en": "Video (to add)"
+      },
+      "src": "",
+      "date": ""
+    },
+    {
+      "type": "audio",
+      "title": {
+        "bn": "অডিও (যুক্ত করুন)",
+        "en": "Audio (to add)"
+      },
+      "src": "",
+      "date": ""
+    }
+  ]
+}

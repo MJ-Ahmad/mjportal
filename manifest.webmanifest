@@ -3,13 +3,30 @@
   "short_name": "নিজের খাতা",
   "description": "শেখা, কাজ, স্বাস্থ্য ও আত্মবিশ্লেষণের একটি শান্ত, উত্তরাধিকারযোগ্য খাতা।",
   "lang": "bn",
-  "start_url": "./mjportal/",
-  "scope": "./mjportal/",
+  "start_url": "./?source=pwa",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0d1b1f",
   "theme_color": "#0d1b1f",
   "icons": [
-    { "src": "assets/branding/logos/app-icons/android-icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "assets/branding/logos/app-icons/android-icon-512.png", "sizes": "512x512", "type": "image/png" }
-  ]
+    {
+      "src": "assets/branding/logos/app-icons/android-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/branding/logos/app-icons/android-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "id": "./",
+  "orientation": "portrait",
+  "categories": [
+    "education",
+    "productivity"
+  ],
+  "dir": "ltr"
 }
