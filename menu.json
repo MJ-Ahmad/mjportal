@@ -1,0 +1,293 @@
+{
+ "menu": [
+  {
+   "title": "modules",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "modules/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "functions",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "functions/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "tools",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "tools/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "scripts",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "scripts/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "systems",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "systems/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "projects",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "projects/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "repos",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "repos/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "docs",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "docs/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "data",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "data/sample.html"
+    }
+   ]
+  },
+  {
+   "title": "clients",
+   "children": [
+    {
+     "title": {
+      "en": "Sample",
+      "bn": "নমুনা",
+      "ar": "نموذج"
+     },
+     "href": "clients/sample.html"
+    }
+   ]
+  },
+  {
+   "title": {
+    "en": "Learn",
+    "bn": "শেখা",
+    "ar": "التعلم"
+   },
+   "children": [
+    {
+     "title": {
+      "en": "Learning hub",
+      "bn": "শেখার হাব",
+      "ar": "مركز التعلم"
+     },
+     "href": "learn/"
+    },
+    {
+     "title": {
+      "en": "Space & Cosmos",
+      "bn": "মহাকাশ ও মহাবিশ্ব",
+      "ar": "الفضاء والكون"
+     },
+     "children": [
+      {
+       "title": {
+        "en": "Universe",
+        "bn": "মহাবিশ্ব",
+        "ar": "الكون"
+       },
+       "href": "learn/universe/"
+      },
+      {
+       "title": {
+        "en": "Cosmic",
+        "bn": "মহাজাগতিক",
+        "ar": "الكوني"
+       },
+       "href": "learn/cosmic/"
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Earth & Geo",
+      "bn": "পৃথিবী ও ভূ-তথ্য",
+      "ar": "الأرض والجغرافيا"
+     },
+     "children": [
+      {
+       "title": {
+        "en": "GIS",
+        "bn": "জিআইএস",
+        "ar": "نظم المعلومات الجغرافية"
+       },
+       "href": "learn/gis/"
+      },
+      {
+       "title": {
+        "en": "GeoJSON",
+        "bn": "জিওজসন",
+        "ar": "GeoJSON"
+       },
+       "href": "learn/geojson/"
+      },
+      {
+       "title": {
+        "en": "Geography",
+        "bn": "ভূগোল",
+        "ar": "الجغرافيا"
+       },
+       "href": "learn/geography/"
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Mathematics",
+      "bn": "গণিত",
+      "ar": "الرياضيات"
+     },
+     "children": [
+      {
+       "title": {
+        "en": "Mathematics",
+        "bn": "গণিত",
+        "ar": "الرياضيات"
+       },
+       "href": "learn/math/"
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Media",
+      "bn": "মিডিয়া",
+      "ar": "الوسائط"
+     },
+     "children": [
+      {
+       "title": {
+        "en": "FFmpeg",
+        "bn": "এফএফএমপেগ",
+        "ar": "FFmpeg"
+       },
+       "href": "learn/ffmpeg/"
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "Computing & Systems",
+      "bn": "কম্পিউটিং ও সিস্টেম",
+      "ar": "الحوسبة والأنظمة"
+     },
+     "children": [
+      {
+       "title": {
+        "en": "MyCommand",
+        "bn": "মাইকমান্ড",
+        "ar": "MyCommand"
+       },
+       "href": "learn/mycommand/"
+      },
+      {
+       "title": {
+        "en": "Systems",
+        "bn": "সিস্টেমস",
+        "ar": "الأنظمة"
+       },
+       "href": "learn/systems/"
+      },
+      {
+       "title": {
+        "en": "MyPython",
+        "bn": "মাইপাইথন",
+        "ar": "MyPython"
+       },
+       "href": "learn/mypython/"
+      }
+     ]
+    },
+    {
+     "title": {
+      "en": "AI & Data",
+      "bn": "এআই ও ডেটা",
+      "ar": "الذكاء الاصطناعي والبيانات"
+     },
+     "children": [
+      {
+       "title": {
+        "en": "ML.NET",
+        "bn": "এমএল.নেট",
+        "ar": "ML.NET"
+       },
+       "href": "learn/mlnet/"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
