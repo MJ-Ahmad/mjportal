@@ -173,6 +173,26 @@
                 "en": "json"
               },
               "href": "json/"
+            },
+            {
+              "title": {
+                "en": "work"
+              },
+              "href": "work/",
+              "children": [
+                {
+                  "title": {
+                    "en": "alamin"
+                  },
+                  "href": "work/alamin/"
+                },
+                {
+                  "title": {
+                    "en": "uqns"
+                  },
+                  "href": "work/uqns/"
+                }
+              ]
             }
           ]
         }
