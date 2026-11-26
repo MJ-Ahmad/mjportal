@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "title": "MJ Ahmad",
+    "subtitle_en": "Docs Registry",
+    "subtitle_bn": "ডকস রেজিস্ট্রি",
+    "tagline": "Where every script is a verdict, every invocation a vote, and every log a legacy.",
+    "version": "2.0",
+    "docs_index": "docs/index.json",
+    "footer_en": "Static registry — files load on demand",
+    "footer_bn": "স্ট্যাটিক রেজিস্ট্রি — ফাইল প্রয়োজনে লোড হয়",
+    "commands": [
+      {
+        "group": "Viewer",
+        "en": "Start viewer",
+        "bn": "ভিউয়ার চালু",
+        "cmd": "./run.sh serve"
+      },
+      {
+        "group": "Viewer",
+        "en": "Port busy? use another",
+        "bn": "পোর্ট ব্যস্ত হলে অন্যটি",
+        "cmd": "./run.sh serve 8080"
+      },
+      {
+        "group": "Docs",
+        "en": "Add one file",
+        "bn": "একটি ফাইল যুক্ত",
+        "cmd": "./run.sh add path/to/file.html \"Title\" \"Description\" --menu \"Web/Portal\""
+      },
+      {
+        "group": "Docs",
+        "en": "Add file into a new folder",
+        "bn": "নতুন ফোল্ডারে ফাইল যুক্ত",
+        "cmd": "./run.sh add path/to/file.py \"Title\" --new-menu \"Tools/Scripts\" --new-menu-bn \"টুলস/স্ক্রিপ্ট\""
+      },
+      {
+        "group": "Docs",
+        "en": "Import a whole folder",
+        "bn": "পুরো ডিরেক্টরি ইমপোর্ট",
+        "cmd": "./run.sh add-dir ~/project --menu \"Web\""
+      },
+      {
+        "group": "Docs",
+        "en": "Delete a file",
+        "bn": "ফাইল মুছুন",
+        "cmd": "./run.sh rm DOC-2026-0001"
+      },
+      {
+        "group": "Folders",
+        "en": "Show folder tree",
+        "bn": "ফোল্ডার-ট্রি দেখুন",
+        "cmd": "./run.sh menu"
+      },
+      {
+        "group": "Folders",
+        "en": "Create folders",
+        "bn": "ফোল্ডার তৈরি",
+        "cmd": "./run.sh menu --new \"Web/Portal\" --bn \"ওয়েব/পোর্টাল\""
+      },
+      {
+        "group": "Folders",
+        "en": "Move a file",
+        "bn": "ফাইল সরান",
+        "cmd": "./run.sh menu --move DOC-2026-0001 --to \"Web/Portal\""
+      },
+      {
+        "group": "Folders",
+        "en": "Move a whole folder",
+        "bn": "পুরো ফোল্ডার সরান",
+        "cmd": "./run.sh menu --move-menu \"Web/Portal\" --to \"Tools\""
+      },
+      {
+        "group": "Folders",
+        "en": "Rename a folder",
+        "bn": "ফোল্ডারের নাম বদলান",
+        "cmd": "./run.sh menu --rename \"Web\" --en \"Websites\" --bn \"ওয়েবসাইট\""
+      },
+      {
+        "group": "System",
+        "en": "Statistics",
+        "bn": "পরিসংখ্যান",
+        "cmd": "./run.sh stats"
+      },
+      {
+        "group": "System",
+        "en": "Validate data",
+        "bn": "ডাটা যাচাই",
+        "cmd": "./run.sh check"
+      },
+      {
+        "group": "Emergency",
+        "emergency": true,
+        "en": "Restore last index backup",
+        "bn": "শেষ ইনডেক্স ব্যাকআপ ফেরত",
+        "cmd": "cp docs/index.json.bak docs/index.json && ./run.sh check"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "id": "dash",
+      "bn": "ড্যাশবোর্ড",
+      "en": "Dashboard",
+      "icon": "dash",
+      "view": {
+        "type": "dashboard"
+      }
+    },
+    {
+      "id": "docs",
+      "bn": "ডকস",
+      "en": "Docs",
+      "icon": "docs",
+      "open": true,
+      "view": {
+        "type": "docs"
+      }
+    },
+    {
+      "id": "registry",
+      "bn": "রেজিস্ট্রি",
+      "en": "Registry",
+      "icon": "registry",
+      "view": {
+        "type": "registry"
+      }
+    }
+  ]
+}

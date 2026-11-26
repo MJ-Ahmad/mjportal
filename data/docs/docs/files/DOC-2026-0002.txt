@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quran Reader</title>
+<meta name="description" content="Read the Quran page by page, laid out like the printed Madina Mushaf, as real text.">
+
+<link rel="icon" href="./favicon.ico">
+<link rel="stylesheet" href="./dist/quran-madina-html.css">
+
+<style>
+  :root {
+    --bg: #ece7dc; --bar: #fbf8f1; --ink: #2b2a26; --muted: #6f6a5f; --line: #d9d1bf;
+    --accent: #0f6b5c; --accent-soft: #dcefe9; --hover: #f1ecdf; --shadow: rgba(60, 50, 30, .18);
+    --page-bg: #fffdf7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17181a; --bar: #222326; --ink: #e9e6de; --muted: #a29d92; --line: #3a3b3f;
+      --accent: #5cc2ad; --accent-soft: #23403a; --hover: #2c2d31; --shadow: rgba(0, 0, 0, .5);
+      --page-bg: #1d1e21;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: grid; grid-template-rows: auto 1fr auto; grid-template-columns: 1fr auto;
+    grid-template-areas: "top top" "main side" "bottom side";
+    background: var(--bg); color: var(--ink);
+    font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  button, select, input { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+
+  header {
+    grid-area: top; display: flex; align-items: center; gap: 12px; padding: 8px 16px;
+    background: var(--bar); border-bottom: 1px solid var(--line);
+  }
+  header .brand { font-weight: 650; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  header .brand small { font-weight: 400; color: var(--muted); }
+  header .spacer { flex: 1; }
+  header label { color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  select, .pageno {
+    background: var(--page-bg); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px;
+  }
+  .iconbtn {
+    background: none; border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px;
+  }
+  .iconbtn:hover, .nav:hover:not(:disabled) { background: var(--hover); }
+  #toggle-index { display: none; }
+
+  main {
+    grid-area: main; position: relative; overflow: hidden; display: flex;
+    align-items: center; justify-content: center; touch-action: pan-y;
+  }
+  /* The spread is laid out at the library's size, then scaled to fit (fit()). */
+  #spread {
+    display: flex; flex-direction: row-reverse; gap: 16px; transform-origin: center center;
+    filter: drop-shadow(0 8px 22px var(--shadow));
+  }
+  #spread quran-madina-html { display: block; }
+  #spread .slot { background: var(--page-bg); }
+  #spread.single .slot.left { display: none; }
+  .folio { text-align: center; color: var(--muted); font-size: 15px; padding: 4px 0 8px;
+           font-variant-numeric: tabular-nums; }
+  #ref { position: absolute; visibility: hidden; pointer-events: none; left: -9999px; top: 0; }
+  #spread .slot { display: flex; flex-direction: column; }
+  #spread .slot quran-madina-html { flex: 1; }
+  #status { position: absolute; inset: auto 0 12px; text-align: center; color: var(--muted); }
+
+  aside {
+    grid-area: side; width: 280px; display: flex; flex-direction: column; min-height: 0;
+    background: var(--bar); border-left: 1px solid var(--line);
+  }
+  aside .search { padding: 10px; border-bottom: 1px solid var(--line); }
+  aside input {
+    width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px;
+    background: var(--page-bg);
+  }
+  #suras { list-style: none; margin: 0; padding: 4px 0; overflow-y: auto; flex: 1; }
+  #suras button {
+    width: 100%; display: grid; grid-template-columns: 2.2em 1fr auto; align-items: center;
+    gap: 8px; padding: 6px 12px; border: 0; background: none; text-align: left;
+  }
+  #suras button:hover { background: var(--hover); }
+  #suras button.current { background: var(--accent-soft); }
+  #suras .num { color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+  #suras .en { display: block; }
+  #suras .meta { display: block; color: var(--muted); font-size: 12px; }
+  #suras .ar { font-size: 18px; direction: rtl; font-family: "Amiri", "Noto Naskh Arabic", "Geeza Pro", "Traditional Arabic", serif; }
+
+  footer {
+    grid-area: bottom; display: flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 8px 16px; background: var(--bar); border-top: 1px solid var(--line);
+  }
+  .nav {
+    background: none; border: 1px solid var(--line); border-radius: 6px; padding: 6px 14px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav:disabled { opacity: .4; cursor: default; }
+  .pageno { width: 5.2em; text-align: center; }
+  #slider { flex: 0 1 360px; direction: rtl; accent-color: var(--accent); }
+  #where { color: var(--muted); min-width: 9em; text-align: center; white-space: nowrap; }
+
+  @media (max-width: 900px) {
+    body { grid-template-columns: 1fr; grid-template-areas: "top" "main" "bottom"; }
+    #toggle-index { display: inline-block; }
+    aside {
+      position: fixed; z-index: 10; top: 0; right: 0; bottom: 0; width: min(320px, 88vw);
+      transform: translateX(100%); transition: transform .2s ease; box-shadow: -8px 0 24px var(--shadow);
+    }
+    body.index-open aside { transform: none; }
+    header .brand small, header label span { display: none; }
+    #slider { display: none; }
+    #where { min-width: 0; }
+  }
+  @media (max-width: 480px) {
+    header { gap: 8px; padding: 8px 10px; }
+    footer { gap: 8px; padding: 8px 10px; }
+    .nav .label { display: none; }
+    #where { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../">Quran Reader <small>· quran-madina-html</small></a>
+  <span class="spacer"></span>
+  <label><span>Print</span>
+    <select id="layout" aria-label="Print">
+      <option value="1441H">Madina 1441H</option>
+      <option value="1405H">Madina 1405H</option>
+      <option value="IndoPak">IndoPak, 15 lines</option>
+    </select>
+  </label>
+  <button class="iconbtn" id="toggle-index" aria-controls="index" aria-expanded="false">Suras</button>
+</header>
+
+<main id="main">
+  <div id="spread">
+    <div class="slot right"><quran-madina-html id="page-right"></quran-madina-html><div class="folio" id="folio-right"></div></div>
+    <div class="slot left"><quran-madina-html id="page-left"></quran-madina-html><div class="folio" id="folio-left"></div></div>
+  </div>
+  <div id="status">Loading…</div>
+  <!-- A regular full page, measured so short pages (1, 2) keep the same size. -->
+  <div id="ref" aria-hidden="true"><quran-madina-html id="page-ref" page="3" headless="true"></quran-madina-html></div>
+</main>
+
+<aside id="index" aria-label="Suras">
+  <div class="search"><input id="filter" type="search" placeholder="Find a sura (name or number)" aria-label="Find a sura"></div>
+  <ul id="suras"></ul>
+</aside>
+
+<footer>
+  <button class="nav" id="next" title="Next page (←)"><span aria-hidden="true">‹</span><span class="label">Next</span></button>
+  <input id="slider" type="range" min="1" max="604" value="1" aria-label="Page">
+  <label><input class="pageno" id="pageno" type="number" min="1" max="604" value="1" aria-label="Page number"></label>
+  <span id="where"></span>
+  <button class="nav" id="prev" title="Previous page (→)"><span class="label">Previous</span><span aria-hidden="true">›</span></button>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  const LAYOUTS = {
+    "1441H": "Madina-1441H",
+    "1405H": "Madina-1405H",
+    "IndoPak": "IndoPak-15"
+  };
+
+  const $ = (id) => document.getElementById(id);
+
+  const rightPage = $("page-right");
+  const leftPage = $("page-left");
+
+  const folioRight = $("folio-right");
+  const folioLeft = $("folio-left");
+
+  const slider = $("slider");
+  const pageInput = $("pageno");
+
+  const prevBtn = $("prev");
+  const nextBtn = $("next");
+
+  const where = $("where");
+  const status = $("status");
+  const layoutSelect = $("layout");
+
+  let manifest = null;
+  let currentPage = 1;
+  let totalPages = 604;
+
+  const params = new URLSearchParams(location.search);
+
+  let currentLayout = params.get("layout") || "1441H";
+
+  if (!LAYOUTS[currentLayout]) {
+    currentLayout = "1441H";
+  }
+
+  layoutSelect.value = currentLayout;
+
+  function savePage(page) {
+    localStorage.setItem(
+      `quran-reader-${currentLayout}`,
+      String(page)
+    );
+  }
+
+  function loadPagePosition() {
+    const hashPage = parseInt(
+      location.hash.replace("#", ""),
+      10
+    );
+
+    if (!isNaN(hashPage)) {
+      return hashPage;
+    }
+
+    const saved = parseInt(
+      localStorage.getItem(
+        `quran-reader-${currentLayout}`
+      ),
+      10
+    );
+
+    return saved || 1;
+  }
+
+  function loadLibrary() {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector(
+        'script[data-quran-lib]'
+      );
+
+      if (existing) {
+        resolve();
+        return;
+      }
+
+      const script = document.createElement("script");
+
+      script.src = "./dist/quran-madina-html.js";
+      script.dataset.quranLib = "1";
+
+      script.setAttribute(
+        "data-layout",
+        currentLayout
+      );
+
+      script.setAttribute(
+        "data-font-size",
+        "20"
+      );
+
+      script.onload = resolve;
+      script.onerror = reject;
+
+      document.head.appendChild(script);
+    });
+  }
+
+  async function loadManifest() {
+    const path =
+      "./assets/db/" +
+      LAYOUTS[currentLayout] +
+      "/manifest.json";
+
+    const response = await fetch(path);
+
+    if (!response.ok) {
+      throw new Error(
+        "Manifest not found: " + path
+      );
+    }
+
+    manifest = await response.json();
+
+    totalPages = manifest.n_pages || 604;
+
+    slider.max = totalPages;
+    pageInput.max = totalPages;
+  }
+
+  function arabicNumber(num) {
+    return String(num).replace(/\d/g, d =>
+      "٠١٢٣٤٥٦٧٨٩"[d]
+    );
+  }
+
+  function spreadPages(page) {
+    if (
+      window.innerWidth <
+      window.innerHeight
+    ) {
+      return [page];
+    }
+
+    return page % 2
+      ? [page, page + 1]
+      : [page - 1, page];
+  }
+
+  function updateControls() {
+    slider.value = currentPage;
+    pageInput.value = currentPage;
+
+    prevBtn.disabled = currentPage <= 1;
+    nextBtn.disabled =
+      currentPage >= totalPages;
+
+    location.hash = currentPage;
+
+    savePage(currentPage);
+  }
+
+  function updateLocationInfo() {
+    if (
+      !manifest ||
+      !manifest.pages
+    ) {
+      where.textContent =
+        "Page " + currentPage;
+      return;
+    }
+
+    const data =
+      manifest.pages[currentPage - 1];
+
+    if (!data) {
+      where.textContent =
+        "Page " + currentPage;
+      return;
+    }
+
+    const sura =
+      Number(data[0] || 0) + 1;
+
+    where.textContent =
+      "Sura " +
+      sura +
+      " · Page " +
+      currentPage;
+  }
+
+  function showPage(page) {
+    page = Math.max(
+      1,
+      Math.min(
+        totalPages,
+        parseInt(page, 10) || 1
+      )
+    );
+
+    currentPage = page;
+
+    const spread =
+      spreadPages(page);
+
+    rightPage.setAttribute(
+      "page",
+      spread[0]
+    );
+
+    folioRight.textContent =
+      arabicNumber(spread[0]);
+
+    if (
+      spread.length > 1 &&
+      spread[1] <= totalPages
+    ) {
+      leftPage.setAttribute(
+        "page",
+        spread[1]
+      );
+
+      folioLeft.textContent =
+        arabicNumber(spread[1]);
+
+      leftPage.parentElement.style.display =
+        "";
+    } else {
+      leftPage.parentElement.style.display =
+        "none";
+    }
+
+    updateControls();
+    updateLocationInfo();
+
+    document.title =
+      "Page " +
+      page +
+      " · Quran Reader";
+
+    status.textContent = "";
+  }
+
+  function nextPage() {
+    showPage(currentPage + 1);
+  }
+
+  function prevPage() {
+    showPage(currentPage - 1);
+  }
+
+  nextBtn.addEventListener(
+    "click",
+    nextPage
+  );
+
+  prevBtn.addEventListener(
+    "click",
+    prevPage
+  );
+
+  slider.addEventListener(
+    "input",
+    e => {
+      pageInput.value =
+        e.target.value;
+    }
+  );
+
+  slider.addEventListener(
+    "change",
+    e => {
+      showPage(e.target.value);
+    }
+  );
+
+  pageInput.addEventListener(
+    "change",
+    e => {
+      showPage(e.target.value);
+    }
+  );
+
+  layoutSelect.addEventListener(
+    "change",
+    () => {
+      const p =
+        new URLSearchParams(
+          location.search
+        );
+
+      p.set(
+        "layout",
+        layoutSelect.value
+      );
+
+      location.search =
+        p.toString();
+    }
+  );
+
+  document.addEventListener(
+    "keydown",
+    e => {
+      if (
+        e.key ===
+          "ArrowLeft" ||
+        e.key === "PageDown"
+      ) {
+        nextPage();
+      }
+
+      if (
+        e.key ===
+          "ArrowRight" ||
+        e.key === "PageUp"
+      ) {
+        prevPage();
+      }
+
+      if (e.key === "Home") {
+        showPage(1);
+      }
+
+      if (e.key === "End") {
+        showPage(totalPages);
+      }
+    }
+  );
+
+  window.addEventListener(
+    "hashchange",
+    () => {
+      const page =
+        parseInt(
+          location.hash.slice(1),
+          10
+        );
+
+      if (
+        !isNaN(page) &&
+        page !== currentPage
+      ) {
+        showPage(page);
+      }
+    }
+  );
+
+  window.addEventListener(
+    "resize",
+    () => {
+      showPage(currentPage);
+    }
+  );
+
+  async function init() {
+    try {
+      status.textContent =
+        "Loading Quran...";
+
+      await loadLibrary();
+      await loadManifest();
+
+      showPage(
+        loadPagePosition()
+      );
+
+      status.textContent = "";
+    } catch (err) {
+      console.error(err);
+
+      status.textContent =
+        "Failed to load Quran data.";
+    }
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
