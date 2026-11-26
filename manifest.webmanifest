@@ -1,6 +1,6 @@
 {
-  "name": "Nijer Khata · নিজের খাতা",
-  "short_name": "নিজের খাতা",
+  "name": "MJ-Portal",
+  "short_name": "MJP",
   "description": "শেখা, কাজ, স্বাস্থ্য ও আত্মবিশ্লেষণের একটি শান্ত, উত্তরাধিকারযোগ্য খাতা।",
   "lang": "bn",
   "start_url": "./?source=pwa",
