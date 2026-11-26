@@ -1,5 +1,4 @@
 {
- "_readme": "শুধু মান বদলান, কাঠামো নয়। সতর্কতা: এই ফাইলটি পাতার লিংক জানা যে কেউ সরাসরি পড়তে পারে। তাই এখানে কোনো এনআইডি, ফোন নম্বর, অভিযুক্তের পরিচয় বা স্পর্শকাতর প্রমাণ রাখবেন না।",
  "site": {
   "title": {
    "bn": "পুনরুদ্ধার মিশন — CYB-2026-0061",
@@ -88,6 +87,18 @@
    {
     "bn": "জেলা: নরসিংদী",
     "en": "District: Narsingdi"
+   },
+   {
+    "bn": "বয়স: ৫১",
+    "en": "Age: 51"
+   },
+   {
+    "bn": "বয়স: ৫১",
+    "en": "Age: 51"
+   },
+   {
+    "bn": "জিডি: মহিপুর থানা, পটুয়াখালী",
+    "en": "GD: Mohipur PS, Patuakhali"
    }
   ],
   "clientId": "CYB-2026-0061",
@@ -97,8 +108,90 @@
    "en": "Cloth merchant"
   },
   "address": {
-   "bn": "নরসিংদী জেলা (স্থায়ী ঠিকানা চুক্তি স্বাক্ষরের সময় সংগৃহীত হবে)",
-   "en": "Narsingdi district (permanent address to be collected at signing)"
+   "bn": "গ্রাম: ক্ষিদিরকান্দি, ইউনিয়ন/ওয়ার্ড: নুরালাপুর, থানা: নরসিংদী সদর, জেলা: নরসিংদী (স্থায়ী)। বর্তমান ঠিকানা: জিডিতে উল্লেখ নেই",
+   "en": "Village: Khidirkandi, Union/Ward: Nuralapur, Thana: Narsingdi Sadar, District: Narsingdi (permanent). Present address: not stated in the GD"
+  },
+  "age": 51,
+  "fatherName": {
+   "bn": "আমির আলী",
+   "en": "Amir Ali"
+  },
+  "motherName": {
+   "bn": "মাসুবা",
+   "en": "Masuba"
+  },
+  "nid": "1904761317",
+  "mobile": "01710081574",
+  "gd": {
+   "number": "967",
+   "trackingNo": "CYSMI1",
+   "date": "2026-06-25",
+   "subject": {
+    "bn": "সাধারণ ডায়েরি করার আবেদন প্রসঙ্গে",
+    "en": "Application to file a General Diary"
+   },
+   "addressedTo": {
+    "bn": "অফিসার ইনচার্জ, মহিপুর থানা, পটুয়াখালী জেলা",
+    "en": "Officer in Charge, Mohipur Police Station, Patuakhali"
+   },
+   "applicantName": {
+    "bn": "আল আমিন",
+    "en": "Al Amin"
+   },
+   "incidentDateTime": "2026-06-23T21:00:00+06:00",
+   "incidentPlace": {
+    "bn": "কুয়াকাটা এলাকা",
+    "en": "Kuakata area"
+   },
+   "incidentSummary": {
+    "bn": "অসতর্কতাবশত সাথে থাকা INFINIX মডেলের মোবাইল সেট হারিয়ে যায়। অনেক খোঁজাখুঁজির পরও পাওয়া যায়নি; খোঁজাখুঁজি অব্যাহত।",
+    "en": "An INFINIX mobile phone carried with him was lost through carelessness. Not found despite extensive searching; the search continues."
+   },
+   "device": "INFINIX",
+   "imei": [
+    "355479260025140",
+    "355479268255756"
+   ],
+   "policeRemark": {
+    "bn": "এই ডায়েরী সংক্রান্তে প্রয়োজনীয় আইনগত ব্যবস্থা গ্রহণ করুন।",
+    "en": "Take the necessary legal action regarding this diary."
+   },
+   "officers": [
+    {
+     "role": {
+      "bn": "প্রস্তুতকারী (ডিউটি অফিসার)",
+      "en": "Prepared by (Duty Officer)"
+     },
+     "name": {
+      "bn": "উত্তম কুমার",
+      "en": "Uttam Kumar"
+     },
+     "bp": "8405105953"
+    },
+    {
+     "role": {
+      "bn": "এএসআই (নিরস্ত্র)",
+      "en": "ASI (Unarmed)"
+     },
+     "name": {
+      "bn": "তারিকুল ইসলাম রাজিব",
+      "en": "Tariqul Islam Rajib"
+     },
+     "bp": "9012153562",
+     "mobile": "01718014735"
+    },
+    {
+     "role": {
+      "bn": "অফিসার ইনচার্জ, মহিপুর থানা",
+      "en": "Officer in Charge, Mohipur PS"
+     },
+     "name": {
+      "bn": "মোঃ শামীম হাওলাদার",
+      "en": "Md. Shamim Howlader"
+     },
+     "bp": "8211140541"
+    }
+   ]
   }
  },
  "founder": {
@@ -127,8 +220,8 @@
     "en": "Hear and record the full account"
    },
    "note": {
-    "bn": "আজ রাতের বৈঠকে ঘটনার ধারাবাহিক বিবরণ, তারিখ ও স্থান লিপিবদ্ধ হবে।",
-    "en": "At tonight's meeting the sequence of events, dates and places will be written down."
+    "bn": "২৪ নভেম্বরের বৈঠকে ক্লায়েন্টের বিবরণ শোনা হয়েছে এবং জিডি কপি সংগৃহীত হয়েছে। ঘটনার ধারাবাহিক লিখিত বিবরণ (তারিখ, স্থান, সংশ্লিষ্ট ব্যক্তি) চূড়ান্ত করার কাজ চলছে।",
+    "en": "The client's account was heard at the 24 November meeting and the GD copy has been collected. The sequential written statement (dates, places, persons involved) is being finalized."
    },
    "eta": 1
   },
@@ -139,34 +232,68 @@
     "en": "Finalize agreement and fee"
    },
    "note": {
-    "bn": "চূড়ান্ত চুক্তি স্বাক্ষরিত হয়েছে। মোট ফি পরে নির্ধারিত হবে।",
-    "en": "The final agreement has been signed. The total fee will be set later."
+    "bn": "চূড়ান্ত চুক্তি স্বাক্ষরিত হয়েছে। মোট সেবা ফি পরে নির্ধারিত হবে। প্রাথমিক কাঠামো প্রস্তুতের সময়ে (৩–৪ দিন) মৌখিক সমঝোতায় দৈনিক ৭৪০ টাকা খরচ বাবদ দেওয়া হচ্ছে।",
+    "en": "The final agreement has been signed. The total fee will be set later. By verbal understanding, Tk. 740 per day is paid towards expenses during the initial structure setup (3–4 days)."
    },
    "eta": 2
   },
   {
-   "status": "todo",
+   "status": "done",
+   "title": {
+    "bn": "জিডি কপি সংগ্রহ ও পর্যালোচনা",
+    "en": "Collect and review the GD copy"
+   },
+   "note": {
+    "bn": "মহিপুর থানা (পটুয়াখালী), জিডি নং ৯৬৭, ট্র্যাকিং নং CYSMI1, তারিখ ২৫/০৬/২০২৬। ২৩/০৬/২০২৬ রাত আনুমানিক ৯:০০টায় কুয়াকাটা এলাকায় একটি INFINIX মোবাইল সেট হারিয়ে যায় বলে উল্লেখ আছে।",
+    "en": "Mohipur PS (Patuakhali), GD No. 967, tracking no. CYSMI1, dated 25/06/2026. Records that an INFINIX mobile phone was lost in the Kuakata area at about 9:00 PM on 23/06/2026."
+   }
+  },
+  {
+   "status": "doing",
    "title": {
     "bn": "প্রমাণ ও কাগজপত্র গোছানো",
     "en": "Gather evidence and papers"
    },
    "note": {
-    "bn": "হাসপাতালের কাগজ ও বিল, মোবাইলের আইএমইআই/কেনার রশিদ বা বক্স, টিকটক মেসেজের স্ক্রিনশট, প্রত্যক্ষদর্শী বন্ধুর নাম।",
-    "en": "Hospital papers and bill, phone IMEI and purchase receipt or box, screenshots of the TikTok message, name of the friend who was present."
+    "bn": "আইএমইআই নম্বর ও জিডি সংগৃহীত। বাকি: হাসপাতালের কাগজ ও বিল, মোবাইলের কেনার রশিদ বা বক্স, টিকটক মেসেজের স্ক্রিনশট, প্রত্যক্ষদর্শী বন্ধুর নাম।",
+    "en": "IMEI numbers and GD collected. Still needed: hospital papers and bill, phone purchase receipt or box, screenshots of the TikTok message, name of the friend who was present."
    },
    "eta": 10
   },
   {
-   "status": "todo",
+   "status": "done",
+   "title": {
+    "bn": "আইএমইআই নম্বর সংগ্রহ ও যাচাই",
+    "en": "IMEI collection and verification"
+   },
+   "note": {
+    "bn": "জিডি অনুযায়ী আইএমইআই-১: 355479260025140, আইএমইআই-২: 355479268255756 — সংগ্রহ ও যাচাই সম্পন্ন।",
+    "en": "Per the GD, IMEI-1: 355479260025140, IMEI-2: 355479268255756 — collected and verified."
+   }
+  },
+  {
+   "status": "done",
    "title": {
     "bn": "যাচাই-ফটক: বর্ণনা ও প্রমাণ মিলিয়ে দেখা",
     "en": "Verification gate: cross-check account and evidence"
    },
    "note": {
-    "bn": "বর্ণনা ও প্রমাণ পর্যাপ্ত মিললে তবেই পরবর্তী আইনি ধাপে যাওয়া হবে।",
-    "en": "Only if the account and evidence sufficiently match do we move to the next legal steps."
+    "bn": "আইএমইআই নম্বর ও জিডির তথ্য যাচাই সম্পন্ন হয়েছে। এখন পরবর্তী আইনি ধাপে যাওয়ার প্রস্তুতি চলছে।",
+    "en": "IMEI numbers and GD details have been verified. Preparation for the next legal steps is under way."
    },
    "eta": 14
+  },
+  {
+   "status": "doing",
+   "title": {
+    "bn": "পরবর্তী পদক্ষেপের প্রস্তুতি",
+    "en": "Preparing the next steps"
+   },
+   "note": {
+    "bn": "আইনজীবীর পরামর্শ, সম্পূরক অভিযোগ ও আইএমইআই আবেদনের নথি ও প্রশ্নমালা প্রস্তুত করা হচ্ছে।",
+    "en": "Documents and questions for the lawyer's advice, any supplementary complaint and the IMEI request are being prepared."
+   },
+   "eta": 7
   },
   {
    "status": "todo",
@@ -175,20 +302,20 @@
     "en": "Legal advice from a lawyer"
    },
    "note": {
-    "bn": "ঘটনা যে এলাকায় ঘটেছে সেখানকার এখতিয়ার ও সঠিক আইনি ধাপ আইনজীবীর কাছ থেকে জানা।",
-    "en": "Learn the correct jurisdiction and legal steps from a lawyer, based on where the incident happened."
+    "bn": "ঘটনা যে এলাকায় ঘটেছে (জিডি অনুযায়ী কুয়াকাটা, পটুয়াখালী) সেখানকার এখতিয়ার ও সঠিক আইনি ধাপ আইনজীবীর কাছ থেকে জানা।",
+    "en": "Learn the correct jurisdiction and legal steps from a lawyer, based on where the incident happened (Kuakata, Patuakhali, per the GD)."
    },
    "eta": 21
   },
   {
    "status": "todo",
    "title": {
-    "bn": "থানায় জিডি / অভিযোগ দাখিল",
-    "en": "File a GD / complaint at the police station"
+    "bn": "থানায় সম্পূরক অভিযোগ (প্রয়োজনে)",
+    "en": "Supplementary complaint at the police station (if needed)"
    },
    "note": {
-    "bn": "অনুসন্ধান ও অবস্থান শনাক্তের কাজ পুলিশ আইনি প্রক্রিয়ায় করবে।",
-    "en": "Locating and investigating is done by the police through legal process."
+    "bn": "প্রাথমিক জিডি আগেই হয়েছে। বিবরণ যাচাইয়ের পর আইনজীবীর পরামর্শে নতুন বা সম্পূরক জিডি/অভিযোগ প্রয়োজন কি না ঠিক হবে। অনুসন্ধান ও অবস্থান শনাক্তের কাজ পুলিশ আইনি প্রক্রিয়ায় করবে।",
+    "en": "The initial GD has already been filed. After verification, a lawyer will advise whether a new or supplementary GD/complaint is needed. Locating and investigating is done by the police through legal process."
    },
    "eta": 30
   },
@@ -199,8 +326,8 @@
     "en": "Request regarding phone IMEI"
    },
    "note": {
-    "bn": "বিটিআরসি/অপারেটর/থানার মাধ্যমে প্রযোজ্য নিয়ম যাচাই করে আবেদন।",
-    "en": "Apply via BTRC / operator / police after verifying the applicable rules."
+    "bn": "জিডিতে উল্লিখিত দুটি আইএমইআই (355479260025140 ও 355479268255756) নিয়ে বিটিআরসি/অপারেটর/থানার মাধ্যমে প্রযোজ্য নিয়ম যাচাই করে আবেদন।",
+    "en": "Apply via BTRC / operator / police for the two IMEIs in the GD (355479260025140 and 355479268255756) after verifying the applicable rules."
    },
    "eta": 45
   },
@@ -314,12 +441,12 @@
     "date": "2026-11-24T18:30:00+06:00",
     "amount": 800,
     "title": {
-     "bn": "প্রাথমিক খরচ পরিশোধ",
-     "en": "Initial cost paid"
+     "bn": "প্রাথমিক খরচ পরিশোধ (প্রথম কিস্তি)",
+     "en": "Initial cost paid (1st installment)"
     },
     "note": {
-     "bn": "প্রাথমিক খরচ — হ্যান্ড ক্যাশে প্রদত্ত",
-     "en": "Initial cost — paid in hand cash"
+     "bn": "প্রাথমিক কাঠামো প্রস্তুতের দৈনিক খরচ (মৌখিক সমঝোতা: দৈনিক ৭৪০ টাকা)। ভাঙতি না থাকায় ৫০০, ২০০ ও ১০০ টাকার একটি করে নোটে ২৪ নভেম্বর ৮০০ টাকা হ্যান্ড ক্যাশে প্রদত্ত।",
+     "en": "Daily cost for the initial structure setup (verbal understanding: Tk. 740 per day). With no change available, Tk. 800 was paid in hand cash on 24 November as one Tk. 500, one Tk. 200 and one Tk. 100 note."
     },
     "references": [
      {
@@ -328,8 +455,150 @@
        "en": "Method"
       },
       "value": "হ্যান্ড ক্যাশ / Hand cash"
+     },
+     {
+      "label": {
+       "bn": "নোট",
+       "en": "Notes"
+      },
+      "value": "৫০০ + ২০০ + ১০০ = ৮০০"
      }
     ]
+   },
+   {
+    "type": "payment",
+    "countsAsPaid": true,
+    "date": "2026-11-25T23:00:00+06:00",
+    "amount": 800,
+    "title": {
+     "bn": "প্রাথমিক খরচ পরিশোধ (দ্বিতীয় কিস্তি)",
+     "en": "Initial cost paid (2nd installment)"
+    },
+    "note": {
+     "bn": "প্রাথমিক কাঠামো প্রস্তুতের দৈনিক খরচ (মৌখিক সমঝোতা: দৈনিক ৭৪০ টাকা)। ভাঙতি না থাকায় ৫০০, ২০০ ও ১০০ টাকার একটি করে নোটে ২৫ নভেম্বর রাত ১১:০০টায় ৮০০ টাকা হ্যান্ড ক্যাশে প্রদত্ত।",
+     "en": "Daily cost for the initial structure setup (verbal understanding: Tk. 740 per day). With no change available, Tk. 800 was paid in hand cash at 11:00 PM on 25 November as one Tk. 500, one Tk. 200 and one Tk. 100 note."
+    },
+    "references": [
+     {
+      "label": {
+       "bn": "মাধ্যম",
+       "en": "Method"
+      },
+      "value": "হ্যান্ড ক্যাশ / Hand cash"
+     },
+     {
+      "label": {
+       "bn": "নোট",
+       "en": "Notes"
+      },
+      "value": "৫০০ + ২০০ + ১০০ = ৮০০"
+     }
+    ]
+   },
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-26",
+    "title": {
+     "bn": "জিডি কপি সংযুক্ত ও প্রোফাইল হালনাগাদ",
+     "en": "GD copy attached and profile updated"
+    },
+    "note": {
+     "bn": "মহিপুর থানা, পটুয়াখালীর জিডি নং ৯৬৭ (২৫/০৬/২০২৬) থেকে ক্লায়েন্টের পরিচয়, ঠিকানা, ঘটনার তারিখ-স্থান, আইএমইআই ও কর্মকর্তাদের তথ্য নথিভুক্ত হয়েছে।",
+     "en": "Client identity, address, incident date and place, IMEI and officer details recorded from GD No. 967 (25/06/2026), Mohipur PS, Patuakhali."
+    },
+    "references": [
+     {
+      "label": {
+       "bn": "জিডি নং / ট্র্যাকিং",
+       "en": "GD no. / tracking"
+      },
+      "value": "967 / CYSMI1"
+     },
+     {
+      "label": {
+       "bn": "থানা",
+       "en": "Police station"
+      },
+      "value": "মহিপুর থানা, পটুয়াখালী / Mohipur PS, Patuakhali"
+     },
+     {
+      "label": {
+       "bn": "আবেদনকারী",
+       "en": "Applicant"
+      },
+      "value": "আল আমিন (৫১), পিতা: আমির আলী, মাতা: মাসুবা"
+     },
+     {
+      "label": {
+       "bn": "এনআইডি",
+       "en": "NID"
+      },
+      "value": "1904761317"
+     },
+     {
+      "label": {
+       "bn": "মোবাইল",
+       "en": "Mobile"
+      },
+      "value": "01710081574"
+     },
+     {
+      "label": {
+       "bn": "ঘটনা",
+       "en": "Incident"
+      },
+      "value": "২৩/০৬/২০২৬ রাত ~৯:০০, কুয়াকাটা — INFINIX মোবাইল হারানো"
+     },
+     {
+      "label": "IMEI-1",
+      "value": "355479260025140"
+     },
+     {
+      "label": "IMEI-2",
+      "value": "355479268255756"
+     },
+     {
+      "label": {
+       "bn": "ডিউটি অফিসার",
+       "en": "Duty officer"
+      },
+      "value": "উত্তম কুমার, বিপি-8405105953"
+     },
+     {
+      "label": {
+       "bn": "অফিসার ইনচার্জ",
+       "en": "OC"
+      },
+      "value": "মোঃ শামীম হাওলাদার, বিপি-8211140541"
+     }
+    ]
+   },
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-26T12:00:00+06:00",
+    "title": {
+     "bn": "অগ্রগতি প্রতিবেদন: আইএমইআই ও যাচাই সম্পন্ন",
+     "en": "Progress report: IMEI and verification complete"
+    },
+    "note": {
+     "bn": "এ পর্যন্ত সম্পন্ন: (১) চুক্তি স্বাক্ষর, (২) জিডি কপি সংগ্রহ, (৩) দুটি আইএমইআই নম্বর সংগ্রহ ও যাচাই, (৪) জিডির তথ্য যাচাই। এখন চলমান: পরবর্তী পদক্ষেপের প্রস্তুতি — আইনজীবীর পরামর্শ, সম্পূরক অভিযোগ ও আইএমইআই আবেদন।",
+     "en": "Completed so far: (1) agreement signed, (2) GD copy collected, (3) both IMEI numbers collected and verified, (4) GD details verified. In progress: preparing the next steps — lawyer's advice, supplementary complaint and IMEI request."
+    }
+   },
+   {
+    "type": "event",
+    "status": "done",
+    "date": "2026-11-26T12:00:00+06:00",
+    "title": {
+     "bn": "অগ্রগতি প্রতিবেদন: আইএমইআই ও যাচাই সম্পন্ন",
+     "en": "Progress report: IMEI and verification complete"
+    },
+    "note": {
+     "bn": "এ পর্যন্ত সম্পন্ন: (১) চুক্তি স্বাক্ষর, (২) জিডি কপি সংগ্রহ, (৩) দুটি আইএমইআই নম্বর সংগ্রহ ও যাচাই, (৪) জিডির তথ্য যাচাই। এখন চলমান: পরবর্তী পদক্ষেপের প্রস্তুতি — আইনজীবীর পরামর্শ, সম্পূরক অভিযোগ ও আইএমইআই আবেদন।",
+     "en": "Completed so far: (1) agreement signed, (2) GD copy collected, (3) both IMEI numbers collected and verified, (4) GD details verified. In progress: preparing the next steps — lawyer's advice, supplementary complaint and IMEI request."
+    }
    }
   ]
  },
@@ -656,8 +925,8 @@
    "en": "Operation Return"
   },
   "stage": {
-   "bn": "বর্তমান ধাপ: তথ্য সংগ্রহ ও যাচাই",
-   "en": "Current phase: information gathering & verification"
+   "bn": "বর্তমান ধাপ: আইএমইআই ও যাচাই সম্পন্ন — পরবর্তী পদক্ষেপের প্রস্তুতি চলছে",
+   "en": "Current phase: IMEI and verification complete — preparing the next steps"
   },
   "notice": {
    "bn": "ক্লায়েন্টের বর্ণনা অনুযায়ী, পরিচিত একজনের সাথে ঘটা একটি ঘটনার পর তাঁর মূল্যবান জিনিসপত্র খোয়া গেছে। বিষয়টি এখনো যাচাইয়ের অপেক্ষায়।",
@@ -698,7 +967,7 @@
      "f": [
       "HTML"
      ],
-     "d": "2026-11-23",
+     "d": "2026-11-26",
      "h": ""
     },
     {
@@ -808,7 +1077,7 @@
    },
    "i": [
     {
-     "s": "todo",
+     "s": "doing",
      "t": {
       "bn": "মোবাইল: আইএমইআই ও কেনার রসিদ",
       "en": "Phones: IMEI & purchase receipts"
@@ -817,6 +1086,7 @@
       "PDF",
       "JPG"
      ],
+     "d": "2026-11-26",
      "h": ""
     },
     {
@@ -859,7 +1129,7 @@
    },
    "i": [
     {
-     "s": "doing",
+     "s": "done",
      "t": {
       "bn": "যাচাই ছক ও ফটকের সিদ্ধান্ত",
       "en": "Verification matrix & gate decision"
@@ -868,7 +1138,55 @@
       "XLSX",
       "PDF"
      ],
-     "d": "2026-11-23",
+     "d": "2026-11-26",
+     "h": ""
+    },
+    {
+     "s": "done",
+     "t": {
+      "bn": "আইএমইআই যাচাই নোট",
+      "en": "IMEI verification note"
+     },
+     "f": [
+      "PDF"
+     ],
+     "d": "2026-11-26",
+     "h": ""
+    },
+    {
+     "s": "doing",
+     "t": {
+      "bn": "পরবর্তী পদক্ষেপ পরিকল্পনা",
+      "en": "Next-steps plan"
+     },
+     "f": [
+      "PDF"
+     ],
+     "d": "2026-11-26",
+     "h": ""
+    },
+    {
+     "s": "done",
+     "t": {
+      "bn": "আইএমইআই যাচাই নোট",
+      "en": "IMEI verification note"
+     },
+     "f": [
+      "PDF"
+     ],
+     "d": "2026-11-26",
+     "h": ""
+    },
+    {
+     "s": "doing",
+     "t": {
+      "bn": "পরবর্তী পদক্ষেপ পরিকল্পনা",
+      "en": "Next-steps plan"
+     },
+     "f": [
+      "PDF"
+     ],
+     "d": "2026-11-26",
      "h": ""
     }
    ]
@@ -891,14 +1209,15 @@
      "h": ""
     },
     {
-     "s": "todo",
+     "s": "done",
      "t": {
-      "bn": "জিডি / এজাহারের কপি",
-      "en": "GD / complaint copy"
+      "bn": "জিডি কপি (মহিপুর থানা, নং ৯৬৭)",
+      "en": "GD copy (Mohipur PS, No. 967)"
      },
      "f": [
-      "PDF"
+      "JPG"
      ],
+     "d": "2026-11-26",
      "h": ""
     },
     {
