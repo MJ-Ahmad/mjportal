@@ -130,6 +130,36 @@
     }
    ]
   },
+{
+  "title": "help",
+  "children": [
+    {
+      "title": {
+        "en": "Docs",
+        "bn": "ডকস",
+        "ar": "Docs"
+      },
+      "children": [
+        {
+          "title": {
+            "en": "Protocol",
+            "bn": "প্রোটোকল",
+            "ar": "Protocol"
+          },
+          "href": "helping_source/protocol/"
+        },
+        {
+          "title": {
+            "en": "SDF",
+            "bn": "এসডিএফ",
+            "ar": "SDF"
+          },
+          "href": "helping_source/sdf/"
+        }
+      ]
+    }
+  ]
+},
   {
    "title": {
     "en": "Learn",
