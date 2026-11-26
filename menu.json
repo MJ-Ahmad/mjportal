@@ -164,15 +164,15 @@
             },
             {
               "title": {
-                "en": "viewer/markdown"
+                "en": "markdown"
               },
-              "href": "/markdown/"
+              "href": "markdown/"
             },
             {
               "title": {
-                "en": "viewer/json"
+                "en": "json"
               },
-              "href": "/json/"
+              "href": "json/"
             }
           ]
         }
