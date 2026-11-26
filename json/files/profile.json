@@ -1,0 +1,58 @@
+{
+  "id": "MJ-AHMAD-001",
+  "name": {
+    "bn": "মোঃ জাফর আহমদ",
+    "en": "Md. Jafor Ahmad"
+  },
+  "display_name": "MJ Ahmad",
+  "professional_title": {
+    "bn": "স্বনির্ভর প্রযুক্তি সহযোগী",
+    "en": "Independent technology support specialist"
+  },
+  "location": {
+    "district": "Bangladesh",
+    "timezone": "Asia/Dhaka"
+  },
+  "status": "open-to-work",
+  "availability": {
+    "work_type": [
+      "freelance",
+      "remote",
+      "local"
+    ],
+    "response_time": "১–২ কর্মদিবস",
+    "preferred_contact": "email"
+  },
+  "bio": {
+    "bn": "প্রযুক্তি, ডকুমেন্টেশন, স্বচ্ছ কাজের রেকর্ড এবং নিয়মিত অগ্রগতির মাধ্যমে ব্যক্তিগত ও ছোট প্রতিষ্ঠানের কাজে সহায়তা করি।",
+    "en": "I help individuals and small organizations with technology, documentation, transparent work records, and regular project updates."
+  },
+  "skills": [
+    "Documentation",
+    "JSON",
+    "Markdown",
+    "Python",
+    "Bash",
+    "Git",
+    "GitHub",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Desktop setup",
+    "Project organization"
+  ],
+  "services": [
+    "documentation",
+    "file-management",
+    "web-setup",
+    "automation",
+    "github-setup",
+    "client-project-management"
+  ],
+  "contact": {
+    "email": "mjahmad2024@outlook.com",
+    "github": "https://github.com/MJ-Ahmad",
+    "website": "https://mj-ahmad.github.io/mjportal/"
+  },
+  "updated_at": "2026-11-26T00:00:00+06:00"
+}

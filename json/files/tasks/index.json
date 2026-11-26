@@ -1,0 +1,26 @@
+{
+  "schema": "mj-task-directory/v1",
+  "title": "কাজের তালিকা",
+  "tasks": [
+    {
+      "id": "TSK-2026-0001",
+      "project_id": "PRJ-2026-0001",
+      "client_id": "CLT-2026-0001",
+      "title": "ফোল্ডার কাঠামো ও নামকরণ পদ্ধতি নির্ধারণ",
+      "description": "ফাইলের ধরন অনুযায়ী একরকম ও সহজ ফোল্ডার কাঠামো বানানো।",
+      "status": "todo",
+      "priority": "high",
+      "assignee": "MJ Ahmad",
+      "due_date": "2026-11-27",
+      "started_at": "",
+      "completed_at": "",
+      "dependencies": [],
+      "tags": [
+        "planning",
+        "documentation"
+      ],
+      "updated_at": "2026-11-26T00:00:00+06:00"
+    }
+  ],
+  "updated_at": "2026-11-26T00:00:00+06:00"
+}

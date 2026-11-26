@@ -1,0 +1,16 @@
+{
+  "schema": "mj-contact-channels/v1",
+  "title": "যোগাযোগ মাধ্যম",
+  "primary": {
+    "email": "mjahmad2024@outlook.com",
+    "github": "https://github.com/MJ-Ahmad",
+    "website": "https://mj-ahmad.github.io/mjportal/"
+  },
+  "preferred_response": {
+    "email": "১–২ কর্মদিবস",
+    "project_update": "সপ্তাহে অন্তত একবার",
+    "emergency": "নির্ধারিত চুক্তি অনুযায়ী"
+  },
+  "public": true,
+  "updated_at": "2026-11-26T00:00:00+06:00"
+}

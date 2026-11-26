@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Markdown নোট</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font: 16px/1.65 system-ui, sans-serif;
+      --bg: #f4f6f4;
+      --panel: #fff;
+      --ink: #17211d;
+      --muted: #64716b;
+      --line: #d9e0db;
+      --accent: #12604f;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111715;
+        --panel: #19211e;
+        --ink: #e7eee9;
+        --muted: #a0ada6;
+        --line: #303b35;
+        --accent: #79c7ae;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    header { padding: 18px 22px; background: var(--accent); color: white; }
+    header h1 { margin: 0 0 8px; font-size: 1.4rem; }
+    header input {
+      width: min(100%, 520px); padding: 10px 12px; border: 0;
+      border-radius: 8px; font: inherit;
+    }
+    main {
+      display: grid; grid-template-columns: minmax(210px, 300px) minmax(0, 1fr);
+      min-height: calc(100vh - 105px);
+    }
+    nav { padding: 16px; border-right: 1px solid var(--line); }
+    nav button {
+      display: block; width: 100%; margin: 4px 0; padding: 9px 10px;
+      border: 1px solid var(--line); border-radius: 7px;
+      background: var(--panel); color: var(--ink); text-align: left;
+      cursor: pointer; overflow-wrap: anywhere;
+    }
+    nav button:hover, nav button[aria-current="page"] {
+      border-color: var(--accent); color: var(--accent);
+    }
+    article {
+      width: min(100%, 1000px); margin: auto; padding: 26px;
+      overflow-wrap: anywhere;
+    }
+    article img { max-width: 100%; height: auto; }
+    article pre { padding: 14px; overflow: auto; border-radius: 8px; background: var(--bg); }
+    article code { font-family: ui-monospace, monospace; }
+    article table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+    article th, article td { padding: 7px 10px; border: 1px solid var(--line); }
+    a { color: var(--accent); }
+    .message { color: var(--muted); padding: 12px 4px; }
+    @media (max-width: 700px) {
+      main { grid-template-columns: 1fr; }
+      nav { border-right: 0; border-bottom: 1px solid var(--line); }
+      article { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Markdown নোট</h1>
+    <input id="search" type="search" placeholder="নোট খুঁজুন…" aria-label="নোট খুঁজুন">
+  </header>
+
+  <main>
+    <nav id="file-list" aria-label="Markdown ফাইল">
+      <p class="message">নোটের তালিকা লোড হচ্ছে…</p>
+    </nav>
+    <article id="content">
+      <p class="message">একটি নোট নির্বাচন করুন।</p>
+    </article>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+  <script>
+    (() => {
+      "use strict";
+
+      const list = document.querySelector("#file-list");
+      const content = document.querySelector("#content");
+      const search = document.querySelector("#search");
+      let files = [];
+
+      function showMessage(parent, text) {
+        const p = document.createElement("p");
+        p.className = "message";
+        p.textContent = text;
+        parent.replaceChildren(p);
+      }
+
+      function renderList() {
+        const query = search.value.trim().toLocaleLowerCase();
+        const matches = files.filter(file =>
+          file.title.toLocaleLowerCase().includes(query) ||
+          file.path.toLocaleLowerCase().includes(query)
+        );
+
+        list.replaceChildren();
+        if (!matches.length) {
+          showMessage(list, "কোনো Markdown ফাইল পাওয়া যায়নি।");
+          return;
+        }
+
+        for (const file of matches) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = file.title;
+          button.title = file.path;
+          button.addEventListener("click", () => openNote(file, button));
+          list.append(button);
+        }
+      }
+
+      async function openNote(file, button) {
+        try {
+          const encodedPath = file.path
+            .split("/")
+            .map(encodeURIComponent)
+            .join("/");
+          const response = await fetch(`notes/${encodedPath}`, { cache: "no-cache" });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+          const markdown = await response.text();
+          if (!window.marked || !window.DOMPurify) {
+            throw new Error("Markdown renderer লোড হয়নি; ইন্টারনেট সংযোগ পরীক্ষা করুন।");
+          }
+
+          document.querySelectorAll("#file-list button")
+            .forEach(item => item.removeAttribute("aria-current"));
+          button.setAttribute("aria-current", "page");
+          content.innerHTML = DOMPurify.sanitize(marked.parse(markdown));
+          document.title = `${file.title} — Markdown নোট`;
+        } catch (error) {
+          showMessage(content, `নোট খোলা যায়নি: ${error.message}`);
+        }
+      }
+
+      search.addEventListener("input", renderList);
+
+      fetch("notes-index.json", { cache: "no-cache" })
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          files = Array.isArray(data) ? data : [];
+          renderList();
+          if (!files.length) showMessage(content, "markdown/notes/ ফোল্ডারে .md ফাইল রাখুন।");
+        })
+        .catch(error => showMessage(list, `তালিকা লোড হয়নি: ${error.message}`));
+    })();
+  </script>
+</body>
+</html>

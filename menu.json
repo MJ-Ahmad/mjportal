@@ -161,6 +161,18 @@
                 "ar": "SDF"
               },
               "href": "helping_source/sdf/"
+            },
+            {
+              "title": {
+                "en": "viewer/markdown"
+              },
+              "href": "/markdown/"
+            },
+            {
+              "title": {
+                "en": "viewer/json"
+              },
+              "href": "/json/"
             }
           ]
         }

@@ -1,0 +1,23 @@
+{
+  "schema": "mj-client-directory/v1",
+  "title": "ক্লায়েন্ট ডিরেক্টরি",
+  "clients": [
+    {
+      "id": "CLT-2026-0001",
+      "status": "active",
+      "name": "নতুন ক্লায়েন্ট",
+      "category": "technology-support",
+      "start_date": "2026-11-26",
+      "project_ids": [
+        "PRJ-2026-0001"
+      ],
+      "contact": {
+        "email": "",
+        "phone": ""
+      },
+      "notes": "নাম, যোগাযোগ ও প্রকল্পের তথ্য ক্লায়েন্ট সম্মতিক্রমে যোগ করুন।",
+      "updated_at": "2026-11-26T00:00:00+06:00"
+    }
+  ],
+  "updated_at": "2026-11-26T00:00:00+06:00"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "mj-project-directory/v1",
+  "title": "প্রকল্প তালিকা",
+  "projects": [
+    {
+      "id": "PRJ-2026-0001",
+      "client_id": "CLT-2026-0001",
+      "title": "ডকুমেন্টেশন ও ফাইল ব্যবস্থাপনা",
+      "status": "planning",
+      "priority": "medium",
+      "start_date": "2026-11-26",
+      "target_date": "",
+      "progress": 10,
+      "summary": "Markdown, JSON ও ফোল্ডার কাঠামোকে একটি পরিষ্কার এবং সহজে ব্যবহারের ব্যবস্থায় রূপ দেওয়া।",
+      "deliverables": [
+        "Folder structure",
+        "Documentation",
+        "JSON catalog",
+        "Delivery guide"
+      ],
+      "tags": [
+        "documentation",
+        "file-management",
+        "json",
+        "python"
+      ],
+      "updated_at": "2026-11-26T00:00:00+06:00"
+    }
+  ],
+  "updated_at": "2026-11-26T00:00:00+06:00"
+}

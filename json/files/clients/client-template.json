@@ -1,0 +1,29 @@
+{
+  "schema": "mj-client/v1",
+  "id": "CLT-YYYY-NNNN",
+  "status": "lead",
+  "name": "",
+  "category": "",
+  "contact": {
+    "email": "",
+    "phone": "",
+    "address": ""
+  },
+  "engagement": {
+    "start_date": "",
+    "target_date": "",
+    "contract_type": "project",
+    "payment_status": "pending"
+  },
+  "scope": [],
+  "deliverables": [],
+  "project_ids": [],
+  "notes": [],
+  "privacy": {
+    "public_profile": false,
+    "sensitive_data": true,
+    "consent_received": false
+  },
+  "created_at": "",
+  "updated_at": ""
+}

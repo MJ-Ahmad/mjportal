@@ -1,0 +1,91 @@
+{
+  "schema": "mj-service-catalog/v1",
+  "title": "সেবা তালিকা",
+  "services": [
+    {
+      "id": "SVC-001",
+      "title": {
+        "bn": "ফাইল ও ফোল্ডার ব্যবস্থাপনা",
+        "en": "File and folder organization"
+      },
+      "description": {
+        "bn": "নামকরণ, শাখা, archive ও পুনরুদ্ধারের নিয়মসহ কাঠামোগত ব্যবস্থা।",
+        "en": "Clear file structure with naming, folders, archiving, and recovery rules."
+      },
+      "status": "available",
+      "estimated_duration": "২–৫ কর্মদিবস",
+      "deliverables": [
+        "Folder structure",
+        "Naming rules",
+        "Backup procedure",
+        "Handover guide"
+      ],
+      "starting_from": null,
+      "currency": "BDT"
+    },
+    {
+      "id": "SVC-002",
+      "title": {
+        "bn": "GitHub ও ডকুমেন্টেশন সেটআপ",
+        "en": "GitHub and documentation setup"
+      },
+      "description": {
+        "bn": "README, Markdown নথি, repository structure ও সহজ রক্ষণাবেক্ষণ ব্যবস্থা।",
+        "en": "README, Markdown documentation, repository structure, and maintenance guidance."
+      },
+      "status": "available",
+      "estimated_duration": "২–৭ কর্মদিবস",
+      "deliverables": [
+        "README",
+        "Repository structure",
+        "Documentation",
+        "Usage instructions"
+      ],
+      "starting_from": null,
+      "currency": "BDT"
+    },
+    {
+      "id": "SVC-003",
+      "title": {
+        "bn": "ছোট Python স্বয়ংক্রিয়করণ",
+        "en": "Small Python automation"
+      },
+      "description": {
+        "bn": "পুনরাবৃত্তিমূলক কাজের জন্য ছোট ও সাবধানে লেখা স্বয়ংক্রিয় script।",
+        "en": "Small scripts for repetitive and carefully controlled automation tasks."
+      },
+      "status": "available",
+      "estimated_duration": "৩–১০ কর্মদিবস",
+      "deliverables": [
+        "Source code",
+        "Setup instructions",
+        "Test notes",
+        "Handover guide"
+      ],
+      "starting_from": null,
+      "currency": "BDT"
+    },
+    {
+      "id": "SVC-004",
+      "title": {
+        "bn": "ক্লায়েন্ট প্রকল্পের অগ্রগতি হালনাগাদ",
+        "en": "Client project progress updates"
+      },
+      "description": {
+        "bn": "সময়ানুযায়ী কাজের অবস্থা, ডেলিভারেবল এবং হালনাগাদ নথিভুক্ত করা।",
+        "en": "Timely records of project status, deliverables, and progress updates."
+      },
+      "status": "available",
+      "estimated_duration": "চুক্তি অনুযায়ী",
+      "deliverables": [
+        "Progress report",
+        "Task status",
+        "Risk summary",
+        "Next action"
+      ],
+      "starting_from": null,
+      "currency": "BDT"
+    }
+  ],
+  "updated_at": "2026-11-26T00:00:00+06:00"
+}

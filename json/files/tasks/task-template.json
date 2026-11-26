@@ -1,0 +1,20 @@
+{
+  "schema": "mj-task/v1",
+  "id": "TSK-YYYY-NNNN",
+  "project_id": "PRJ-YYYY-NNNN",
+  "client_id": "CLT-YYYY-NNNN",
+  "title": "",
+  "description": "",
+  "status": "todo",
+  "priority": "medium",
+  "assignee": "",
+  "due_date": "",
+  "started_at": "",
+  "completed_at": "",
+  "dependencies": [],
+  "tags": [],
+  "attachments": [],
+  "comments": [],
+  "created_at": "",
+  "updated_at": ""
+}

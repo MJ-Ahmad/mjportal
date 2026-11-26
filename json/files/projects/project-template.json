@@ -1,0 +1,28 @@
+{
+  "schema": "mj-project/v1",
+  "id": "PRJ-YYYY-NNNN",
+  "client_id": "CLT-YYYY-NNNN",
+  "title": "",
+  "status": "planning",
+  "priority": "medium",
+  "start_date": "",
+  "target_date": "",
+  "progress": 0,
+  "summary": "",
+  "scope": [],
+  "deliverables": [],
+  "milestones": [
+    {
+      "id": "MLS-001",
+      "title": "",
+      "status": "pending",
+      "due_date": "",
+      "completed_at": ""
+    }
+  ],
+  "tasks": [],
+  "risks": [],
+  "notes": [],
+  "created_at": "",
+  "updated_at": ""
+}

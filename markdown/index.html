@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0f4c42">
+  <title>Markdown নোট</title>
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f3f5f2;
+      --panel: #ffffff;
+      --ink: #17211d;
+      --muted: #64716b;
+      --line: #d9dfdb;
+      --pine: #0f4c42;
+      --pine-dark: #092f29;
+      --brass: #b8862b;
+      --selected: #e3eeea;
+      --code: #101916;
+      --code-ink: #d8e4df;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+      font: 15.5px/1.65
+        "Hind Siliguri",
+        "Noto Sans Bengali",
+        "Kalpurush",
+        "Nirmala UI",
+        "Segoe UI",
+        system-ui,
+        sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1514;
+        --panel: #161e1c;
+        --ink: #e6ece9;
+        --muted: #93a29c;
+        --line: #26332f;
+        --pine: #5fb59f;
+        --pine-dark: #0b3a32;
+        --brass: #d4a74a;
+        --selected: #1e2d29;
+        --code: #0c1210;
+        --code-ink: #d8e4df;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 2px;
+    }
+
+    /* Header */
+    .topbar {
+      position: relative;
+      z-index: 50;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px;
+      background: var(--pine-dark);
+      color: #f3f5f2;
+    }
+
+    .brand {
+      display: flex;
+      min-width: 178px;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      flex: none;
+      place-items: center;
+      border-radius: 9px;
+      background: #0a3b33;
+      color: var(--brass);
+    }
+
+    .brand-mark svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .brand-copy {
+      min-width: 0;
+      line-height: 1.2;
+    }
+
+    .brand-copy strong {
+      display: block;
+      overflow: hidden;
+      font-size: 15px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .brand-copy small {
+      display: block;
+      margin-top: 3px;
+      color: #ffffffbd;
+      font-size: 11px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 36px;
+      height: 36px;
+      flex: none;
+      place-items: center;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .menu-toggle svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+
+    #search {
+      width: min(440px, 55vw);
+      min-width: 150px;
+      margin-left: auto;
+      padding: 8px 12px;
+      border: 1px solid #ffffff44;
+      border-radius: 8px;
+      outline: none;
+      background: #ffffff1c;
+      color: #fff;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    #search::placeholder {
+      color: #ffffffb3;
+    }
+
+    #search:focus {
+      border-color: var(--brass);
+      box-shadow: 0 0 0 2px #b8862b55;
+    }
+
+    /* Main layout */
+    .workspace {
+      height: calc(100dvh - 58px);
+      display: grid;
+      grid-template-columns: 278px minmax(0, 1fr);
+      min-height: 0;
+    }
+
+    .file-nav {
+      min-height: 0;
+      overflow: auto;
+      padding: 12px 8px 24px;
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+      overscroll-behavior: contain;
+    }
+
+    .nav-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 2px 8px 9px;
+    }
+
+    .nav-heading h2 {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    #result-count {
+      margin: 0 8px 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .note-list {
+      display: grid;
+      gap: 3px;
+    }
+
+    .note-item {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      padding: 9px 10px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .note-item:hover {
+      background: var(--bg);
+    }
+
+    .note-item[aria-current="page"] {
+      background: var(--selected);
+      color: var(--pine);
+      box-shadow: inset 3px 0 var(--brass);
+    }
+
+    .item-title {
+      display: block;
+      overflow: hidden;
+      font-weight: 650;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .item-meta {
+      display: block;
+      margin-top: 2px;
+      overflow-wrap: anywhere;
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.45;
+    }
+
+    /* Note content */
+    .content {
+      min-width: 0;
+      min-height: 0;
+      overflow: auto;
+      padding: 24px 28px 40px;
+      overscroll-behavior: contain;
+      scroll-behavior: smooth;
+    }
+
+    .content-inner {
+      width: min(100%, 1040px);
+      margin: 0 auto;
+    }
+
+    .welcome {
+      padding: 48px 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .welcome-mark {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      margin: 0 auto 14px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--panel);
+      color: var(--pine);
+      font-size: 25px;
+    }
+
+    .welcome h2 {
+      margin: 0 0 5px;
+      color: var(--ink);
+      font-size: 21px;
+    }
+
+    .welcome p {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .note-header {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .note-title {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .note-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 12px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    .note-id {
+      padding: 1px 9px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: var(--pine);
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 11.5px;
+    }
+
+    .markdown-body {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .markdown-body > :first-child {
+      margin-top: 0;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4 {
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .markdown-body h1 {
+      font-size: 1.8rem;
+    }
+
+    .markdown-body h2 {
+      margin-top: 1.8em;
+      padding-bottom: .3em;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.45rem;
+    }
+
+    .markdown-body h3 {
+      margin-top: 1.5em;
+      font-size: 1.2rem;
+    }
+
+    .markdown-body a {
+      color: var(--pine);
+      text-underline-offset: 3px;
+    }
+
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .markdown-body blockquote {
+      margin: 1em 0;
+      padding: 8px 14px;
+      border-left: 3px solid var(--brass);
+      border-radius: 0 8px 8px 0;
+      background: var(--panel);
+      color: var(--muted);
+    }
+
+    .markdown-body hr {
+      height: 1px;
+      margin: 24px 0;
+      border: 0;
+      background: var(--line);
+    }
+
+    .markdown-body table {
+      display: block;
+      max-width: 100%;
+      overflow-x: auto;
+      border-collapse: collapse;
+    }
+
+    .markdown-body th,
+    .markdown-body td {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .markdown-body th {
+      background: var(--panel);
+    }
+
+    .markdown-body :not(pre) > code {
+      padding: 2px 5px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--panel);
+      font: .9em ui-monospace, Menlo, Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    /* Expandable, copyable code blocks */
+    .code-card {
+      margin: 16px 0;
+      overflow: hidden;
+      border: 1px solid #ffffff1a;
+      border-radius: 9px;
+      background: var(--code);
+      color: var(--code-ink);
+      box-shadow: 0 4px 14px #00000012;
+    }
+
+    .code-toolbar {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 8px 5px 12px;
+      border-bottom: 1px solid #ffffff18;
+      background: #ffffff08;
+    }
+
+    .code-language {
+      min-width: 0;
+      margin-right: auto;
+      overflow: hidden;
+      color: #a9c5b9;
+      font: 11.5px ui-monospace, Menlo, Consolas, monospace;
+      text-overflow: ellipsis;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+
+    .code-toolbar button {
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid #ffffff30;
+      border-radius: 7px;
+      background: #ffffff0d;
+      color: var(--code-ink);
+      font: inherit;
+      font-size: 12px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .code-toolbar button:hover {
+      border-color: var(--brass);
+      color: #fff;
+    }
+
+    .code-card pre {
+      max-height: 5.5em;
+      margin: 0;
+      overflow: hidden;
+      padding: 11px 14px;
+      tab-size: 2;
+      white-space: pre;
+      font: 12.5px/1.6 ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    .code-card.expanded pre {
+      max-height: min(70dvh, 900px);
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    .code-card pre code {
+      font: inherit;
+    }
+
+    .message {
+      margin: 16px 8px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .error {
+      padding: 20px;
+      border: 1px solid #b3412e55;
+      border-radius: 10px;
+      background: var(--panel);
+      color: #b3412e;
+      overflow-wrap: anywhere;
+    }
+
+    /* Mobile bottom navigation */
+    .mobile-nav {
+      display: none;
+    }
+
+    @media (max-width: 820px) {
+      .topbar {
+        height: 52px;
+        gap: 7px;
+        padding: 6px 10px;
+      }
+
+      .brand {
+        min-width: 0;
+        gap: 7px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .brand-copy strong {
+        max-width: 130px;
+        font-size: 14px;
+      }
+
+      .brand-copy small {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      #search {
+        width: auto;
+        min-width: 0;
+        flex: 1;
+        margin-left: auto;
+        padding: 7px 9px;
+        font-size: 13px;
+      }
+
+      .workspace {
+        height: calc(100dvh - 52px);
+        display: block;
+      }
+
+      .file-nav {
+        position: fixed;
+        z-index: 45;
+        top: 52px;
+        bottom: calc(64px + var(--safe-bottom));
+        left: 0;
+        width: min(310px, 88vw);
+        padding: 12px 9px;
+        border-right: 1px solid var(--line);
+        box-shadow: 5px 0 25px #0004;
+        transform: translateX(-105%);
+        transition: transform .2s ease;
+      }
+
+      .file-nav.on {
+        transform: translateX(0);
+      }
+
+      .content {
+        width: 100%;
+        height: 100%;
+        padding: 18px 14px calc(82px + var(--safe-bottom));
+      }
+
+      .note-header {
+        margin-bottom: 16px;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        z-index: 60;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: calc(62px + var(--safe-bottom));
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: start;
+        padding: 5px 4px var(--safe-bottom);
+        border-top: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: 0 -3px 16px #0000000d;
+      }
+
+      .mobile-nav a,
+      .mobile-nav button {
+        min-width: 0;
+        height: 49px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1px;
+        padding: 2px;
+        border: 0;
+        border-radius: 9px;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 10.5px;
+        line-height: 1.2;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .mobile-nav a:active,
+      .mobile-nav button:active {
+        background: var(--selected);
+      }
+
+      .mobile-nav .nav-icon {
+        width: 23px;
+        height: 23px;
+        display: grid;
+        place-items: center;
+        color: currentColor;
+      }
+
+      .mobile-nav .nav-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .mobile-nav .active {
+        color: var(--pine);
+        font-weight: 650;
+      }
+
+      .mobile-nav .active .nav-icon {
+        color: var(--brass);
+      }
+
+      .code-card pre {
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      body {
+        height: auto;
+        overflow: visible;
+        background: #fff;
+        color: #111;
+      }
+
+      .topbar,
+      .file-nav,
+      .mobile-nav,
+      .code-toolbar {
+        display: none !important;
+      }
+
+      .workspace,
+      .content {
+        height: auto;
+        display: block;
+        overflow: visible;
+        padding: 0;
+      }
+
+      .code-card pre,
+      .code-card.expanded pre {
+        max-height: none;
+        overflow: visible;
+        white-space: pre-wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <button
+      id="menu-toggle"
+      class="menu-toggle"
+      type="button"
+      aria-label="নোটের তালিকা খুলুন"
+      aria-expanded="false"
+      aria-controls="file-nav"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <a class="brand" href="../" aria-label="মূল পাতা">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20">
+          <path d="M7 5 2 10l5 5M13 5l5 5-5 5"></path>
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <strong>Markdown নোট</strong>
+        <small>নিজের খাতা · MJ Ahmad</small>
+      </span>
+    </a>
+
+    <input
+      id="search"
+      type="search"
+      placeholder="ID, নাম, ফোল্ডার বা path খুঁজুন…"
+      aria-label="Markdown নোট খুঁজুন"
+      autocomplete="off"
+      spellcheck="false"
+    >
+  </header>
+
+  <main class="workspace">
+    <nav id="file-nav" class="file-nav" aria-label="Markdown নোটের তালিকা">
+      <div class="nav-heading">
+        <h2>নোটের তালিকা</h2>
+      </div>
+      <p id="result-count" aria-live="polite">তালিকা লোড হচ্ছে…</p>
+      <div id="note-list" class="note-list"></div>
+    </nav>
+
+    <article id="content" class="content" tabindex="-1" aria-live="polite">
+      <div class="content-inner">
+        <div class="welcome">
+          <div class="welcome-mark" aria-hidden="true">✦</div>
+          <h2>আপনার Markdown নোট</h2>
+          <p>তালিকা থেকে একটি নোট বাছুন, অথবা ID, ফাইলের নাম কিংবা ফোল্ডার দিয়ে খুঁজুন।</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <nav class="mobile-nav" aria-label="প্রধান নেভিগেশন">
+    <a href="../" aria-label="মেইন সাইট">
+      <span class="nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"></path>
+        </svg>
+      </span>
+      <span>মেইন সাইট</span>
+    </a>
+
+    <a href="../#/dash" aria-label="ড্যাশবোর্ড">
+      <span class="nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="8" height="8" rx="1.5"></rect>
+          <rect x="13" y="3" width="8" height="5" rx="1.5"></rect>
+          <rect x="13" y="10" width="8" height="11" rx="1.5"></rect>
+          <rect x="3" y="13" width="8" height="8" rx="1.5"></rect>
+        </svg>
+      </span>
+      <span>ড্যাশবোর্ড</span>
+    </a>
+
+    <a href="../learn/" aria-label="লার্নিং">
+      <span class="nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H20v17H5.5A2.5 2.5 0 0 1 3 17.5z"></path>
+          <path d="M3 17.5A2.5 2.5 0 0 1 5.5 15H20M8 7h8M8 10h6"></path>
+        </svg>
+      </span>
+      <span>লার্নিং</span>
+    </a>
+
+    <a href="../terminal/" aria-label="টার্মিনাল">
+      <span class="nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="m5 7 5 5-5 5M12 17h7"></path>
+        </svg>
+      </span>
+      <span>টার্মিনাল</span>
+    </a>
+
+    <button
+      id="bottom-menu"
+      class="active"
+      type="button"
+      aria-label="নোটের মেনু"
+      aria-expanded="false"
+      aria-controls="file-nav"
+    >
+      <span class="nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </span>
+      <span>মেনু</span>
+    </button>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const fileNav = document.querySelector("#file-nav");
+      const noteList = document.querySelector("#note-list");
+      const resultCount = document.querySelector("#result-count");
+      const content = document.querySelector("#content");
+      const search = document.querySelector("#search");
+      const menuToggle = document.querySelector("#menu-toggle");
+      const bottomMenu = document.querySelector("#bottom-menu");
+
+      let files = [];
+      let selectedPath = "";
+      let requestNumber = 0;
+
+      const isMobile = () =>
+        window.matchMedia("(max-width: 820px)").matches;
+
+      const normalize = value =>
+        String(value ?? "").toLocaleLowerCase().trim();
+
+      function showMessage(parent, text, isError = false) {
+        const message = document.createElement("p");
+        message.className = isError ? "error" : "message";
+        message.textContent = text;
+        parent.replaceChildren(message);
+      }
+
+      function setMenuOpen(open) {
+        fileNav.classList.toggle("on", open);
+        menuToggle.setAttribute("aria-expanded", String(open));
+        bottomMenu.setAttribute("aria-expanded", String(open));
+      }
+
+      function toggleMenu() {
+        setMenuOpen(!fileNav.classList.contains("on"));
+      }
+
+      function searchableText(file) {
+        const basename = String(file.path || "").split("/").pop() || "";
+        return [
+          file.id,
+          file.title,
+          file.path,
+          file.folder,
+          basename
+        ].map(normalize).join(" ");
+      }
+
+      function renderList() {
+        const query = normalize(search.value);
+        const terms = query.split(/\s+/).filter(Boolean);
+
+        const matches = files.filter(file => {
+          const haystack = searchableText(file);
+          return terms.every(term => haystack.includes(term));
+        });
+
+        resultCount.textContent = `${matches.length}টি নোট`;
+        noteList.replaceChildren();
+
+        if (!matches.length) {
+          showMessage(noteList, "মিল পাওয়া যায়নি। অন্য ID, নাম বা ফোল্ডার দিয়ে খুঁজুন।");
+          return;
+        }
+
+        for (const file of matches) {
+          const button = document.createElement("button");
+          button.className = "note-item";
+          button.type = "button";
+          button.setAttribute(
+            "aria-current",
+            file.path === selectedPath ? "page" : "false"
+          );
+
+          const title = document.createElement("span");
+          title.className = "item-title";
+          title.textContent = file.title || file.path || "নামহীন নোট";
+
+          const meta = document.createElement("span");
+          meta.className = "item-meta";
+          meta.textContent = `${file.id || "ID নেই"} · ${file.path || ""}`;
+
+          button.append(title, meta);
+          button.addEventListener("click", () => openNote(file));
+          noteList.append(button);
+        }
+      }
+
+      function formatDate(value) {
+        if (!value) return "—";
+
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return String(value);
+
+        try {
+          return new Intl.DateTimeFormat("bn-BD", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+          }).format(date);
+        } catch {
+          return date.toLocaleString();
+        }
+      }
+
+      function makeMetaItem(label, value) {
+        const span = document.createElement("span");
+        span.textContent = `${label}: ${value || "—"}`;
+        return span;
+      }
+
+      function safeNotePath(path) {
+        if (typeof path !== "string" || !path || path.startsWith("/")) {
+          throw new Error("নোটের path সঠিক নয়।");
+        }
+
+        const parts = path.split("/");
+        if (parts.some(part => !part || part === "." || part === "..")) {
+          throw new Error("নোটের path নিরাপদ নয়।");
+        }
+
+        return parts.map(encodeURIComponent).join("/");
+      }
+
+      function makeCodeBlocks(root) {
+        root.querySelectorAll("pre").forEach(pre => {
+          const code = pre.querySelector("code");
+          const codeText = code ? code.textContent : pre.textContent;
+          const lineCount = codeText.replace(/\n$/, "").split("\n").length;
+
+          const languageClass = code
+            ? Array.from(code.classList).find(name => name.startsWith("language-"))
+            : "";
+          const language = languageClass
+            ? languageClass.slice("language-".length)
+            : "code";
+
+          const card = document.createElement("section");
+          card.className = "code-card";
+
+          const toolbar = document.createElement("div");
+          toolbar.className = "code-toolbar";
+
+          const languageLabel = document.createElement("span");
+          languageLabel.className = "code-language";
+          languageLabel.textContent = language;
+
+          toolbar.append(languageLabel);
+
+          if (lineCount > 3) {
+            const expandButton = document.createElement("button");
+            expandButton.type = "button";
+            expandButton.textContent = `আরও দেখুন · ${lineCount} লাইন`;
+            expandButton.setAttribute("aria-expanded", "false");
+
+            expandButton.addEventListener("click", () => {
+              const expanded = card.classList.toggle("expanded");
+              expandButton.setAttribute("aria-expanded", String(expanded));
+              expandButton.textContent = expanded
+                ? "সংকুচিত করুন"
+                : `আরও দেখুন · ${lineCount} লাইন`;
+            });
+
+            toolbar.append(expandButton);
+          }
+
+          const copyButton = document.createElement("button");
+          copyButton.type = "button";
+          copyButton.textContent = "কপি";
+
+          copyButton.addEventListener("click", async () => {
+            const originalText = copyButton.textContent;
+
+            try {
+              if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(codeText);
+              } else {
+                const textarea = document.createElement("textarea");
+                textarea.value = codeText;
+                textarea.setAttribute("readonly", "");
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
+                document.body.append(textarea);
+                textarea.select();
+
+                const copied = document.execCommand("copy");
+                textarea.remove();
+
+                if (!copied) throw new Error("কপি করা যায়নি।");
+              }
+
+              copyButton.textContent = "কপি হয়েছে ✓";
+            } catch {
+              copyButton.textContent = "কপি হয়নি";
+            }
+
+            window.setTimeout(() => {
+              copyButton.textContent = originalText;
+            }, 1500);
+          });
+
+          toolbar.append(copyButton);
+          pre.replaceWith(card);
+          card.append(toolbar, pre);
+        });
+      }
+
+      function renderWelcome() {
+        const inner = document.createElement("div");
+        inner.className = "content-inner";
+
+        const welcome = document.createElement("div");
+        welcome.className = "welcome";
+
+        const mark = document.createElement("div");
+        mark.className = "welcome-mark";
+        mark.setAttribute("aria-hidden", "true");
+        mark.textContent = "✦";
+
+        const title = document.createElement("h2");
+        title.textContent = "আপনার Markdown নোট";
+
+        const description = document.createElement("p");
+        description.textContent =
+          "তালিকা থেকে একটি নোট বাছুন, অথবা ID, ফাইলের নাম কিংবা ফোল্ডার দিয়ে খুঁজুন।";
+
+        welcome.append(mark, title, description);
+        inner.append(welcome);
+        content.replaceChildren(inner);
+      }
+
+      async function openNote(file) {
+        const currentRequest = ++requestNumber;
+        selectedPath = file.path;
+        renderList();
+
+        if (isMobile()) {
+          setMenuOpen(false);
+        }
+
+        content.scrollTo({ top: 0, behavior: "smooth" });
+
+        const inner = document.createElement("div");
+        inner.className = "content-inner";
+        showMessage(inner, "নোট লোড হচ্ছে…");
+        content.replaceChildren(inner);
+
+        try {
+          const encodedPath = safeNotePath(file.path);
+          const response = await fetch(`notes/${encodedPath}`, {
+            cache: "no-cache"
+          });
+
+          if (!response.ok) {
+            throw new Error(`ফাইল লোড হয়নি (HTTP ${response.status})`);
+          }
+
+          const markdown = await response.text();
+
+          if (currentRequest !== requestNumber) return;
+
+          if (!window.marked || !window.DOMPurify) {
+            throw new Error(
+              "Markdown renderer লোড হয়নি। ইন্টারনেট সংযোগ পরীক্ষা করে পেজ রিফ্রেশ করুন।"
+            );
+          }
+
+          const header = document.createElement("header");
+          header.className = "note-header";
+
+          const title = document.createElement("h1");
+          title.className = "note-title";
+          title.textContent = file.title || file.path;
+
+          const meta = document.createElement("div");
+          meta.className = "note-meta";
+
+          const id = document.createElement("span");
+          id.className = "note-id";
+          id.textContent = file.id || "ID নেই";
+
+          meta.append(
+            id,
+            makeMetaItem("ফাইল", file.path),
+            makeMetaItem("যুক্ত", formatDate(file.created_at)),
+            makeMetaItem("আপডেট", formatDate(file.updated_at))
+          );
+
+          header.append(title, meta);
+
+          const markdownBody = document.createElement("div");
+          markdownBody.className = "markdown-body";
+
+          const renderedHtml = window.marked.parse(markdown);
+          markdownBody.innerHTML = window.DOMPurify.sanitize(renderedHtml);
+
+          makeCodeBlocks(markdownBody);
+
+          inner.replaceChildren(header, markdownBody);
+          content.replaceChildren(inner);
+          document.title = `${file.title || "Markdown নোট"} — Markdown নোট`;
+        } catch (error) {
+          if (currentRequest !== requestNumber) return;
+
+          const errorBox = document.createElement("div");
+          errorBox.className = "content-inner";
+          showMessage(
+            errorBox,
+            `নোট খোলা যায়নি: ${error.message || error}`,
+            true
+          );
+          content.replaceChildren(errorBox);
+        }
+      }
+
+      async function loadIndex() {
+        try {
+          const response = await fetch("notes-index.json", {
+            cache: "no-cache"
+          });
+
+          if (!response.ok) {
+            throw new Error(`ইনডেক্স লোড হয়নি (HTTP ${response.status})`);
+          }
+
+          const data = await response.json();
+
+          if (!Array.isArray(data)) {
+            throw new Error("notes-index.json-এর ফরম্যাট সঠিক নয়।");
+          }
+
+          files = data
+            .filter(item =>
+              item &&
+              typeof item.path === "string" &&
+              item.path.toLowerCase().endsWith(".md")
+            )
+            .map(item => ({
+              id: item.id || "",
+              title: item.title || item.path.split("/").pop(),
+              path: item.path,
+              folder: item.folder || "",
+              created_at: item.created_at || "",
+              updated_at: item.updated_at || ""
+            }))
+            .sort((a, b) =>
+              String(b.updated_at).localeCompare(String(a.updated_at)) ||
+              a.title.localeCompare(b.title, "bn")
+            );
+
+          renderList();
+
+          if (!files.length) {
+            resultCount.textContent = "০টি নোট";
+            showMessage(
+              noteList,
+              "markdown/notes/ ফোল্ডারে .md ফাইল রাখুন।"
+            );
+          }
+        } catch (error) {
+          resultCount.textContent = "তালিকা পাওয়া যায়নি";
+          showMessage(
+            noteList,
+            `${error.message || error} — index নতুন করে তৈরি করে পেজ রিফ্রেশ করুন।`,
+            true
+          );
+        }
+      }
+
+      search.addEventListener("input", renderList);
+      menuToggle.addEventListener("click", toggleMenu);
+      bottomMenu.addEventListener("click", toggleMenu);
+
+      content.addEventListener("click", () => {
+        if (isMobile() && fileNav.classList.contains("on")) {
+          setMenuOpen(false);
+        }
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && fileNav.classList.contains("on")) {
+          setMenuOpen(false);
+          menuToggle.focus();
+        }
+
+        if (
+          event.key === "/" &&
+          !/INPUT|TEXTAREA/.test(event.target.tagName || "")
+        ) {
+          event.preventDefault();
+          search.focus();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (!isMobile()) setMenuOpen(false);
+      });
+
+      renderWelcome();
+      loadIndex();
+    })();
+  </script>
+</body>
+</html>

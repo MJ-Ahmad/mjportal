@@ -1,0 +1,27 @@
+{
+  "schema": "mj-achievement-record/v1",
+  "title": "অর্জনের রেকর্ড",
+  "achievements": [
+    {
+      "id": "ACH-2026-0001",
+      "title": "নিজস্ব খাতা ও পোর্টাল সেটআপ",
+      "category": "development",
+      "status": "completed",
+      "summary": "নিজের কাজ, শেখা, ডেটা ও সফটওয়্যার পোর্টাল এক স্থানে গুছিয়ে রাখা।",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "JSON",
+        "Markdown",
+        "GitHub"
+      ],
+      "started_at": "2026",
+      "completed_at": "",
+      "proof": [],
+      "featured": true
+    }
+  ],
+  "updated_at": "2026-11-26T00:00:00+06:00"
+}
