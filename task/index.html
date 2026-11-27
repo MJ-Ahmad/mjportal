@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2b6cb0">
+<title>Tasks</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="login" id="login" hidden>
+  <form class="login-card" id="loginForm">
+    <img src="assets/logo.png" alt="" class="login-logo">
+    <h1 data-i18n="appName"></h1>
+    <label class="field">
+      <span data-i18n="password"></span>
+      <input type="password" id="pw" autocomplete="current-password" required>
+    </label>
+    <p class="form-error" id="loginErr" hidden></p>
+    <button class="btn-primary block" type="submit" data-i18n="signin"></button>
+  </form>
+</section>
+
+<div class="app" id="app" hidden>
+  <aside class="side" id="side">
+    <div class="side-head">
+      <img src="assets/logo.png" alt="" class="side-logo">
+      <strong data-i18n="appName"></strong>
+    </div>
+    <nav class="nav" id="smart" aria-label="Smart lists"></nav>
+    <div class="nav-title" data-i18n="lists"></div>
+    <nav class="nav" id="lists" aria-label="Lists"></nav>
+    <button class="nav-add" data-act="newList" type="button">+ <span data-i18n="newList"></span></button>
+    <div class="side-foot">
+      <button class="link" data-act="lang" id="langBtn" type="button"></button>
+      <button class="link" data-act="logout" type="button" data-i18n="logout"></button>
+    </div>
+  </aside>
+  <div class="scrim" data-act="drawer" aria-hidden="true"></div>
+
+  <main class="main">
+    <header class="top">
+      <button class="icon-btn menu" data-act="drawer" type="button" aria-label="Menu">☰</button>
+      <h1 class="view-title" id="viewTitle"></h1>
+      <div class="list-actions" id="listActions" hidden>
+        <button class="icon-btn" data-act="renameList" type="button" aria-label="Rename" data-i18n-aria="rename">✎</button>
+        <button class="icon-btn" data-act="colourList" type="button" aria-label="Colour" data-i18n-aria="colour">●</button>
+        <button class="icon-btn" data-act="deleteList" type="button" aria-label="Delete" data-i18n-aria="deleteList">⌫</button>
+      </div>
+      <label class="search">
+        <span class="sr-only" data-i18n="search"></span>
+        <input id="search" type="search" autocomplete="off" data-i18n-ph="searchPh">
+      </label>
+    </header>
+
+    <form class="quick" id="quick" autocomplete="off">
+      <input id="quickInput" name="title" maxlength="300" required data-i18n-ph="addPh">
+      <button class="btn-primary" type="submit" data-i18n="add"></button>
+    </form>
+
+    <ul class="tasks" id="tasks"></ul>
+    <div class="done-wrap" id="doneWrap"></div>
+  </main>
+
+  <section class="detail" id="detail" aria-label="Task details"></section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
