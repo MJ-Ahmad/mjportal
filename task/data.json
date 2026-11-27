@@ -1,6 +1,88 @@
 {
     "tasks": [
         {
+            "task_id": "TASK-000033",
+            "registry": "REG-000033",
+            "status": "active",
+            "heading": "MJ-AI setup",
+            "description": "প্রাথমিক project structure তৈরি",
+            "created_dhaka": "2026-11-27 17:51:20.782",
+            "created_utc": "2026-11-27 11:51:20.782",
+            "notes": [],
+            "attachments": [],
+            "steps": [
+                {
+                    "id": 1,
+                    "parent_id": null,
+                    "title": "Scope review",
+                    "completed": false,
+                    "completed_dhaka": null,
+                    "completed_utc": null,
+                    "notes": []
+                },
+                {
+                    "id": 2,
+                    "parent_id": null,
+                    "title": "Folder tree draft",
+                    "completed": false,
+                    "completed_dhaka": null,
+                    "completed_utc": null,
+                    "notes": []
+                },
+                {
+                    "id": 3,
+                    "parent_id": null,
+                    "title": "Security checklist review",
+                    "completed": false,
+                    "completed_dhaka": null,
+                    "completed_utc": null,
+                    "notes": [
+                        {
+                            "text": "প্রথমে read-only scope যাচাই করতে হবে",
+                            "dhaka": "2026-11-27 18:00:23.119",
+                            "utc": "2026-11-27 12:00:23.119"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "parent_id": 2,
+                    "title": "Permission policy লিখুন",
+                    "completed": false,
+                    "completed_dhaka": null,
+                    "completed_utc": null,
+                    "notes": []
+                }
+            ],
+            "history": [
+                {
+                    "dhaka": "2026-11-27 17:51:20.782",
+                    "utc": "2026-11-27 11:51:20.782",
+                    "action": "Task created"
+                },
+                {
+                    "dhaka": "2026-11-27 17:56:41.109",
+                    "utc": "2026-11-27 11:56:41.109",
+                    "action": "Added step 3: Security checklist review"
+                },
+                {
+                    "dhaka": "2026-11-27 17:59:17.530",
+                    "utc": "2026-11-27 11:59:17.530",
+                    "action": "Added step 4 under step 2: Permission policy লিখুন"
+                },
+                {
+                    "dhaka": "2026-11-27 18:00:23.119",
+                    "utc": "2026-11-27 12:00:23.119",
+                    "action": "Added note to step 3: প্রথমে read-only scope যাচাই করতে হবে"
+                }
+            ],
+            "progress": {
+                "completed": 0,
+                "remaining": 4,
+                "percentage": 0
+            }
+        },
+        {
             "task_id": "TASK-000032",
             "registry": "REG-000032",
             "status": "active",
