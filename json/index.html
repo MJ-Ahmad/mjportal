@@ -12,6 +12,7 @@
       color-scheme: light dark;
       --bg: #f3f5f2;
       --panel: #fff;
+      --panel-soft: #f8faf8;
       --ink: #17211d;
       --muted: #64716b;
       --line: #d9dfdb;
@@ -21,6 +22,11 @@
       --selected: #e3eeea;
       --code: #101916;
       --code-ink: #d8e4df;
+      --code-muted: #788b83;
+      --code-key: #9dc9ff;
+      --code-string: #9ee0a4;
+      --code-number: #ffd18c;
+      --code-bool: #d8a8ff;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
       font: 15px/1.6 "Hind Siliguri", "Noto Sans Bengali",
             "Kalpurush", "Nirmala UI", "Segoe UI", system-ui, sans-serif;
@@ -30,6 +36,7 @@
       :root {
         --bg: #0f1514;
         --panel: #161e1c;
+        --panel-soft: #1b2521;
         --ink: #e6ece9;
         --muted: #93a29c;
         --line: #26332f;
@@ -37,32 +44,56 @@
         --pine-dark: #0b3a32;
         --brass: #d4a74a;
         --selected: #1e2d29;
-        --code: #0c1210;
-        --code-ink: #d8e4df;
       }
     }
 
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html, body { width: 100%; height: 100%; }
-    body { margin: 0; overflow: hidden; background: var(--bg); color: var(--ink); }
-    button, input { font: inherit; }
-    :focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--brass);
+      outline-offset: 2px;
+    }
 
     .topbar {
       position: relative;
       z-index: 50;
-      height: 58px;
+      height: 60px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 7px 16px;
+      gap: 11px;
+      padding: 7px 18px;
       background: var(--pine-dark);
       color: #f3f5f2;
     }
 
     .brand {
       display: flex;
-      min-width: 178px;
+      min-width: 190px;
       align-items: center;
       gap: 10px;
       color: inherit;
@@ -70,18 +101,23 @@
     }
 
     .brand-mark {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       display: grid;
       flex: none;
       place-items: center;
-      border-radius: 9px;
-      background: #0a3b33;
+      border: 1px solid #ffffff25;
+      border-radius: 10px;
+      background: #ffffff12;
       color: var(--brass);
-      font: 700 16px ui-monospace, monospace;
+      font: 700 14px ui-monospace, Menlo, Consolas, monospace;
     }
 
-    .brand-copy { min-width: 0; line-height: 1.2; }
+    .brand-copy {
+      min-width: 0;
+      line-height: 1.2;
+    }
+
     .brand-copy strong {
       display: block;
       overflow: hidden;
@@ -89,10 +125,11 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
     .brand-copy small {
       display: block;
       margin-top: 3px;
-      color: #ffffffbd;
+      color: #ffffffb8;
       font-size: 11px;
     }
 
@@ -111,33 +148,41 @@
     }
 
     #search {
-      width: min(460px, 55vw);
+      width: min(480px, 55vw);
       min-width: 150px;
       margin-left: auto;
       padding: 8px 12px;
-      border: 1px solid #ffffff44;
-      border-radius: 8px;
+      border: 1px solid #ffffff40;
+      border-radius: 9px;
       outline: none;
-      background: #ffffff1c;
+      background: #ffffff16;
       color: #fff;
       font: inherit;
       font-size: 14px;
+      transition: border-color .15s, background .15s;
     }
 
-    #search::placeholder { color: #ffffffb3; }
-    #search:focus { border-color: var(--brass); }
+    #search::placeholder {
+      color: #ffffffae;
+    }
+
+    #search:focus {
+      border-color: var(--brass);
+      background: #ffffff20;
+      box-shadow: 0 0 0 3px #b8862b35;
+    }
 
     .workspace {
-      height: calc(100dvh - 58px);
+      height: calc(100dvh - 60px);
       display: grid;
-      grid-template-columns: 290px minmax(0, 1fr);
+      grid-template-columns: 295px minmax(0, 1fr);
       min-height: 0;
     }
 
     .file-nav {
       min-height: 0;
       overflow: auto;
-      padding: 12px 8px 24px;
+      padding: 13px 9px 24px;
       border-right: 1px solid var(--line);
       background: var(--panel);
       overscroll-behavior: contain;
@@ -147,6 +192,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
       margin: 2px 8px 9px;
     }
 
@@ -154,17 +200,21 @@
       margin: 0;
       color: var(--muted);
       font-size: 12px;
+      font-weight: 700;
       letter-spacing: .04em;
       text-transform: uppercase;
     }
 
     #result-count {
-      margin: 0 8px 8px;
+      margin: 0 8px 9px;
       color: var(--muted);
       font-size: 12px;
     }
 
-    .note-list { display: grid; gap: 3px; }
+    .file-list {
+      display: grid;
+      gap: 3px;
+    }
 
     .file-item {
       display: block;
@@ -172,14 +222,18 @@
       min-width: 0;
       padding: 9px 10px;
       border: 0;
-      border-radius: 8px;
+      border-radius: 9px;
       background: transparent;
       color: var(--ink);
       text-align: left;
       cursor: pointer;
+      transition: background .15s, color .15s;
     }
 
-    .file-item:hover { background: var(--bg); }
+    .file-item:hover {
+      background: var(--bg);
+    }
+
     .file-item[aria-current="page"] {
       background: var(--selected);
       color: var(--pine);
@@ -207,45 +261,80 @@
       min-width: 0;
       min-height: 0;
       overflow: auto;
-      padding: 24px 28px calc(38px + var(--safe-bottom));
+      padding: 25px 30px calc(38px + var(--safe-bottom));
       overscroll-behavior: contain;
+      scroll-behavior: smooth;
     }
 
-    .content-inner { width: min(100%, 1100px); margin: 0 auto; }
+    .content-inner {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+    }
 
     .welcome {
-      padding: 54px 12px;
+      padding: 58px 12px;
       color: var(--muted);
       text-align: center;
     }
 
     .welcome-mark {
-      width: 56px;
-      height: 56px;
+      width: 62px;
+      height: 62px;
       display: grid;
-      margin: 0 auto 14px;
+      margin: 0 auto 15px;
       place-items: center;
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 18px;
       background: var(--panel);
       color: var(--pine);
-      font-size: 25px;
+      box-shadow: 0 8px 24px #0000000a;
+      font: 700 18px ui-monospace, Menlo, Consolas, monospace;
     }
 
-    .welcome h2 { margin: 0 0 5px; color: var(--ink); font-size: 21px; }
-    .welcome p { max-width: 560px; margin: 0 auto; }
+    .welcome h2 {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 22px;
+    }
+
+    .welcome p {
+      max-width: 570px;
+      margin: 0 auto;
+    }
 
     .file-header {
-      margin-bottom: 16px;
-      padding-bottom: 15px;
+      margin-bottom: 17px;
+      padding: 2px 0 16px;
       border-bottom: 1px solid var(--line);
     }
 
+    .title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
     .file-title {
+      min-width: 0;
       margin: 0;
-      font-size: clamp(21px, 3vw, 30px);
+      font-size: clamp(22px, 3vw, 31px);
       line-height: 1.35;
       overflow-wrap: anywhere;
+    }
+
+    .valid-badge {
+      display: inline-flex;
+      flex: none;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 9px;
+      border: 1px solid #2e7d4f45;
+      border-radius: 20px;
+      background: #2e7d4f12;
+      color: #2e7d4f;
+      font-size: 11px;
+      font-weight: 650;
     }
 
     .file-meta {
@@ -266,54 +355,166 @@
       font: 11.5px ui-monospace, Menlo, Consolas, monospace;
     }
 
-    .actions {
+    .toolbar {
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 12px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 15px 0;
     }
 
-    .action-button {
-      min-height: 36px;
-      padding: 6px 12px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel);
-      color: var(--ink);
-      cursor: pointer;
-    }
-
-    .action-button:hover { border-color: var(--pine); color: var(--pine); }
-
-    .tree {
-      padding: 14px;
+    .view-switch {
+      display: inline-flex;
+      gap: 3px;
+      padding: 4px;
       border: 1px solid var(--line);
       border-radius: 10px;
       background: var(--panel);
+    }
+
+    .view-button,
+    .action-button {
+      min-height: 37px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+
+    .view-button[aria-pressed="true"] {
+      background: var(--selected);
+      color: var(--pine);
+      font-weight: 650;
+    }
+
+    .view-button:hover,
+    .action-button:hover {
+      color: var(--pine);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .action-button {
+      border-color: var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .action-button.primary {
+      border-color: var(--pine);
+      background: var(--pine);
+      color: #fff;
+    }
+
+    .action-button.primary:hover {
+      filter: brightness(1.08);
+      color: #fff;
+    }
+
+    .tree-panel,
+    .code-panel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      box-shadow: 0 6px 22px #00000008;
+    }
+
+    .tree-panel {
+      padding: 13px 15px;
+    }
+
+    .tree-help {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tree {
+      min-width: 0;
       overflow-wrap: anywhere;
     }
 
-    .tree details { margin: 2px 0 2px 14px; }
-    .tree > details { margin-left: 0; }
+    .tree details {
+      margin: 2px 0 2px 14px;
+    }
+
+    .tree > details {
+      margin-left: 0;
+    }
 
     .tree summary {
       width: fit-content;
       max-width: 100%;
-      padding: 2px 5px;
-      border-radius: 5px;
+      padding: 3px 6px;
+      border-radius: 6px;
       cursor: pointer;
+      list-style-position: outside;
       overflow-wrap: anywhere;
     }
 
-    .tree summary:hover { background: var(--selected); }
-    .tree-line { margin: 3px 0 3px 18px; overflow-wrap: anywhere; }
-    .tree-key { color: var(--pine); font-weight: 650; }
-    .tree-string { color: #2e7d4f; overflow-wrap: anywhere; }
-    .tree-number { color: #a45b18; }
-    .tree-boolean { color: #7251a3; }
-    .tree-null { color: var(--muted); font-style: italic; }
-    .tree-punctuation { color: var(--muted); }
-    .tree-empty { color: var(--muted); font-style: italic; }
+    .tree summary:hover {
+      background: var(--selected);
+    }
+
+    .tree-leaf {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 3px;
+      margin: 3px 0 3px 22px;
+      padding: 3px 6px;
+      border-radius: 5px;
+      overflow-wrap: anywhere;
+    }
+
+    .tree-leaf:hover {
+      background: var(--panel-soft);
+    }
+
+    .tree-key {
+      color: var(--pine);
+      font-weight: 650;
+    }
+
+    .tree-string {
+      color: #2e7d4f;
+      overflow-wrap: anywhere;
+    }
+
+    .tree-number {
+      color: #a45b18;
+    }
+
+    .tree-boolean {
+      color: #7251a3;
+    }
+
+    .tree-null,
+    .tree-type,
+    .tree-empty {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .tree-index {
+      color: var(--muted);
+      font: 11px ui-monospace, Menlo, Consolas, monospace;
+    }
 
     @media (prefers-color-scheme: dark) {
       .tree-string { color: #80c995; }
@@ -321,26 +522,127 @@
       .tree-boolean { color: #c4a4ef; }
     }
 
+    .code-panel {
+      border-color: #24352e;
+      background: var(--code);
+      color: var(--code-ink);
+    }
+
+    .code-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 13px;
+      border-bottom: 1px solid #ffffff18;
+      background: #ffffff07;
+    }
+
+    .code-heading strong {
+      color: #b7ccc2;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .code-heading span {
+      color: var(--code-muted);
+      font: 11px ui-monospace, Menlo, Consolas, monospace;
+    }
+
+    .code-scroll {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      max-height: min(72dvh, 900px);
+      overflow: auto;
+      overscroll-behavior: contain;
+      font: 12.5px/1.7 ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+      tab-size: 2;
+    }
+
+    .line-numbers,
+    .formatted-code {
+      min-height: 100%;
+      margin: 0;
+      padding-top: 13px;
+      padding-bottom: 15px;
+      white-space: pre;
+    }
+
+    .line-numbers {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      min-width: 48px;
+      padding-right: 11px;
+      padding-left: 12px;
+      border-right: 1px solid #ffffff14;
+      background: var(--code);
+      color: var(--code-muted);
+      text-align: right;
+      user-select: none;
+    }
+
+    .formatted-code {
+      min-width: max-content;
+      padding-right: 18px;
+      padding-left: 14px;
+      color: var(--code-ink);
+    }
+
+    .json-key { color: var(--code-key); }
+    .json-string { color: var(--code-string); }
+    .json-number { color: var(--code-number); }
+    .json-boolean,
+    .json-null { color: var(--code-bool); }
+
     .error-box {
       padding: 15px;
       border: 1px solid #b3412e66;
-      border-radius: 9px;
+      border-radius: 10px;
       background: var(--panel);
       color: #b3412e;
       overflow-wrap: anywhere;
     }
 
-    .message { margin: 15px 8px; color: var(--muted); text-align: center; }
+    .message {
+      margin: 16px 8px;
+      color: var(--muted);
+      text-align: center;
+    }
 
-    .mobile-nav { display: none; }
+    .mobile-nav {
+      display: none;
+    }
 
     @media (max-width: 820px) {
-      .topbar { height: 52px; gap: 7px; padding: 6px 10px; }
-      .brand { min-width: 0; gap: 7px; }
-      .brand-mark { width: 32px; height: 32px; }
-      .brand-copy strong { max-width: 130px; font-size: 14px; }
-      .brand-copy small { display: none; }
-      .menu-toggle { display: grid; }
+      .topbar {
+        height: 52px;
+        gap: 6px;
+        padding: 6px 9px;
+      }
+
+      .brand {
+        min-width: 0;
+        gap: 7px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+      }
+
+      .brand-copy strong {
+        max-width: 118px;
+        font-size: 14px;
+      }
+
+      .brand-copy small {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
 
       #search {
         width: auto;
@@ -348,7 +650,7 @@
         flex: 1;
         margin-left: auto;
         padding: 7px 9px;
-        font-size: 12.5px;
+        font-size: 12px;
       }
 
       .workspace {
@@ -362,7 +664,7 @@
         top: 52px;
         bottom: calc(64px + var(--safe-bottom));
         left: 0;
-        width: min(310px, 88vw);
+        width: min(320px, 88vw);
         padding: 12px 9px;
         border-right: 1px solid var(--line);
         box-shadow: 5px 0 25px #0004;
@@ -370,17 +672,63 @@
         transition: transform .2s ease;
       }
 
-      .file-nav.on { transform: translateX(0); }
+      .file-nav.on {
+        transform: translateX(0);
+      }
 
       .content {
         width: 100%;
         height: 100%;
-        padding: 18px 13px calc(76px + var(--safe-bottom));
+        padding: 16px 12px calc(80px + var(--safe-bottom));
       }
 
-      .tree { padding: 10px; }
-      .tree details { margin-left: 8px; }
-      .tree-line { margin-left: 10px; font-size: 13px; }
+      .title-row {
+        gap: 7px;
+      }
+
+      .file-title {
+        font-size: 22px;
+      }
+
+      .file-meta {
+        gap: 5px 8px;
+        font-size: 11px;
+      }
+
+      .toolbar {
+        align-items: stretch;
+      }
+
+      .view-switch {
+        flex: 1;
+      }
+
+      .view-button {
+        flex: 1;
+        padding-right: 8px;
+        padding-left: 8px;
+      }
+
+      .toolbar-actions {
+        width: 100%;
+      }
+
+      .toolbar-actions .action-button {
+        flex: 1;
+      }
+
+      .tree-panel {
+        padding: 10px 8px;
+      }
+
+      .tree details {
+        margin-left: 8px;
+      }
+
+      .tree-leaf {
+        margin-left: 14px;
+        font-size: 13px;
+      }
 
       .mobile-nav {
         position: fixed;
@@ -413,30 +761,75 @@
         background: transparent;
         color: var(--muted);
         font: inherit;
-        font-size: 10.5px;
+        font-size: 10px;
         line-height: 1.2;
         text-decoration: none;
         cursor: pointer;
       }
 
-      .mobile-nav .active { color: var(--pine); font-weight: 650; }
-      .mobile-nav .active .nav-icon { color: var(--brass); }
-      .nav-icon { width: 23px; height: 23px; display: grid; place-items: center; font-size: 18px; }
+      .mobile-nav a:active,
+      .mobile-nav button:active {
+        background: var(--selected);
+      }
+
+      .mobile-nav .active {
+        color: var(--pine);
+        font-weight: 650;
+      }
+
+      .mobile-nav .active .nav-icon {
+        color: var(--brass);
+      }
+
+      .nav-icon {
+        width: 23px;
+        height: 23px;
+        display: grid;
+        place-items: center;
+        font-size: 18px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
     }
 
     @media print {
-      body { height: auto; overflow: visible; background: #fff; color: #111; }
-      .topbar, .file-nav, .mobile-nav, .actions { display: none !important; }
-      .workspace, .content { height: auto; display: block; overflow: visible; padding: 0; }
-      .tree { border: 0; }
-      .tree details:not([open]) > :not(summary) { display: block; }
+      body {
+        height: auto;
+        overflow: visible;
+        background: #fff;
+        color: #111;
+      }
+
+      .topbar,
+      .file-nav,
+      .mobile-nav,
+      .toolbar {
+        display: none !important;
+      }
+
+      .workspace,
+      .content {
+        height: auto;
+        display: block;
+        overflow: visible;
+        padding: 0;
+      }
+
+      .code-scroll {
+        max-height: none;
+        overflow: visible;
+      }
+
+      .line-numbers {
+        position: static;
+      }
     }
   </style>
 </head>
@@ -472,9 +865,11 @@
 
   <main class="workspace">
     <nav id="file-nav" class="file-nav" aria-label="JSON ফাইলের তালিকা">
-      <div class="nav-heading"><h2>JSON ফাইল</h2></div>
+      <div class="nav-heading">
+        <h2>JSON ফাইল</h2>
+      </div>
       <p id="result-count" aria-live="polite">তালিকা লোড হচ্ছে…</p>
-      <div id="file-list" class="note-list"></div>
+      <div id="file-list" class="file-list"></div>
     </nav>
 
     <article id="content" class="content" tabindex="-1" aria-live="polite">
@@ -532,14 +927,18 @@
 
       let files = [];
       let selectedPath = "";
+      let currentData = null;
+      let currentFile = null;
+      let currentPrettyJson = "";
+      let currentView = "tree";
       let requestNumber = 0;
 
       const isMobile = () => window.matchMedia("(max-width: 820px)").matches;
       const normalize = value => String(value ?? "").toLocaleLowerCase().trim();
 
-      function showMessage(parent, text, error = false) {
+      function showMessage(parent, text, isError = false) {
         const node = document.createElement("p");
-        node.className = error ? "error-box" : "message";
+        node.className = isError ? "error-box" : "message";
         node.textContent = text;
         parent.replaceChildren(node);
       }
@@ -590,7 +989,7 @@
 
           const meta = document.createElement("span");
           meta.className = "item-meta";
-          meta.textContent = `${file.id} · ${file.path}`;
+          meta.textContent = `${file.id || "ID নেই"} · ${file.path}`;
 
           button.append(title, meta);
           button.addEventListener("click", () => openFile(file));
@@ -600,96 +999,298 @@
 
       function dateText(value) {
         if (!value) return "—";
+
         const date = new Date(value);
         if (Number.isNaN(date.getTime())) return String(value);
-        return new Intl.DateTimeFormat("bn-BD", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-          hour: "2-digit",
-          minute: "2-digit"
-        }).format(date);
+
+        try {
+          return new Intl.DateTimeFormat("bn-BD", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+          }).format(date);
+        } catch {
+          return date.toLocaleString();
+        }
       }
 
       function safePath(path) {
         if (typeof path !== "string" || !path || path.startsWith("/")) {
           throw new Error("JSON ফাইলের path সঠিক নয়।");
         }
+
         const parts = path.split("/");
         if (parts.some(part => !part || part === "." || part === "..")) {
           throw new Error("JSON ফাইলের path নিরাপদ নয়।");
         }
+
         return parts.map(encodeURIComponent).join("/");
       }
 
-      function appendText(parent, text, className) {
-        const span = document.createElement("span");
-        if (className) span.className = className;
-        span.textContent = text;
-        parent.append(span);
-        return span;
+      function addText(parent, text, className = "") {
+        const node = document.createElement("span");
+        if (className) node.className = className;
+        node.textContent = text;
+        parent.append(node);
+        return node;
       }
 
-      function renderValue(parent, value, key, depth) {
-        const prefix = document.createElement("span");
-        prefix.className = "tree-line";
+      function valueType(value) {
+        if (value === null) return "null";
+        if (Array.isArray(value)) return "Array";
+        if (typeof value === "object") return "Object";
+        return typeof value;
+      }
 
-        if (key !== null) {
-          appendText(prefix, `${JSON.stringify(String(key))}: `, "tree-key");
-        }
+      function renderTreeValue(parent, value, key, depth) {
+        const isContainer = value !== null && typeof value === "object";
+        const isArray = Array.isArray(value);
 
-        if (value !== null && typeof value === "object") {
-          const isArray = Array.isArray(value);
+        if (isContainer) {
           const entries = isArray
             ? value.map((child, index) => [String(index), child])
             : Object.entries(value);
-          const label = isArray ? `Array(${entries.length})` : `Object(${entries.length})`;
-
-          if (entries.length === 0) {
-            appendText(prefix, isArray ? "[]" : "{}", "tree-empty");
-            parent.append(prefix);
-            return;
-          }
 
           const details = document.createElement("details");
           details.open = depth < 1;
 
           const summary = document.createElement("summary");
-          summary.append(prefix);
-          appendText(summary, label, "tree-punctuation");
+
+          if (key !== null) {
+            addText(summary, JSON.stringify(String(key)), "tree-key");
+            addText(summary, ": ");
+          }
+
+          addText(
+            summary,
+            `${isArray ? "Array" : "Object"} · ${entries.length}`,
+            "tree-type"
+          );
+
           details.append(summary);
 
-          for (const [childKey, childValue] of entries) {
-            renderValue(details, childValue, isArray ? null : childKey, depth + 1);
+          if (entries.length === 0) {
+            const empty = document.createElement("div");
+            empty.className = "tree-leaf tree-empty";
+            empty.textContent = isArray ? "[]" : "{}";
+            details.append(empty);
+          } else {
+            for (const [childKey, childValue] of entries) {
+              renderTreeValue(
+                details,
+                childValue,
+                isArray ? null : childKey,
+                depth + 1
+              );
+            }
           }
 
           parent.append(details);
           return;
         }
 
-        if (typeof value === "string") {
-          appendText(prefix, JSON.stringify(value), "tree-string");
-        } else if (typeof value === "number") {
-          appendText(prefix, String(value), "tree-number");
-        } else if (typeof value === "boolean") {
-          appendText(prefix, String(value), "tree-boolean");
-        } else {
-          appendText(prefix, "null", "tree-null");
+        const row = document.createElement("div");
+        row.className = "tree-leaf";
+
+        if (key !== null) {
+          addText(row, JSON.stringify(String(key)), "tree-key");
+          addText(row, ": ");
         }
 
-        parent.append(prefix);
+        if (typeof value === "string") {
+          addText(row, JSON.stringify(value), "tree-string");
+        } else if (typeof value === "number") {
+          addText(row, String(value), "tree-number");
+        } else if (typeof value === "boolean") {
+          addText(row, String(value), "tree-boolean");
+        } else {
+          addText(row, "null", "tree-null");
+        }
+
+        parent.append(row);
       }
 
-      function showFile(data, file, prettyJson) {
+      function appendHighlightedLine(parent, line) {
+        const tokenPattern =
+          /("(?:\\.|[^"\\])*"(?=\s*:))|("(?:\\.|[^"\\])*")|\b(true|false|null)\b|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g;
+
+        let lastIndex = 0;
+        let match;
+
+        while ((match = tokenPattern.exec(line)) !== null) {
+          if (match.index > lastIndex) {
+            parent.append(document.createTextNode(line.slice(lastIndex, match.index)));
+          }
+
+          const token = document.createElement("span");
+          token.textContent = match[0];
+
+          if (match[1]) {
+            token.className = "json-key";
+          } else if (match[2]) {
+            token.className = "json-string";
+          } else if (match[3] === "true" || match[3] === "false") {
+            token.className = "json-boolean";
+          } else if (match[3] === "null") {
+            token.className = "json-null";
+          } else {
+            token.className = "json-number";
+          }
+
+          parent.append(token);
+          lastIndex = tokenPattern.lastIndex;
+        }
+
+        if (lastIndex < line.length) {
+          parent.append(document.createTextNode(line.slice(lastIndex)));
+        }
+      }
+
+      function makeFormattedView(prettyJson) {
+        const panel = document.createElement("section");
+        panel.className = "code-panel";
+        panel.setAttribute("aria-label", "Formatted JSON");
+
+        const heading = document.createElement("div");
+        heading.className = "code-heading";
+
+        const label = document.createElement("strong");
+        label.textContent = "Formatted JSON";
+
+        const lineCount = prettyJson.split("\n").length;
+        const count = document.createElement("span");
+        count.textContent = `${lineCount} লাইন`;
+
+        heading.append(label, count);
+
+        const scroll = document.createElement("div");
+        scroll.className = "code-scroll";
+
+        const lineNumbers = document.createElement("pre");
+        lineNumbers.className = "line-numbers";
+        lineNumbers.setAttribute("aria-hidden", "true");
+        lineNumbers.textContent = Array.from(
+          { length: lineCount },
+          (_, index) => String(index + 1)
+        ).join("\n");
+
+        const code = document.createElement("pre");
+        code.className = "formatted-code";
+        code.setAttribute("aria-label", "Formatted JSON code");
+
+        const lines = prettyJson.split("\n");
+        lines.forEach((line, index) => {
+          appendHighlightedLine(code, line);
+          if (index < lines.length - 1) {
+            code.append(document.createTextNode("\n"));
+          }
+        });
+
+        scroll.append(lineNumbers, code);
+        panel.append(heading, scroll);
+        return panel;
+      }
+
+      function makeTreeView(data) {
+        const panel = document.createElement("section");
+        panel.className = "tree-panel";
+
+        const help = document.createElement("p");
+        help.className = "tree-help";
+        help.textContent = "কোনো অংশ খুলতে বা বন্ধ করতে তার পাশের তীরচিহ্নে চাপ দিন।";
+
+        const tree = document.createElement("div");
+        tree.className = "tree";
+        renderTreeValue(tree, data, null, 0);
+
+        panel.append(help, tree);
+        return panel;
+      }
+
+      function renderCurrentView() {
+        if (!currentFile || currentData === null && currentPrettyJson !== "null") {
+          return;
+        }
+
+        const viewHost = document.querySelector("#data-view");
+        if (!viewHost) return;
+
+        viewHost.replaceChildren(
+          currentView === "tree"
+            ? makeTreeView(currentData)
+            : makeFormattedView(currentPrettyJson)
+        );
+
+        document.querySelectorAll(".view-button").forEach(button => {
+          button.setAttribute(
+            "aria-pressed",
+            String(button.dataset.view === currentView)
+          );
+        });
+
+        const expandButton = document.querySelector("#expand-toggle");
+        if (expandButton) {
+          expandButton.hidden = currentView !== "tree";
+        }
+      }
+
+      async function copyFormattedJson(button) {
+        const originalText = button.textContent;
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(currentPrettyJson);
+          } else {
+            const textarea = document.createElement("textarea");
+            textarea.value = currentPrettyJson;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "fixed";
+            textarea.style.opacity = "0";
+            document.body.append(textarea);
+            textarea.select();
+
+            const copied = document.execCommand("copy");
+            textarea.remove();
+
+            if (!copied) throw new Error("Clipboard copy failed");
+          }
+
+          button.textContent = "কপি হয়েছে ✓";
+        } catch {
+          button.textContent = "কপি করা যায়নি";
+        }
+
+        window.setTimeout(() => {
+          button.textContent = originalText;
+        }, 1600);
+      }
+
+      function renderFile(data, file, prettyJson) {
+        currentData = data;
+        currentFile = file;
+        currentPrettyJson = prettyJson;
+        currentView = "tree";
+
         const inner = document.createElement("div");
         inner.className = "content-inner";
 
         const header = document.createElement("header");
         header.className = "file-header";
 
+        const titleRow = document.createElement("div");
+        titleRow.className = "title-row";
+
         const title = document.createElement("h1");
         title.className = "file-title";
         title.textContent = file.title || file.path;
+
+        const badge = document.createElement("span");
+        badge.className = "valid-badge";
+        badge.textContent = "✓ বৈধ JSON";
+
+        titleRow.append(title, badge);
 
         const meta = document.createElement("div");
         meta.className = "file-meta";
@@ -708,59 +1309,78 @@
         updated.textContent = `আপডেট: ${dateText(file.updated_at)}`;
 
         meta.append(id, path, created, updated);
+        header.append(titleRow, meta);
+
+        const toolbar = document.createElement("div");
+        toolbar.className = "toolbar";
+
+        const switcher = document.createElement("div");
+        switcher.className = "view-switch";
+        switcher.setAttribute("role", "group");
+        switcher.setAttribute("aria-label", "JSON দেখার ধরন");
+
+        const treeButton = document.createElement("button");
+        treeButton.className = "view-button";
+        treeButton.type = "button";
+        treeButton.dataset.view = "tree";
+        treeButton.textContent = "Tree view";
+        treeButton.setAttribute("aria-pressed", "true");
+        treeButton.addEventListener("click", () => {
+          currentView = "tree";
+          renderCurrentView();
+        });
+
+        const formattedButton = document.createElement("button");
+        formattedButton.className = "view-button";
+        formattedButton.type = "button";
+        formattedButton.dataset.view = "formatted";
+        formattedButton.textContent = "Formatted";
+        formattedButton.setAttribute("aria-pressed", "false");
+        formattedButton.addEventListener("click", () => {
+          currentView = "formatted";
+          renderCurrentView();
+        });
+
+        switcher.append(treeButton, formattedButton);
 
         const actions = document.createElement("div");
-        actions.className = "actions";
+        actions.className = "toolbar-actions";
+
+        const expandButton = document.createElement("button");
+        expandButton.id = "expand-toggle";
+        expandButton.className = "action-button";
+        expandButton.type = "button";
+        expandButton.textContent = "সব খুলুন";
+        expandButton.addEventListener("click", () => {
+          const details = Array.from(
+            document.querySelectorAll("#data-view details")
+          );
+          const allOpen = details.length > 0 && details.every(node => node.open);
+          details.forEach(node => { node.open = !allOpen; });
+          expandButton.textContent = allOpen ? "সব খুলুন" : "সব বন্ধ করুন";
+        });
 
         const copyButton = document.createElement("button");
-        copyButton.className = "action-button";
+        copyButton.className = "action-button primary";
         copyButton.type = "button";
         copyButton.textContent = "Formatted JSON কপি";
+        copyButton.addEventListener("click", () => copyFormattedJson(copyButton));
 
-        copyButton.addEventListener("click", async () => {
-          try {
-            await navigator.clipboard.writeText(prettyJson);
-            copyButton.textContent = "কপি হয়েছে ✓";
-          } catch {
-            copyButton.textContent = "কপি করা যায়নি";
-          }
-          window.setTimeout(() => {
-            copyButton.textContent = "Formatted JSON কপি";
-          }, 1500);
-        });
+        actions.append(expandButton, copyButton);
+        toolbar.append(switcher, actions);
 
-        const downloadButton = document.createElement("button");
-        downloadButton.className = "action-button";
-        downloadButton.type = "button";
-        downloadButton.textContent = "ডাউনলোড";
+        const viewHost = document.createElement("div");
+        viewHost.id = "data-view";
 
-        downloadButton.addEventListener("click", () => {
-          const blob = new Blob([prettyJson], {
-            type: "application/json;charset=utf-8"
-          });
-          const url = URL.createObjectURL(blob);
-          const anchor = document.createElement("a");
-          anchor.href = url;
-          anchor.download = file.path.split("/").pop() || "data.json";
-          anchor.click();
-          window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-        });
-
-        actions.append(copyButton, downloadButton);
-        header.append(title, meta, actions);
-
-        const tree = document.createElement("section");
-        tree.className = "tree";
-        tree.setAttribute("aria-label", "JSON tree");
-
-        renderValue(tree, data, null, 0);
-        inner.append(header, tree);
+        inner.append(header, toolbar, viewHost);
         content.replaceChildren(inner);
+        renderCurrentView();
+
         document.title = `${file.title || "JSON"} — JSON Viewer`;
       }
 
       async function openFile(file) {
-        const currentRequest = ++requestNumber;
+        const thisRequest = ++requestNumber;
         selectedPath = file.path;
         renderList();
 
@@ -770,8 +1390,10 @@
         showMessage(content, "JSON ফাইল লোড হচ্ছে…");
 
         try {
-          const path = safePath(file.path);
-          const response = await fetch(`files/${path}`, { cache: "no-cache" });
+          const encodedPath = safePath(file.path);
+          const response = await fetch(`files/${encodedPath}`, {
+            cache: "no-cache"
+          });
 
           if (!response.ok) {
             throw new Error(`ফাইল লোড হয়নি (HTTP ${response.status})`);
@@ -787,11 +1409,11 @@
             throw new Error(`JSON parse error: ${detail}`);
           }
 
-          if (currentRequest !== requestNumber) return;
+          if (thisRequest !== requestNumber) return;
 
-          showFile(data, file, JSON.stringify(data, null, 2));
+          renderFile(data, file, JSON.stringify(data, null, 2));
         } catch (error) {
-          if (currentRequest !== requestNumber) return;
+          if (thisRequest !== requestNumber) return;
           showMessage(content, `ফাইল খোলা যায়নি: ${error.message || error}`, true);
         }
       }
@@ -799,11 +1421,13 @@
       async function loadCatalog() {
         try {
           const response = await fetch("catalog.json", { cache: "no-cache" });
+
           if (!response.ok) {
             throw new Error(`catalog.json লোড হয়নি (HTTP ${response.status})`);
           }
 
           const catalog = await response.json();
+
           if (!catalog || !Array.isArray(catalog.files)) {
             throw new Error("catalog.json-এর format সঠিক নয়।");
           }
@@ -815,8 +1439,8 @@
               file.path.toLowerCase().endsWith(".json")
             )
             .sort((a, b) =>
-              String(b.updated_at).localeCompare(String(a.updated_at)) ||
-              String(a.title).localeCompare(String(b.title), "bn")
+              String(b.updated_at || "").localeCompare(String(a.updated_at || "")) ||
+              String(a.title || "").localeCompare(String(b.title || ""), "bn")
             );
 
           renderList();
