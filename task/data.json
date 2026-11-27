@@ -15,9 +15,9 @@
                     "id": 1,
                     "parent_id": null,
                     "title": "Scope review",
-                    "completed": false,
-                    "completed_dhaka": null,
-                    "completed_utc": null,
+                    "completed": true,
+                    "completed_dhaka": "2026-11-27 18:46:50.200",
+                    "completed_utc": "2026-11-27 12:46:50.200",
                     "notes": []
                 },
                 {
@@ -48,9 +48,9 @@
                     "id": 4,
                     "parent_id": 2,
                     "title": "Permission policy লিখুন",
-                    "completed": false,
-                    "completed_dhaka": null,
-                    "completed_utc": null,
+                    "completed": true,
+                    "completed_dhaka": "2026-11-27 18:45:51.138",
+                    "completed_utc": "2026-11-27 12:45:51.138",
                     "notes": []
                 }
             ],
@@ -74,12 +74,22 @@
                     "dhaka": "2026-11-27 18:00:23.119",
                     "utc": "2026-11-27 12:00:23.119",
                     "action": "Added note to step 3: প্রথমে read-only scope যাচাই করতে হবে"
+                },
+                {
+                    "dhaka": "2026-11-27 18:45:51.138",
+                    "utc": "2026-11-27 12:45:51.138",
+                    "action": "Completed Step 4: Permission policy লিখুন"
+                },
+                {
+                    "dhaka": "2026-11-27 18:46:50.200",
+                    "utc": "2026-11-27 12:46:50.200",
+                    "action": "Completed Step 1: Scope review"
                 }
             ],
             "progress": {
-                "completed": 0,
-                "remaining": 4,
-                "percentage": 0
+                "completed": 2,
+                "remaining": 2,
+                "percentage": 50
             }
         },
         {
