@@ -1,0 +1,333 @@
+{
+  "schema": "mj-event/v1",
+  "id": "EVT-20261127-MJ-AI-P1",
+  "slug": "mj-ai-foundation-48h",
+  "title": "MJ-AI 48-hour Foundation & Architecture Event",
+  "event_type": "project-foundation",
+  "status": "planning",
+  "date": "2026-11-27",
+  "start_time": "2026-11-27T08:12:41+06:00",
+  "end_time": "2026-11-29T08:12:41+06:00",
+  "deadline_at": "2026-11-29T08:12:41+06:00",
+  "timezone": "Asia/Dhaka",
+  "venue": "MJ-AI repository / local workspace",
+  "owner": "MJ Ahmad",
+  "purpose": "MJ-AI-এর MVP scope, architecture, memory, agent, security, LLM fallback, folder structure এবং 48-hour handover documentation প্রস্তুত করা।",
+  "description": "এটি planning/documentation milestone। Source code, model download, package installation বা autonomous agent execution এই ইভেন্টে চালু হয় না।",
+  "scope": {
+    "in_scope": [
+      "architecture boundaries",
+      "MVP folder structure",
+      "agent responsibility",
+      "local-first model strategy",
+      "memory and storage strategy",
+      "tool and terminal permissions",
+      "secret handling",
+      "audit and backup decisions",
+      "Phase 1 implementation backlog"
+    ],
+    "out_of_scope": [
+      "production deployment",
+      "download or execution of AI models",
+      "autonomous external actions",
+      "destructive terminal operations",
+      "credential or personal secret creation",
+      "fully implemented UI/agent system"
+    ]
+  },
+  "agenda": [
+    {
+      "id": "AG-001",
+      "title": "MJ-AI vision, users ও MVP scope",
+      "start_time": "2026-11-27T08:12:41+06:00",
+      "duration_minutes": 45,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Local-first, private, modular এবং multi-agent ব্যবস্থার MVP সীমা ঠিক করা।"
+    },
+    {
+      "id": "AG-002",
+      "title": "UI/API/Core/AI layer map",
+      "start_time": "2026-11-27T11:12:41+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "UI থেকে model execution পর্যন্ত request ও response flow চিহ্নিত করা।"
+    },
+    {
+      "id": "AG-003",
+      "title": "Agent responsibility map",
+      "start_time": "2026-11-27T16:12:41+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Master এবং specialist agent-দের অনুমতি ও escalation rule সংজ্ঞায়িত করা।"
+    },
+    {
+      "id": "AG-004",
+      "title": "Memory & knowledge architecture",
+      "start_time": "2026-11-27T22:12:41+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "STM, LTM, vector, knowledge graph ও retention policy-এর boundary নির্ধারণ।"
+    },
+    {
+      "id": "AG-005",
+      "title": "Security & sandbox baseline",
+      "start_time": "2026-11-28T06:12:41+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "File, terminal, web ও database operations-এর permission policy লেখা।"
+    },
+    {
+      "id": "AG-006",
+      "title": "LLM and model strategy",
+      "start_time": "2026-11-28T12:12:41+06:00",
+      "duration_minutes": 75,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Qwen, Phi, Llama, Gemma-এর MVP selection ও fallback criteria লেখা।"
+    },
+    {
+      "id": "AG-007",
+      "title": "MVP folder tree review",
+      "start_time": "2026-11-28T18:12:41+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "প্রস্তাবিত folder tree-কে implementation-ready হালকা কাঠামোতে নেমে নিয়ে আলাদা করা।"
+    },
+    {
+      "id": "AG-008",
+      "title": "Tests, observability ও backup",
+      "start_time": "2026-11-29T00:12:41+06:00",
+      "duration_minutes": 75,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Unit, integration, security, audit এবং backup acceptance criteria লেখা।"
+    },
+    {
+      "id": "AG-009",
+      "title": "48-hour handover",
+      "start_time": "2026-11-29T06:12:41+06:00",
+      "duration_minutes": 60,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Decisions, unresolved items এবং Phase-02 implementation backlog নথিভুক্ত করা।"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "MJ-AI-এর উদ্দেশ্য ও MVP সীমারেখা",
+      "category": "product",
+      "required": true,
+      "status": "collected",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-002",
+      "title": "Local-first architecture boundary",
+      "category": "architecture",
+      "required": true,
+      "status": "collected",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-003",
+      "title": "UI, API, core ও AI layer-এর dependency map",
+      "category": "architecture",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-004",
+      "title": "Master agent ও specialist agent responsibilities",
+      "category": "agents",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-005",
+      "title": "Conversation, task, context ও session lifecycle",
+      "category": "core",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-006",
+      "title": "Short-term, long-term ও vector memory boundary",
+      "category": "memory",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-007",
+      "title": "SQLite, ChromaDB, FAISS ও backup strategy",
+      "category": "storage",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-008",
+      "title": "LLM model selection ও local/offline fallback",
+      "category": "ai",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-009",
+      "title": "Tool permission ও human approval policy",
+      "category": "security",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-010",
+      "title": "Terminal sandbox ও file operation policy",
+      "category": "security",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-011",
+      "title": "Authentication, encryption ও secret management",
+      "category": "security",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-012",
+      "title": "Audit log schema ও tamper-awareness",
+      "category": "governance",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-013",
+      "title": "MVP folder tree ও implementation acceptance criteria",
+      "category": "architecture",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-014",
+      "title": "Final 48-hour review ও handover record",
+      "category": "handover",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    }
+  ],
+  "files": [
+    {
+      "id": "FILE-18E62FC718",
+      "original_name": "01-event-brief.md",
+      "stored_path": "files/01-event-brief.md",
+      "extension": ".md",
+      "bytes": 1454,
+      "sha256": "aca0bc0fb5beb769c5700892e374807b7296657fb2ad58c1e94bd3f5a41139e4",
+      "requirement_id": "REQ-001",
+      "agenda_id": "",
+      "description": "MJ-AI-এর প্রথম 48-hour planning event brief",
+      "added_at": "2026-11-27T08:12:41+06:00"
+    },
+    {
+      "id": "FILE-F4668A6CB7",
+      "original_name": "02-folder-tree.md",
+      "stored_path": "files/02-folder-tree.md",
+      "extension": ".md",
+      "bytes": 1654,
+      "sha256": "c509154ad600f4ecffcd4b9fc296f32ee28720c5c4ec6ca2d1cd87cf43248a95",
+      "requirement_id": "REQ-013",
+      "agenda_id": "",
+      "description": "MJ-AI-এর MVP ও implementation-ready folder structure",
+      "added_at": "2026-11-27T08:12:41+06:00"
+    },
+    {
+      "id": "FILE-2183542E96",
+      "original_name": "03-layer-map.md",
+      "stored_path": "files/03-layer-map.md",
+      "extension": ".md",
+      "bytes": 1598,
+      "sha256": "b79dfc896e7a348ef1def69a75abeae61d813dac3c403318e77461125db0a08e",
+      "requirement_id": "REQ-003",
+      "agenda_id": "",
+      "description": "MJ-AI-এর UI/API/Core/Agent/LLM/Memory/Security layer dependency",
+      "added_at": "2026-11-27T08:12:41+06:00"
+    },
+    {
+      "id": "FILE-34681E20F3",
+      "original_name": "04-security-baseline.md",
+      "stored_path": "files/04-security-baseline.md",
+      "extension": ".md",
+      "bytes": 1683,
+      "sha256": "b6a06c5383c38c0d80064e8506101663260c65faee4e8f1cc29821feae05770f",
+      "requirement_id": "REQ-009",
+      "agenda_id": "",
+      "description": "MJ-AI-এর destructive action, permission ও sandbox guardrail",
+      "added_at": "2026-11-27T08:12:41+06:00"
+    },
+    {
+      "id": "FILE-CA1DB47EAC",
+      "original_name": "05-implementation-roadmap.md",
+      "stored_path": "files/05-implementation-roadmap.md",
+      "extension": ".md",
+      "bytes": 1330,
+      "sha256": "4578ffcd5e81b49d7683e059b6f1de4156969dbe463157f63e72e54a71ba4e27",
+      "requirement_id": "REQ-014",
+      "agenda_id": "",
+      "description": "48-hour event থেকে implementation পর্যন্ত roadmap",
+      "added_at": "2026-11-27T08:12:41+06:00"
+    },
+    {
+      "id": "FILE-4AF3ABE5B7",
+      "original_name": "06-acceptance-checklist.md",
+      "stored_path": "files/06-acceptance-checklist.md",
+      "extension": ".md",
+      "bytes": 1112,
+      "sha256": "e908269c9da66aaf695d52284a678b7a2b65f086aed8ceecc1aa2e10ff49092f",
+      "requirement_id": "REQ-014",
+      "agenda_id": "",
+      "description": "MJ-AI 48-hour architecture ও security acceptance checklist",
+      "added_at": "2026-11-27T08:12:41+06:00"
+    }
+  ],
+  "notes": [
+    {
+      "id": "NOTE-MJAI-001",
+      "text": "এই ইভেন্ট implementation শুরু করা বা LLM model চালু হওয়ার নিশ্চয়তা দেয় না। Readiness percentage শুধু verified checklist requirement-এর অবস্থা দেখায়।",
+      "created_at": "2026-11-27T08:12:41+06:00",
+      "actor": "local-user"
+    }
+  ],
+  "created_at": "2026-11-27T08:12:41+06:00",
+  "updated_at": "2026-11-27T08:12:41+06:00"
+}

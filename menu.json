@@ -109,14 +109,6 @@
       "children": [
         {
           "title": {
-            "en": "Sample",
-            "bn": "নমুনা",
-            "ar": "نموذج"
-          },
-          "href": "data/sample.html"
-        },
-        {
-          "title": {
             "en": "docs"
           },
           "href": "data/docs/"
@@ -124,15 +116,15 @@
       ]
     },
     {
-      "title": "clients",
+      "title": "events",
       "children": [
         {
           "title": {
-            "en": "Sample",
+            "en": "Events",
             "bn": "নমুনা",
             "ar": "نموذج"
           },
-          "href": "clients/sample.html"
+          "href": "events/"
         }
       ]
     },

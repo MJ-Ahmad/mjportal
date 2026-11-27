@@ -1,0 +1,276 @@
+{
+  "schema": "mj-event/v1",
+  "id": "EVT-20261127-UQNS-P1",
+  "slug": "uqns-phase-01-foundation",
+  "title": "UQNS Phase 01 — Foundation ও প্রাথমিক কাঠামো চূড়ান্তকরণ",
+  "event_type": "project-milestone",
+  "status": "planning",
+  "date": "2026-11-27",
+  "start_time": "2026-11-27T07:53:59+06:00",
+  "end_time": "2026-11-29T07:53:59+06:00",
+  "deadline_at": "2026-11-29T07:53:59+06:00",
+  "timezone": "Asia/Dhaka",
+  "venue": "UQNS repository / local workspace",
+  "owner": "MJ Ahmad",
+  "purpose": "প্রদত্ত UQNS README অনুযায়ী Qur'an Navigation Platform ও Quran Memorize Ecosystem-এর প্রাথমিক scope এবং Foundation folder tree 48 ঘণ্টার মধ্যে review, document ও finalize করা।",
+  "description": "এই ইভেন্টটি planning/documentation milestone। Project implementation বা Qur'anic content validation সম্পন্ন হয়েছে—এমন দাবি করে না।",
+  "scope": {
+    "in_scope": [
+      "README requirements review",
+      "দুইটি প্রাথমিক অংশের scope boundary",
+      "Foundation directory tree draft ও review",
+      "Naming convention ও architecture decision documentation",
+      "Final tree review evidence ও handover"
+    ],
+    "out_of_scope": [
+      "পূর্ণ Quran content/translation/tafsir/audio সংগ্রহ",
+      "Production application implementation",
+      "শিক্ষার্থী/ক্লায়েন্টের ব্যক্তিগত তথ্য repository-তে যোগ",
+      "বাহ্যিক license বা religious content accuracy-এর স্বয়ংক্রিয় নিশ্চয়তা"
+    ]
+  },
+  "agenda": [
+    {
+      "id": "AG-001",
+      "title": "README ও scope গ্রহণযোগ্যতা যাচাই",
+      "start_time": "2026-11-27T07:53:59+06:00",
+      "duration_minutes": 60,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "UQNS উদ্দেশ্য, দুইটি প্রাথমিক অংশ ও README-র Phase-01 scope আলাদা করে চিহ্নিত করা।"
+    },
+    {
+      "id": "AG-002",
+      "title": "Qur'an Navigation Platform-এর boundary নির্ধারণ",
+      "start_time": "2026-11-27T10:53:59+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Navigation Platform-এর প্রাথমিক scope, input, output ও পরবর্তী ধাপ লিখে রাখা।"
+    },
+    {
+      "id": "AG-003",
+      "title": "Quran Memorize Ecosystem-এর boundary নির্ধারণ",
+      "start_time": "2026-11-27T14:53:59+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Student, Teacher, Supervisor ও Principal অংশের প্রাথমিক boundary ও dependency লিখে রাখা।"
+    },
+    {
+      "id": "AG-004",
+      "title": "Foundation folder tree draft",
+      "start_time": "2026-11-27T21:53:59+06:00",
+      "duration_minutes": 120,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "README-তে থাকা foundation ও layer-গুলো মিলিয়ে draft tree এবং naming convention তৈরি করা।"
+    },
+    {
+      "id": "AG-005",
+      "title": "ফাইল, data, localization ও content-এর dependency review",
+      "start_time": "2026-11-28T05:53:59+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "JSON schema, content source, language expansion, assets এবং documentation-এর dependency তালিকাভুক্ত করা।"
+    },
+    {
+      "id": "AG-006",
+      "title": "Tree ও দুই অংশের scope review",
+      "start_time": "2026-11-28T15:53:59+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "অসম্পূর্ণ, duplicate বা scope-এর বাইরে থাকা directory চিহ্নিত করে সংশোধন করা।"
+    },
+    {
+      "id": "AG-007",
+      "title": "চূড়ান্ত structure ও সিদ্ধান্ত নথিভুক্ত",
+      "start_time": "2026-11-29T01:53:59+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Approved tree, সিদ্ধান্ত, unresolved item এবং পরবর্তী কাজ README/decision note-এ সংরক্ষণ করা।"
+    },
+    {
+      "id": "AG-008",
+      "title": "48-hour handover ও evidence check",
+      "start_time": "2026-11-29T06:53:59+06:00",
+      "duration_minutes": 45,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Deliverable, checklist evidence ও audit trail পরীক্ষা করে event status হালনাগাদ করা।"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "পূর্ণ UQNS README ও বর্তমান vision",
+      "category": "source",
+      "required": true,
+      "status": "collected",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-002",
+      "title": "Qur'an Navigation Platform-এর feature ও boundary",
+      "category": "scope",
+      "required": true,
+      "status": "collected",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-003",
+      "title": "Quran Memorize Ecosystem-এর component ও boundary",
+      "category": "scope",
+      "required": true,
+      "status": "collected",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-004",
+      "title": "Phase-01 root folder tree-এর অনুমোদিত তালিকা",
+      "category": "architecture",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-005",
+      "title": "দুই প্রাথমিক অংশের directory mapping",
+      "category": "architecture",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-006",
+      "title": "Folder ও filename naming convention",
+      "category": "standards",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-007",
+      "title": "Content/data format, source ও provenance-এর সিদ্ধান্ত",
+      "category": "data-governance",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-008",
+      "title": "Arabic, English ও Bangla localization-এর প্রাথমিক কাঠামো",
+      "category": "localization",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-009",
+      "title": "Brand assets ও license/source-এর যাচাই তালিকা",
+      "category": "assets",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-010",
+      "title": "Structure tree review ও final approval record",
+      "category": "approval",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-011",
+      "title": "README/decision note-এ final tree ও unresolved item",
+      "category": "documentation",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-012",
+      "title": "Backup/version-control-এ final deliverable সংরক্ষণের প্রমাণ",
+      "category": "handover",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    }
+  ],
+  "files": [
+    {
+      "id": "FILE-53A810DC30",
+      "original_name": "01-event-brief.md",
+      "stored_path": "files/01-event-brief.md",
+      "extension": ".md",
+      "bytes": 2917,
+      "sha256": "c45b60cce936b695e7d7fc1c260a8481afa02c03f9056a65f7315a9951c9e15e",
+      "requirement_id": "REQ-004",
+      "agenda_id": "",
+      "description": "প্রথম ইভেন্টের উদ্দেশ্য, সময়সীমা, scope ও acceptance criteria",
+      "added_at": "2026-11-27T07:53:59+06:00"
+    },
+    {
+      "id": "FILE-D7F8E13154",
+      "original_name": "02-quran-navigation-platform-scope.md",
+      "stored_path": "files/02-quran-navigation-platform-scope.md",
+      "extension": ".md",
+      "bytes": 1683,
+      "sha256": "56bb73d7e7899f656f1c7812efce770d4e1a73fbbc2c5a2b916797e6bfee4768",
+      "requirement_id": "REQ-002",
+      "agenda_id": "",
+      "description": "Qur'an Navigation Platform-এর প্রাথমিক feature ও scope note",
+      "added_at": "2026-11-27T07:53:59+06:00"
+    },
+    {
+      "id": "FILE-E960FED426",
+      "original_name": "03-quran-memorize-ecosystem-scope.md",
+      "stored_path": "files/03-quran-memorize-ecosystem-scope.md",
+      "extension": ".md",
+      "bytes": 1817,
+      "sha256": "f340b8651973208875cce4fa657ef67b6cab4a3f4468946bb30f7c0b3b567333",
+      "requirement_id": "REQ-003",
+      "agenda_id": "",
+      "description": "Quran Memorize Ecosystem-এর component ও প্রাথমিক mapping",
+      "added_at": "2026-11-27T07:53:59+06:00"
+    },
+    {
+      "id": "FILE-C2FF55ADCE",
+      "original_name": "04-folder-tree-acceptance-checklist.md",
+      "stored_path": "files/04-folder-tree-acceptance-checklist.md",
+      "extension": ".md",
+      "bytes": 2205,
+      "sha256": "a2250ead1a7673101af7f8ec3ecbb6806dca007f3e7c17efd31c4cbcaa7e7a27",
+      "requirement_id": "REQ-004",
+      "agenda_id": "",
+      "description": "Final folder tree review-এর checklist",
+      "added_at": "2026-11-27T07:53:59+06:00"
+    }
+  ],
+  "notes": [
+    {
+      "id": "NOTE-UQNS-001",
+      "text": "প্রস্তুতির percentage আবশ্যক checklist item-এর verified status থেকে হিসাব হবে; এটি 100% বাস্তব নিশ্চয়তার দাবি নয়।",
+      "created_at": "2026-11-27T07:53:59+06:00",
+      "actor": "local-user"
+    }
+  ],
+  "created_at": "2026-11-27T07:53:59+06:00",
+  "updated_at": "2026-11-27T07:53:59+06:00"
+}

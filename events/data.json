@@ -1,0 +1,1018 @@
+{
+  "schema": "mj-events-index/v1",
+  "generated_at": "2026-11-27T08:17:36+06:00",
+  "events": [
+    {
+      "schema": "mj-event/v1",
+      "id": "EVT-20261127-CYBER-DEFENSE-P1",
+      "slug": "cyber-defense-training-lab",
+      "title": "Cyber Defense Training Lab — 48 Hour Event",
+      "event_type": "cybersecurity-training",
+      "status": "planning",
+      "date": "2026-11-27",
+      "start_time": "2026-11-27T08:17:09+06:00",
+      "end_time": "2026-11-29T08:17:09+06:00",
+      "deadline_at": "2026-11-29T08:17:09+06:00",
+      "timezone": "Asia/Dhaka",
+      "venue": "Isolated local training lab",
+      "owner": "MJ Ahmad",
+      "purpose": "Authorized, isolated এবং educational cyber-defense lab planning through threat modeling, detection, incident response, evidence handling and recovery.",
+      "description": "এই event offensive security test নয়। এটি defensive education, authorized tabletop exercise এবং safe lab preparation-এর জন্য।",
+      "scope": {
+        "in_scope": [
+          "authorized lab inventory",
+          "threat modeling",
+          "detection planning",
+          "incident response tabletop",
+          "backup and recovery test",
+          "evidence handling",
+          "audit logging",
+          "residual risk review"
+        ],
+        "out_of_scope": [
+          "unauthorized scanning",
+          "public exploitation",
+          "real credential harvesting",
+          "malware distribution",
+          "denial-of-service",
+          "real user data collection",
+          "production deployment",
+          "offensive cyber-attack operation"
+        ]
+      },
+      "agenda": [
+        {
+          "id": "AG-001",
+          "title": "Scope ও authorization review",
+          "start_time": "2026-11-27T08:17:09+06:00",
+          "duration_minutes": 60,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Laboratory-এর owner, অনুমোদিত system ও out-of-scope target লিখে নিন।"
+        },
+        {
+          "id": "AG-002",
+          "title": "Asset inventory ও trust boundary",
+          "start_time": "2026-11-27T11:17:09+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Host, network, account, service, dataset এবং trust boundary নথিভুক্ত করুন।"
+        },
+        {
+          "id": "AG-003",
+          "title": "Threat modeling",
+          "start_time": "2026-11-27T15:17:09+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "STRIDE বা অন্য approved method দিয়ে threat ও abuse scenario তৈরি করুন।"
+        },
+        {
+          "id": "AG-004",
+          "title": "Logging ও detection baseline",
+          "start_time": "2026-11-27T20:17:09+06:00",
+          "duration_minutes": 120,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Authentication, endpoint, DNS, network এবং application telemetry map করুন।"
+        },
+        {
+          "id": "AG-005",
+          "title": "Detection rules ও validation",
+          "start_time": "2026-11-28T04:17:09+06:00",
+          "duration_minutes": 120,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Benign lab scenario দিয়ে rule এবং false-positive behavior test করুন।"
+        },
+        {
+          "id": "AG-006",
+          "title": "Incident response tabletop",
+          "start_time": "2026-11-28T11:17:09+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Role, escalation, containment এবং communication exercise পরিচালনা করুন।"
+        },
+        {
+          "id": "AG-007",
+          "title": "Backup ও recovery exercise",
+          "start_time": "2026-11-28T18:17:09+06:00",
+          "duration_minutes": 120,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Snapshot বা backup থেকে isolated restore test করুন।"
+        },
+        {
+          "id": "AG-008",
+          "title": "Evidence handling ও audit review",
+          "start_time": "2026-11-29T00:17:09+06:00",
+          "duration_minutes": 75,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Hash, timestamp, chain of custody এবং audit trail পরীক্ষা করুন।"
+        },
+        {
+          "id": "AG-009",
+          "title": "Final lesson report ও handover",
+          "start_time": "2026-11-29T06:17:09+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Lesson learned, unresolved risk, rollback এবং পরবর্তী drill নির্ধারণ করুন।"
+        }
+      ],
+      "requirements": [
+        {
+          "id": "REQ-001",
+          "title": "ইভেন্টের শিক্ষাগত উদ্দেশ্য ও সীমারেখা",
+          "category": "scope",
+          "required": true,
+          "status": "collected",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-002",
+          "title": "Authorized lab/environment owner ও অনুমতি",
+          "category": "authorization",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-003",
+          "title": "Network, host ও dataset inventory",
+          "category": "scope",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-004",
+          "title": "Threat model ও abuse-case list",
+          "category": "risk",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-005",
+          "title": "Detection rule ও baseline",
+          "category": "detection",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-006",
+          "title": "Alert validation ও false-positive handling",
+          "category": "detection",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-007",
+          "title": "Incident severity ও escalation policy",
+          "category": "incident-response",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-008",
+          "title": "Containment, eradication ও recovery plan",
+          "category": "incident-response",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-009",
+          "title": "Evidence preservation ও chain-of-custody",
+          "category": "forensics",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-010",
+          "title": "Backup, snapshot ও restore test",
+          "category": "resilience",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-011",
+          "title": "Central logging ও audit retention",
+          "category": "monitoring",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-012",
+          "title": "Secrets, PII ও sensitive log handling",
+          "category": "privacy",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-013",
+          "title": "Safety drill ও rollback mechanism",
+          "category": "testing",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-014",
+          "title": "Tabletop/lab exercise report",
+          "category": "training",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-015",
+          "title": "Final review, acceptance ও handover",
+          "category": "handover",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        }
+      ],
+      "files": [
+        {
+          "id": "FILE-9259B2DC05",
+          "original_name": "01-event-brief.md",
+          "stored_path": "files/01-event-brief.md",
+          "extension": ".md",
+          "bytes": 1406,
+          "sha256": "9850334c09af5095a5624bad03ef5dcca1c089912b130c49afd47c4fb38dda1f",
+          "requirement_id": "REQ-001",
+          "agenda_id": "",
+          "description": "Cyber defense training event-এর উদ্দেশ্য ও সীমারেখা",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/01-event-brief.md"
+        },
+        {
+          "id": "FILE-0441F8E9E3",
+          "original_name": "02-lab-boundaries.md",
+          "stored_path": "files/02-lab-boundaries.md",
+          "extension": ".md",
+          "bytes": 949,
+          "sha256": "6ebbd34e88e3286e7d5310c96071c92cccbcee79eded0fbfe36d569ed25fabc5",
+          "requirement_id": "REQ-002",
+          "agenda_id": "",
+          "description": "Authorized lab, safe boundary ও stop conditions",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/02-lab-boundaries.md"
+        },
+        {
+          "id": "FILE-D6DC59F0E2",
+          "original_name": "03-threat-model.md",
+          "stored_path": "files/03-threat-model.md",
+          "extension": ".md",
+          "bytes": 965,
+          "sha256": "1564bac638668d185de848e80b2ac1ff55ed8962bcb7b0648ac6ff550e0d3090",
+          "requirement_id": "REQ-004",
+          "agenda_id": "",
+          "description": "Threat model ও defensive scenario inventory",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/03-threat-model.md"
+        },
+        {
+          "id": "FILE-F24D8FFA2A",
+          "original_name": "04-detection-plan.md",
+          "stored_path": "files/04-detection-plan.md",
+          "extension": ".md",
+          "bytes": 801,
+          "sha256": "551d350125bd2d82a6359d77d195000543c15b81428ead57db3244a32d2f4c9a",
+          "requirement_id": "REQ-005",
+          "agenda_id": "",
+          "description": "Logging source, detection rule ও validation plan",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/04-detection-plan.md"
+        },
+        {
+          "id": "FILE-A29FCDA08C",
+          "original_name": "05-incident-response.md",
+          "stored_path": "files/05-incident-response.md",
+          "extension": ".md",
+          "bytes": 810,
+          "sha256": "5e42bf6dc41fd0914c1141e23ff9448b349685ccf15f297c18e1bb3cc1729bd7",
+          "requirement_id": "REQ-007",
+          "agenda_id": "",
+          "description": "Incident severity, containment ও escalation procedure",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/05-incident-response.md"
+        },
+        {
+          "id": "FILE-E7268DEAD9",
+          "original_name": "06-recovery-backup.md",
+          "stored_path": "files/06-recovery-backup.md",
+          "extension": ".md",
+          "bytes": 647,
+          "sha256": "57ef4ff5e89a4f699ff2d08e6ca2b40b84ecd186c47cafa249578ca079947313",
+          "requirement_id": "REQ-010",
+          "agenda_id": "",
+          "description": "Backup, restore ও recovery acceptance test",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/06-recovery-backup.md"
+        },
+        {
+          "id": "FILE-75424D8DA2",
+          "original_name": "07-logging-audit.md",
+          "stored_path": "files/07-logging-audit.md",
+          "extension": ".md",
+          "bytes": 659,
+          "sha256": "442f72686e5cce46c407f797de4ed44b62e422ed4adad52fd16adbb9637efc2e",
+          "requirement_id": "REQ-011",
+          "agenda_id": "",
+          "description": "Audit schema, evidence handling ও chain-of-custody",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/07-logging-audit.md"
+        },
+        {
+          "id": "FILE-9541223A6F",
+          "original_name": "08-acceptance-checklist.md",
+          "stored_path": "files/08-acceptance-checklist.md",
+          "extension": ".md",
+          "bytes": 1018,
+          "sha256": "e4f962b9c6a6cd031d6e56896016fff28110cb7d02d2aa90dddf2108c5a9b56e",
+          "requirement_id": "REQ-015",
+          "agenda_id": "",
+          "description": "Cyber defense 48-hour event-এর final acceptance criteria",
+          "added_at": "2026-11-27T08:17:09+06:00",
+          "url": "cyber-defense-training-lab/files/08-acceptance-checklist.md"
+        }
+      ],
+      "notes": [
+        {
+          "id": "NOTE-CYBER-001",
+          "text": "এই ইভেন্ট defensive training-এর প্রস্তুতি নথিভুক্ত করে। কোনও system attack বা incident test চালানোর আগে explicit authorization এবং isolated environment নিশ্চিত করতে হবে।",
+          "created_at": "2026-11-27T08:17:09+06:00",
+          "actor": "local-user"
+        }
+      ],
+      "created_at": "2026-11-27T08:17:09+06:00",
+      "updated_at": "2026-11-27T08:17:09+06:00",
+      "readiness": {
+        "percent": 0,
+        "verified_required": 0,
+        "required_total": 15,
+        "label": "আবশ্যক নথি verified হওয়ার অগ্রগতি"
+      }
+    },
+    {
+      "schema": "mj-event/v1",
+      "id": "EVT-20261127-MJ-AI-P1",
+      "slug": "mj-ai-foundation-48h",
+      "title": "MJ-AI 48-hour Foundation & Architecture Event",
+      "event_type": "project-foundation",
+      "status": "planning",
+      "date": "2026-11-27",
+      "start_time": "2026-11-27T08:12:41+06:00",
+      "end_time": "2026-11-29T08:12:41+06:00",
+      "deadline_at": "2026-11-29T08:12:41+06:00",
+      "timezone": "Asia/Dhaka",
+      "venue": "MJ-AI repository / local workspace",
+      "owner": "MJ Ahmad",
+      "purpose": "MJ-AI-এর MVP scope, architecture, memory, agent, security, LLM fallback, folder structure এবং 48-hour handover documentation প্রস্তুত করা।",
+      "description": "এটি planning/documentation milestone। Source code, model download, package installation বা autonomous agent execution এই ইভেন্টে চালু হয় না।",
+      "scope": {
+        "in_scope": [
+          "architecture boundaries",
+          "MVP folder structure",
+          "agent responsibility",
+          "local-first model strategy",
+          "memory and storage strategy",
+          "tool and terminal permissions",
+          "secret handling",
+          "audit and backup decisions",
+          "Phase 1 implementation backlog"
+        ],
+        "out_of_scope": [
+          "production deployment",
+          "download or execution of AI models",
+          "autonomous external actions",
+          "destructive terminal operations",
+          "credential or personal secret creation",
+          "fully implemented UI/agent system"
+        ]
+      },
+      "agenda": [
+        {
+          "id": "AG-001",
+          "title": "MJ-AI vision, users ও MVP scope",
+          "start_time": "2026-11-27T08:12:41+06:00",
+          "duration_minutes": 45,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Local-first, private, modular এবং multi-agent ব্যবস্থার MVP সীমা ঠিক করা।"
+        },
+        {
+          "id": "AG-002",
+          "title": "UI/API/Core/AI layer map",
+          "start_time": "2026-11-27T11:12:41+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "UI থেকে model execution পর্যন্ত request ও response flow চিহ্নিত করা।"
+        },
+        {
+          "id": "AG-003",
+          "title": "Agent responsibility map",
+          "start_time": "2026-11-27T16:12:41+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Master এবং specialist agent-দের অনুমতি ও escalation rule সংজ্ঞায়িত করা।"
+        },
+        {
+          "id": "AG-004",
+          "title": "Memory & knowledge architecture",
+          "start_time": "2026-11-27T22:12:41+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "STM, LTM, vector, knowledge graph ও retention policy-এর boundary নির্ধারণ।"
+        },
+        {
+          "id": "AG-005",
+          "title": "Security & sandbox baseline",
+          "start_time": "2026-11-28T06:12:41+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "File, terminal, web ও database operations-এর permission policy লেখা।"
+        },
+        {
+          "id": "AG-006",
+          "title": "LLM and model strategy",
+          "start_time": "2026-11-28T12:12:41+06:00",
+          "duration_minutes": 75,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Qwen, Phi, Llama, Gemma-এর MVP selection ও fallback criteria লেখা।"
+        },
+        {
+          "id": "AG-007",
+          "title": "MVP folder tree review",
+          "start_time": "2026-11-28T18:12:41+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "প্রস্তাবিত folder tree-কে implementation-ready হালকা কাঠামোতে নেমে নিয়ে আলাদা করা।"
+        },
+        {
+          "id": "AG-008",
+          "title": "Tests, observability ও backup",
+          "start_time": "2026-11-29T00:12:41+06:00",
+          "duration_minutes": 75,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Unit, integration, security, audit এবং backup acceptance criteria লেখা।"
+        },
+        {
+          "id": "AG-009",
+          "title": "48-hour handover",
+          "start_time": "2026-11-29T06:12:41+06:00",
+          "duration_minutes": 60,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Decisions, unresolved items এবং Phase-02 implementation backlog নথিভুক্ত করা।"
+        }
+      ],
+      "requirements": [
+        {
+          "id": "REQ-001",
+          "title": "MJ-AI-এর উদ্দেশ্য ও MVP সীমারেখা",
+          "category": "product",
+          "required": true,
+          "status": "collected",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-002",
+          "title": "Local-first architecture boundary",
+          "category": "architecture",
+          "required": true,
+          "status": "collected",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-003",
+          "title": "UI, API, core ও AI layer-এর dependency map",
+          "category": "architecture",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-004",
+          "title": "Master agent ও specialist agent responsibilities",
+          "category": "agents",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-005",
+          "title": "Conversation, task, context ও session lifecycle",
+          "category": "core",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-006",
+          "title": "Short-term, long-term ও vector memory boundary",
+          "category": "memory",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-007",
+          "title": "SQLite, ChromaDB, FAISS ও backup strategy",
+          "category": "storage",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-008",
+          "title": "LLM model selection ও local/offline fallback",
+          "category": "ai",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-009",
+          "title": "Tool permission ও human approval policy",
+          "category": "security",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-010",
+          "title": "Terminal sandbox ও file operation policy",
+          "category": "security",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-011",
+          "title": "Authentication, encryption ও secret management",
+          "category": "security",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-012",
+          "title": "Audit log schema ও tamper-awareness",
+          "category": "governance",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-013",
+          "title": "MVP folder tree ও implementation acceptance criteria",
+          "category": "architecture",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-014",
+          "title": "Final 48-hour review ও handover record",
+          "category": "handover",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        }
+      ],
+      "files": [
+        {
+          "id": "FILE-18E62FC718",
+          "original_name": "01-event-brief.md",
+          "stored_path": "files/01-event-brief.md",
+          "extension": ".md",
+          "bytes": 1454,
+          "sha256": "aca0bc0fb5beb769c5700892e374807b7296657fb2ad58c1e94bd3f5a41139e4",
+          "requirement_id": "REQ-001",
+          "agenda_id": "",
+          "description": "MJ-AI-এর প্রথম 48-hour planning event brief",
+          "added_at": "2026-11-27T08:12:41+06:00",
+          "url": "mj-ai-foundation-48h/files/01-event-brief.md"
+        },
+        {
+          "id": "FILE-F4668A6CB7",
+          "original_name": "02-folder-tree.md",
+          "stored_path": "files/02-folder-tree.md",
+          "extension": ".md",
+          "bytes": 1654,
+          "sha256": "c509154ad600f4ecffcd4b9fc296f32ee28720c5c4ec6ca2d1cd87cf43248a95",
+          "requirement_id": "REQ-013",
+          "agenda_id": "",
+          "description": "MJ-AI-এর MVP ও implementation-ready folder structure",
+          "added_at": "2026-11-27T08:12:41+06:00",
+          "url": "mj-ai-foundation-48h/files/02-folder-tree.md"
+        },
+        {
+          "id": "FILE-2183542E96",
+          "original_name": "03-layer-map.md",
+          "stored_path": "files/03-layer-map.md",
+          "extension": ".md",
+          "bytes": 1598,
+          "sha256": "b79dfc896e7a348ef1def69a75abeae61d813dac3c403318e77461125db0a08e",
+          "requirement_id": "REQ-003",
+          "agenda_id": "",
+          "description": "MJ-AI-এর UI/API/Core/Agent/LLM/Memory/Security layer dependency",
+          "added_at": "2026-11-27T08:12:41+06:00",
+          "url": "mj-ai-foundation-48h/files/03-layer-map.md"
+        },
+        {
+          "id": "FILE-34681E20F3",
+          "original_name": "04-security-baseline.md",
+          "stored_path": "files/04-security-baseline.md",
+          "extension": ".md",
+          "bytes": 1683,
+          "sha256": "b6a06c5383c38c0d80064e8506101663260c65faee4e8f1cc29821feae05770f",
+          "requirement_id": "REQ-009",
+          "agenda_id": "",
+          "description": "MJ-AI-এর destructive action, permission ও sandbox guardrail",
+          "added_at": "2026-11-27T08:12:41+06:00",
+          "url": "mj-ai-foundation-48h/files/04-security-baseline.md"
+        },
+        {
+          "id": "FILE-CA1DB47EAC",
+          "original_name": "05-implementation-roadmap.md",
+          "stored_path": "files/05-implementation-roadmap.md",
+          "extension": ".md",
+          "bytes": 1330,
+          "sha256": "4578ffcd5e81b49d7683e059b6f1de4156969dbe463157f63e72e54a71ba4e27",
+          "requirement_id": "REQ-014",
+          "agenda_id": "",
+          "description": "48-hour event থেকে implementation পর্যন্ত roadmap",
+          "added_at": "2026-11-27T08:12:41+06:00",
+          "url": "mj-ai-foundation-48h/files/05-implementation-roadmap.md"
+        },
+        {
+          "id": "FILE-4AF3ABE5B7",
+          "original_name": "06-acceptance-checklist.md",
+          "stored_path": "files/06-acceptance-checklist.md",
+          "extension": ".md",
+          "bytes": 1112,
+          "sha256": "e908269c9da66aaf695d52284a678b7a2b65f086aed8ceecc1aa2e10ff49092f",
+          "requirement_id": "REQ-014",
+          "agenda_id": "",
+          "description": "MJ-AI 48-hour architecture ও security acceptance checklist",
+          "added_at": "2026-11-27T08:12:41+06:00",
+          "url": "mj-ai-foundation-48h/files/06-acceptance-checklist.md"
+        }
+      ],
+      "notes": [
+        {
+          "id": "NOTE-MJAI-001",
+          "text": "এই ইভেন্ট implementation শুরু করা বা LLM model চালু হওয়ার নিশ্চয়তা দেয় না। Readiness percentage শুধু verified checklist requirement-এর অবস্থা দেখায়।",
+          "created_at": "2026-11-27T08:12:41+06:00",
+          "actor": "local-user"
+        }
+      ],
+      "created_at": "2026-11-27T08:12:41+06:00",
+      "updated_at": "2026-11-27T08:12:41+06:00",
+      "readiness": {
+        "percent": 0,
+        "verified_required": 0,
+        "required_total": 14,
+        "label": "আবশ্যক নথি verified হওয়ার অগ্রগতি"
+      }
+    },
+    {
+      "schema": "mj-event/v1",
+      "id": "EVT-20261127-UQNS-P1",
+      "slug": "uqns-phase-01-foundation",
+      "title": "UQNS Phase 01 — Foundation ও প্রাথমিক কাঠামো চূড়ান্তকরণ",
+      "event_type": "project-milestone",
+      "status": "planning",
+      "date": "2026-11-27",
+      "start_time": "2026-11-27T07:53:59+06:00",
+      "end_time": "2026-11-29T07:53:59+06:00",
+      "deadline_at": "2026-11-29T07:53:59+06:00",
+      "timezone": "Asia/Dhaka",
+      "venue": "UQNS repository / local workspace",
+      "owner": "MJ Ahmad",
+      "purpose": "প্রদত্ত UQNS README অনুযায়ী Qur'an Navigation Platform ও Quran Memorize Ecosystem-এর প্রাথমিক scope এবং Foundation folder tree 48 ঘণ্টার মধ্যে review, document ও finalize করা।",
+      "description": "এই ইভেন্টটি planning/documentation milestone। Project implementation বা Qur'anic content validation সম্পন্ন হয়েছে—এমন দাবি করে না।",
+      "scope": {
+        "in_scope": [
+          "README requirements review",
+          "দুইটি প্রাথমিক অংশের scope boundary",
+          "Foundation directory tree draft ও review",
+          "Naming convention ও architecture decision documentation",
+          "Final tree review evidence ও handover"
+        ],
+        "out_of_scope": [
+          "পূর্ণ Quran content/translation/tafsir/audio সংগ্রহ",
+          "Production application implementation",
+          "শিক্ষার্থী/ক্লায়েন্টের ব্যক্তিগত তথ্য repository-তে যোগ",
+          "বাহ্যিক license বা religious content accuracy-এর স্বয়ংক্রিয় নিশ্চয়তা"
+        ]
+      },
+      "agenda": [
+        {
+          "id": "AG-001",
+          "title": "README ও scope গ্রহণযোগ্যতা যাচাই",
+          "start_time": "2026-11-27T07:53:59+06:00",
+          "duration_minutes": 60,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "UQNS উদ্দেশ্য, দুইটি প্রাথমিক অংশ ও README-র Phase-01 scope আলাদা করে চিহ্নিত করা।"
+        },
+        {
+          "id": "AG-002",
+          "title": "Qur'an Navigation Platform-এর boundary নির্ধারণ",
+          "start_time": "2026-11-27T10:53:59+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Navigation Platform-এর প্রাথমিক scope, input, output ও পরবর্তী ধাপ লিখে রাখা।"
+        },
+        {
+          "id": "AG-003",
+          "title": "Quran Memorize Ecosystem-এর boundary নির্ধারণ",
+          "start_time": "2026-11-27T14:53:59+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Student, Teacher, Supervisor ও Principal অংশের প্রাথমিক boundary ও dependency লিখে রাখা।"
+        },
+        {
+          "id": "AG-004",
+          "title": "Foundation folder tree draft",
+          "start_time": "2026-11-27T21:53:59+06:00",
+          "duration_minutes": 120,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "README-তে থাকা foundation ও layer-গুলো মিলিয়ে draft tree এবং naming convention তৈরি করা।"
+        },
+        {
+          "id": "AG-005",
+          "title": "ফাইল, data, localization ও content-এর dependency review",
+          "start_time": "2026-11-28T05:53:59+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "JSON schema, content source, language expansion, assets এবং documentation-এর dependency তালিকাভুক্ত করা।"
+        },
+        {
+          "id": "AG-006",
+          "title": "Tree ও দুই অংশের scope review",
+          "start_time": "2026-11-28T15:53:59+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "অসম্পূর্ণ, duplicate বা scope-এর বাইরে থাকা directory চিহ্নিত করে সংশোধন করা।"
+        },
+        {
+          "id": "AG-007",
+          "title": "চূড়ান্ত structure ও সিদ্ধান্ত নথিভুক্ত",
+          "start_time": "2026-11-29T01:53:59+06:00",
+          "duration_minutes": 90,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Approved tree, সিদ্ধান্ত, unresolved item এবং পরবর্তী কাজ README/decision note-এ সংরক্ষণ করা।"
+        },
+        {
+          "id": "AG-008",
+          "title": "48-hour handover ও evidence check",
+          "start_time": "2026-11-29T06:53:59+06:00",
+          "duration_minutes": 45,
+          "owner": "MJ Ahmad",
+          "status": "planned",
+          "notes": "Deliverable, checklist evidence ও audit trail পরীক্ষা করে event status হালনাগাদ করা।"
+        }
+      ],
+      "requirements": [
+        {
+          "id": "REQ-001",
+          "title": "পূর্ণ UQNS README ও বর্তমান vision",
+          "category": "source",
+          "required": true,
+          "status": "collected",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-002",
+          "title": "Qur'an Navigation Platform-এর feature ও boundary",
+          "category": "scope",
+          "required": true,
+          "status": "collected",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-003",
+          "title": "Quran Memorize Ecosystem-এর component ও boundary",
+          "category": "scope",
+          "required": true,
+          "status": "collected",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-004",
+          "title": "Phase-01 root folder tree-এর অনুমোদিত তালিকা",
+          "category": "architecture",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-005",
+          "title": "দুই প্রাথমিক অংশের directory mapping",
+          "category": "architecture",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-006",
+          "title": "Folder ও filename naming convention",
+          "category": "standards",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-007",
+          "title": "Content/data format, source ও provenance-এর সিদ্ধান্ত",
+          "category": "data-governance",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-008",
+          "title": "Arabic, English ও Bangla localization-এর প্রাথমিক কাঠামো",
+          "category": "localization",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-009",
+          "title": "Brand assets ও license/source-এর যাচাই তালিকা",
+          "category": "assets",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-010",
+          "title": "Structure tree review ও final approval record",
+          "category": "approval",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-011",
+          "title": "README/decision note-এ final tree ও unresolved item",
+          "category": "documentation",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        },
+        {
+          "id": "REQ-012",
+          "title": "Backup/version-control-এ final deliverable সংরক্ষণের প্রমাণ",
+          "category": "handover",
+          "required": true,
+          "status": "pending",
+          "notes": "",
+          "evidence_file_ids": []
+        }
+      ],
+      "files": [
+        {
+          "id": "FILE-53A810DC30",
+          "original_name": "01-event-brief.md",
+          "stored_path": "files/01-event-brief.md",
+          "extension": ".md",
+          "bytes": 2917,
+          "sha256": "c45b60cce936b695e7d7fc1c260a8481afa02c03f9056a65f7315a9951c9e15e",
+          "requirement_id": "REQ-004",
+          "agenda_id": "",
+          "description": "প্রথম ইভেন্টের উদ্দেশ্য, সময়সীমা, scope ও acceptance criteria",
+          "added_at": "2026-11-27T07:53:59+06:00",
+          "url": "uqns-phase-01-foundation/files/01-event-brief.md"
+        },
+        {
+          "id": "FILE-D7F8E13154",
+          "original_name": "02-quran-navigation-platform-scope.md",
+          "stored_path": "files/02-quran-navigation-platform-scope.md",
+          "extension": ".md",
+          "bytes": 1683,
+          "sha256": "56bb73d7e7899f656f1c7812efce770d4e1a73fbbc2c5a2b916797e6bfee4768",
+          "requirement_id": "REQ-002",
+          "agenda_id": "",
+          "description": "Qur'an Navigation Platform-এর প্রাথমিক feature ও scope note",
+          "added_at": "2026-11-27T07:53:59+06:00",
+          "url": "uqns-phase-01-foundation/files/02-quran-navigation-platform-scope.md"
+        },
+        {
+          "id": "FILE-E960FED426",
+          "original_name": "03-quran-memorize-ecosystem-scope.md",
+          "stored_path": "files/03-quran-memorize-ecosystem-scope.md",
+          "extension": ".md",
+          "bytes": 1817,
+          "sha256": "f340b8651973208875cce4fa657ef67b6cab4a3f4468946bb30f7c0b3b567333",
+          "requirement_id": "REQ-003",
+          "agenda_id": "",
+          "description": "Quran Memorize Ecosystem-এর component ও প্রাথমিক mapping",
+          "added_at": "2026-11-27T07:53:59+06:00",
+          "url": "uqns-phase-01-foundation/files/03-quran-memorize-ecosystem-scope.md"
+        },
+        {
+          "id": "FILE-C2FF55ADCE",
+          "original_name": "04-folder-tree-acceptance-checklist.md",
+          "stored_path": "files/04-folder-tree-acceptance-checklist.md",
+          "extension": ".md",
+          "bytes": 2205,
+          "sha256": "a2250ead1a7673101af7f8ec3ecbb6806dca007f3e7c17efd31c4cbcaa7e7a27",
+          "requirement_id": "REQ-004",
+          "agenda_id": "",
+          "description": "Final folder tree review-এর checklist",
+          "added_at": "2026-11-27T07:53:59+06:00",
+          "url": "uqns-phase-01-foundation/files/04-folder-tree-acceptance-checklist.md"
+        }
+      ],
+      "notes": [
+        {
+          "id": "NOTE-UQNS-001",
+          "text": "প্রস্তুতির percentage আবশ্যক checklist item-এর verified status থেকে হিসাব হবে; এটি 100% বাস্তব নিশ্চয়তার দাবি নয়।",
+          "created_at": "2026-11-27T07:53:59+06:00",
+          "actor": "local-user"
+        }
+      ],
+      "created_at": "2026-11-27T07:53:59+06:00",
+      "updated_at": "2026-11-27T07:53:59+06:00",
+      "readiness": {
+        "percent": 0,
+        "verified_required": 0,
+        "required_total": 12,
+        "label": "আবশ্যক নথি verified হওয়ার অগ্রগতি"
+      }
+    }
+  ]
+}

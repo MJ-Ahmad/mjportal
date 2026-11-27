@@ -1,0 +1,367 @@
+{
+  "schema": "mj-event/v1",
+  "id": "EVT-20261127-CYBER-DEFENSE-P1",
+  "slug": "cyber-defense-training-lab",
+  "title": "Cyber Defense Training Lab — 48 Hour Event",
+  "event_type": "cybersecurity-training",
+  "status": "planning",
+  "date": "2026-11-27",
+  "start_time": "2026-11-27T08:17:09+06:00",
+  "end_time": "2026-11-29T08:17:09+06:00",
+  "deadline_at": "2026-11-29T08:17:09+06:00",
+  "timezone": "Asia/Dhaka",
+  "venue": "Isolated local training lab",
+  "owner": "MJ Ahmad",
+  "purpose": "Authorized, isolated এবং educational cyber-defense lab planning through threat modeling, detection, incident response, evidence handling and recovery.",
+  "description": "এই event offensive security test নয়। এটি defensive education, authorized tabletop exercise এবং safe lab preparation-এর জন্য।",
+  "scope": {
+    "in_scope": [
+      "authorized lab inventory",
+      "threat modeling",
+      "detection planning",
+      "incident response tabletop",
+      "backup and recovery test",
+      "evidence handling",
+      "audit logging",
+      "residual risk review"
+    ],
+    "out_of_scope": [
+      "unauthorized scanning",
+      "public exploitation",
+      "real credential harvesting",
+      "malware distribution",
+      "denial-of-service",
+      "real user data collection",
+      "production deployment",
+      "offensive cyber-attack operation"
+    ]
+  },
+  "agenda": [
+    {
+      "id": "AG-001",
+      "title": "Scope ও authorization review",
+      "start_time": "2026-11-27T08:17:09+06:00",
+      "duration_minutes": 60,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Laboratory-এর owner, অনুমোদিত system ও out-of-scope target লিখে নিন।"
+    },
+    {
+      "id": "AG-002",
+      "title": "Asset inventory ও trust boundary",
+      "start_time": "2026-11-27T11:17:09+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Host, network, account, service, dataset এবং trust boundary নথিভুক্ত করুন।"
+    },
+    {
+      "id": "AG-003",
+      "title": "Threat modeling",
+      "start_time": "2026-11-27T15:17:09+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "STRIDE বা অন্য approved method দিয়ে threat ও abuse scenario তৈরি করুন।"
+    },
+    {
+      "id": "AG-004",
+      "title": "Logging ও detection baseline",
+      "start_time": "2026-11-27T20:17:09+06:00",
+      "duration_minutes": 120,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Authentication, endpoint, DNS, network এবং application telemetry map করুন।"
+    },
+    {
+      "id": "AG-005",
+      "title": "Detection rules ও validation",
+      "start_time": "2026-11-28T04:17:09+06:00",
+      "duration_minutes": 120,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Benign lab scenario দিয়ে rule এবং false-positive behavior test করুন।"
+    },
+    {
+      "id": "AG-006",
+      "title": "Incident response tabletop",
+      "start_time": "2026-11-28T11:17:09+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Role, escalation, containment এবং communication exercise পরিচালনা করুন।"
+    },
+    {
+      "id": "AG-007",
+      "title": "Backup ও recovery exercise",
+      "start_time": "2026-11-28T18:17:09+06:00",
+      "duration_minutes": 120,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Snapshot বা backup থেকে isolated restore test করুন।"
+    },
+    {
+      "id": "AG-008",
+      "title": "Evidence handling ও audit review",
+      "start_time": "2026-11-29T00:17:09+06:00",
+      "duration_minutes": 75,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Hash, timestamp, chain of custody এবং audit trail পরীক্ষা করুন।"
+    },
+    {
+      "id": "AG-009",
+      "title": "Final lesson report ও handover",
+      "start_time": "2026-11-29T06:17:09+06:00",
+      "duration_minutes": 90,
+      "owner": "MJ Ahmad",
+      "status": "planned",
+      "notes": "Lesson learned, unresolved risk, rollback এবং পরবর্তী drill নির্ধারণ করুন।"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "ইভেন্টের শিক্ষাগত উদ্দেশ্য ও সীমারেখা",
+      "category": "scope",
+      "required": true,
+      "status": "collected",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-002",
+      "title": "Authorized lab/environment owner ও অনুমতি",
+      "category": "authorization",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-003",
+      "title": "Network, host ও dataset inventory",
+      "category": "scope",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-004",
+      "title": "Threat model ও abuse-case list",
+      "category": "risk",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-005",
+      "title": "Detection rule ও baseline",
+      "category": "detection",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-006",
+      "title": "Alert validation ও false-positive handling",
+      "category": "detection",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-007",
+      "title": "Incident severity ও escalation policy",
+      "category": "incident-response",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-008",
+      "title": "Containment, eradication ও recovery plan",
+      "category": "incident-response",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-009",
+      "title": "Evidence preservation ও chain-of-custody",
+      "category": "forensics",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-010",
+      "title": "Backup, snapshot ও restore test",
+      "category": "resilience",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-011",
+      "title": "Central logging ও audit retention",
+      "category": "monitoring",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-012",
+      "title": "Secrets, PII ও sensitive log handling",
+      "category": "privacy",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-013",
+      "title": "Safety drill ও rollback mechanism",
+      "category": "testing",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-014",
+      "title": "Tabletop/lab exercise report",
+      "category": "training",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    },
+    {
+      "id": "REQ-015",
+      "title": "Final review, acceptance ও handover",
+      "category": "handover",
+      "required": true,
+      "status": "pending",
+      "notes": "",
+      "evidence_file_ids": []
+    }
+  ],
+  "files": [
+    {
+      "id": "FILE-9259B2DC05",
+      "original_name": "01-event-brief.md",
+      "stored_path": "files/01-event-brief.md",
+      "extension": ".md",
+      "bytes": 1406,
+      "sha256": "9850334c09af5095a5624bad03ef5dcca1c089912b130c49afd47c4fb38dda1f",
+      "requirement_id": "REQ-001",
+      "agenda_id": "",
+      "description": "Cyber defense training event-এর উদ্দেশ্য ও সীমারেখা",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    },
+    {
+      "id": "FILE-0441F8E9E3",
+      "original_name": "02-lab-boundaries.md",
+      "stored_path": "files/02-lab-boundaries.md",
+      "extension": ".md",
+      "bytes": 949,
+      "sha256": "6ebbd34e88e3286e7d5310c96071c92cccbcee79eded0fbfe36d569ed25fabc5",
+      "requirement_id": "REQ-002",
+      "agenda_id": "",
+      "description": "Authorized lab, safe boundary ও stop conditions",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    },
+    {
+      "id": "FILE-D6DC59F0E2",
+      "original_name": "03-threat-model.md",
+      "stored_path": "files/03-threat-model.md",
+      "extension": ".md",
+      "bytes": 965,
+      "sha256": "1564bac638668d185de848e80b2ac1ff55ed8962bcb7b0648ac6ff550e0d3090",
+      "requirement_id": "REQ-004",
+      "agenda_id": "",
+      "description": "Threat model ও defensive scenario inventory",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    },
+    {
+      "id": "FILE-F24D8FFA2A",
+      "original_name": "04-detection-plan.md",
+      "stored_path": "files/04-detection-plan.md",
+      "extension": ".md",
+      "bytes": 801,
+      "sha256": "551d350125bd2d82a6359d77d195000543c15b81428ead57db3244a32d2f4c9a",
+      "requirement_id": "REQ-005",
+      "agenda_id": "",
+      "description": "Logging source, detection rule ও validation plan",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    },
+    {
+      "id": "FILE-A29FCDA08C",
+      "original_name": "05-incident-response.md",
+      "stored_path": "files/05-incident-response.md",
+      "extension": ".md",
+      "bytes": 810,
+      "sha256": "5e42bf6dc41fd0914c1141e23ff9448b349685ccf15f297c18e1bb3cc1729bd7",
+      "requirement_id": "REQ-007",
+      "agenda_id": "",
+      "description": "Incident severity, containment ও escalation procedure",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    },
+    {
+      "id": "FILE-E7268DEAD9",
+      "original_name": "06-recovery-backup.md",
+      "stored_path": "files/06-recovery-backup.md",
+      "extension": ".md",
+      "bytes": 647,
+      "sha256": "57ef4ff5e89a4f699ff2d08e6ca2b40b84ecd186c47cafa249578ca079947313",
+      "requirement_id": "REQ-010",
+      "agenda_id": "",
+      "description": "Backup, restore ও recovery acceptance test",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    },
+    {
+      "id": "FILE-75424D8DA2",
+      "original_name": "07-logging-audit.md",
+      "stored_path": "files/07-logging-audit.md",
+      "extension": ".md",
+      "bytes": 659,
+      "sha256": "442f72686e5cce46c407f797de4ed44b62e422ed4adad52fd16adbb9637efc2e",
+      "requirement_id": "REQ-011",
+      "agenda_id": "",
+      "description": "Audit schema, evidence handling ও chain-of-custody",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    },
+    {
+      "id": "FILE-9541223A6F",
+      "original_name": "08-acceptance-checklist.md",
+      "stored_path": "files/08-acceptance-checklist.md",
+      "extension": ".md",
+      "bytes": 1018,
+      "sha256": "e4f962b9c6a6cd031d6e56896016fff28110cb7d02d2aa90dddf2108c5a9b56e",
+      "requirement_id": "REQ-015",
+      "agenda_id": "",
+      "description": "Cyber defense 48-hour event-এর final acceptance criteria",
+      "added_at": "2026-11-27T08:17:09+06:00"
+    }
+  ],
+  "notes": [
+    {
+      "id": "NOTE-CYBER-001",
+      "text": "এই ইভেন্ট defensive training-এর প্রস্তুতি নথিভুক্ত করে। কোনও system attack বা incident test চালানোর আগে explicit authorization এবং isolated environment নিশ্চিত করতে হবে।",
+      "created_at": "2026-11-27T08:17:09+06:00",
+      "actor": "local-user"
+    }
+  ],
+  "created_at": "2026-11-27T08:17:09+06:00",
+  "updated_at": "2026-11-27T08:17:09+06:00"
+}
