@@ -1,6 +1,18 @@
 {
     "entries": [
         {
+            "tracking_id": "LIFE-000015",
+            "registry": "REG-000015",
+            "dhaka_time": "2026-11-29 00:42:24.530",
+            "utc_time": "2026-11-28 18:42:24.530",
+            "category": "learning",
+            "mood": null,
+            "heading": "Enhancement Request",
+            "description": "আপনার বক্তব্যটি মোটামুটি পরিষ্কার, তবে একজন ডেভেলপার বা প্রজেক্ট মেইনটেইনারের কাছে পাঠানোর জন্য এটিকে আরও কাঠামোবদ্ধ, পেশাদার এবং টেকনিক্যালি স্পষ্ট করা ভালো। নিচে একটি আদর্শ সংস্করণ দিলাম:\n\n---\n\n# Feature Enhancement Request for MJPortal\n\n## Subject\nEnhancement Request: User-Friendly Markdown Rendering While Preserving Original Markdown Copy Functionality\n\n## Background\n\nMJPortal প্রজেক্টে `life.py` স্ক্রিপ্ট ব্যবহার করে নিম্নলিখিত কমান্ডের মাধ্যমে নতুন কনটেন্ট যুক্ত করা হয়:\n\n```bash\npython3 life.py add \"Heading\" \"Description\" [--body-file notes.md] [--category C]\n```\n\nকনটেন্ট যুক্ত হওয়ার পর তা `index.html` এর মাধ্যমে প্রকাশিত হয়। বর্তমানে প্রকাশনা ব্যবস্থা, কপি ফিচার, পূর্ণাঙ্গ ভিউ, সংকুচিত/বিস্তৃত প্রদর্শনসহ অন্যান্য বিদ্যমান ফিচার যথাযথভাবে কাজ করছে।\n\n## Current Behavior\n\nযখন `--body-file` অপশনের মাধ্যমে কোনো Markdown (`.md`) ফাইল যুক্ত করা হয়, তখন সেই Markdown কনটেন্ট ওয়েবসাইটে মূল Markdown সিনট্যাক্সসহ প্রদর্শিত হয়।\n\nউদাহরণস্বরূপ:\n\n```markdown\n# Title\n\n## Subtitle\n\n- Item 1\n- Item 2\n\n**Bold Text**\n```\n\nব্যবহারকারীরা Markdown কোড দেখতে পান, যা সাধারণ পাঠকের জন্য তুলনামূলকভাবে কম ব্যবহারবান্ধব।\n\n## Proposed Enhancement\n\nঅনুরোধ করা হচ্ছে যে, `.md` ফাইল থেকে যুক্ত হওয়া কনটেন্ট প্রকাশের সময় Markdown Parser ব্যবহার করে HTML-এ রেন্ডার করা হোক এবং একটি সুন্দর, পাঠকবান্ধব UI-তে প্রদর্শন করা হোক।\n\nঅর্থাৎ:\n\n- Heading গুলো যথাযথ স্টাইলে প্রদর্শিত হবে।\n- List গুলো সুন্দরভাবে রেন্ডার হবে।\n- Bold, Italic, Blockquote, Code Block ইত্যাদি সঠিকভাবে উপস্থাপিত হবে।\n- Responsive এবং Readable Layout থাকবে।\n- পাঠক Markdown Source নয়, Rendered Content দেখবেন।\n\n## Important Requirement\n\nবর্তমান Copy ফিচারের আচরণ অপরিবর্তিত রাখা গুরুত্বপূর্ণ।\n\nঅর্থাৎ:\n\n✅ Display Mode:\n\nRendered HTML / User-Friendly View\n\n✅ Copy Mode:\n\nOriginal Markdown Content\n\nতাই ব্যবহারকারী যখন \"Copy\" অপশন ব্যবহার করবেন, তখন বর্তমানে যেভাবে মূল Markdown কনটেন্ট কপি হয়, সেটি যেন ঠিক একইভাবে বজায় থাকে।\n\n## Expected Outcome\n\n- Markdown Content → সুন্দরভাবে Rendered Display\n- Copy Function → Original Markdown Copy\n- Existing Features → Unchanged\n- Improved Reading Experience\n- Better UI/UX for End Users\n\n## Request\n\nউক্ত ফিচারটি বাস্তবায়নের জন্য যথাযথ দিকনির্দেশনা, কোড আপডেট অথবা ইমপ্লিমেন্টেশন সহযোগিতা কামনা করছি।\n\nধন্যবাদ।\n\n---\n\nএই ফরম্যাটটি একজন ডেভেলপারের কাছে পাঠালে তিনি খুব দ্রুত বুঝতে পারবেন:\n1. বর্তমান সিস্টেম কীভাবে কাজ করে।\n2. সমস্যা কোথায়।\n3. আপনি কী পরিবর্তন চান।\n4. কোন আচরণ পরিবর্তন করা যাবে না।\n5. প্রত্যাশিত ফলাফল কী।\n\nএটাই সাধারণত ওপেন সোর্স প্রজেক্ট, GitHub Issue, Technical Request, Feature Request বা পেশাদার সফটওয়্যার ডেভেলপমেন্ট যোগাযোগের আদর্শ কাঠামো।",
+            "tags": [],
+            "links": []
+        },
+        {
             "tracking_id": "LIFE-000014",
             "registry": "REG-000014",
             "dhaka_time": "2026-11-29 00:15:14.246",
