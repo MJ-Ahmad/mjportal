@@ -59,6 +59,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Galada&family=Cormorant+Garamond:wght@500;600&family=Tiro+Bangla&family=Hind+Siliguri:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- Markdown parser and sanitizer. Plain-text fallback is used if either CDN library is unavailable. -->
+<script defer src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
 <style>
 :root{--bg:#eef3f1;--surface:#f8fbfa;--line:#d3dfd8;--ink:#14303a;--muted:#5b7270;--moss:#2e6b55;--amber:#c7851c;--violet:#5f4a8b;--c0:#e0e9e4;--c1:#b9d4c7;--c2:#7fae98;--c3:#2e6b55;--c4:#14303a;--cell:12px;--gap:3px;color-scheme:light}
 html[data-theme="dark"]{--bg:#0d1b1f;--surface:#132529;--line:#24393e;--ink:#e6f0ec;--muted:#93aaa4;--moss:#6fb896;--amber:#e0a445;--violet:#b3a1e0;--c0:#1d3034;--c1:#2c4d4a;--c2:#3e7463;--c3:#6fb08f;--c4:#cfeedd;color-scheme:dark}
@@ -155,10 +160,29 @@ html[lang="ar"] .day-h h3{font-family:"Noto Naskh Arabic",serif}
 .times{color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 16px;margin-top:2px;direction:ltr;justify-content:flex-start}
 html[dir="rtl"] .times{justify-content:flex-end}
 .entry h4{font-size:18px;font-weight:600;margin:8px 0 2px;line-height:1.4;word-break:break-word}
-.desc{margin:0;white-space:pre-line;color:var(--muted);word-break:break-word}
-.desc{color:#233c44}
+
+/* Plain text and rendered Markdown descriptions */
+.desc{margin:0;white-space:pre-line;color:#233c44;word-break:break-word}
 html[data-theme="dark"] .desc{color:#c9dcd5}
-.desc.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.desc.plain.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.desc.markdown{white-space:normal;line-height:1.75}
+.desc.markdown p,.desc.markdown ul,.desc.markdown ol,.desc.markdown blockquote,.desc.markdown pre,.desc.markdown table{margin:0 0 12px}
+.desc.markdown h1,.desc.markdown h2,.desc.markdown h3,.desc.markdown h4{margin:14px 0 7px;line-height:1.35;color:var(--ink);overflow-wrap:anywhere}
+.desc.markdown h1{font-size:1.45em}
+.desc.markdown h2{font-size:1.3em}
+.desc.markdown h3{font-size:1.15em}
+.desc.markdown ul,.desc.markdown ol{padding-inline-start:24px}
+.desc.markdown blockquote{padding:8px 12px;border-inline-start:3px solid var(--amber);border-radius:0 7px 7px 0;background:var(--surface);color:var(--muted)}
+.desc.markdown pre{max-width:100%;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);direction:ltr;text-align:left;white-space:pre}
+.desc.markdown pre code,.desc.markdown :not(pre)>code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+.desc.markdown :not(pre)>code{padding:2px 5px;border-radius:4px;background:var(--surface)}
+.desc.markdown table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+.desc.markdown th,.desc.markdown td{padding:6px 9px;border:1px solid var(--line);text-align:start}
+.desc.markdown a{color:var(--moss);text-underline-offset:3px}
+.desc.markdown img{max-width:100%;height:auto;border-radius:8px}
+.desc.markdown.clamp{position:relative;max-height:13em;overflow:hidden}
+.desc.markdown.clamp::after{content:"";position:absolute;right:0;bottom:0;left:0;height:3.5em;background:linear-gradient(transparent,var(--bg))}
+html[data-theme="dark"] .desc.markdown.clamp::after{background:linear-gradient(transparent,var(--bg))}
 .more{background:none;border:0;padding:4px 0;color:var(--moss);cursor:pointer;font:inherit;font-size:14px}
 .tags{margin-top:6px;color:var(--violet);font-size:13px;word-break:break-word}
 .file{margin-top:6px;font-size:13px;color:var(--muted);word-break:break-all}
@@ -187,6 +211,8 @@ footer a:hover{text-decoration:underline}
   .entry h4{font-size:17px}
   .home h2{font-size:26px}
   .clock{width:100%;order:3}
+  .desc.markdown pre{font-size:12px}
+  .desc.markdown.clamp{max-height:11em}
 }
 </style>
 </head>
@@ -334,7 +360,7 @@ const I18N = {
     less: "Less", more2: "More", search: "Search ID, heading, text, tags…", all: "All",
     stats: { total: "Entries", week: "Last 7 days", mood: "Average mood", latest: "Latest" },
     more: "Read full", lessTxt: "Show less", dhaka: "Dhaka", utc: "UTC", moodLbl: "Mood",
-    copyRecord: "Copy record", copyId: "Copy ID", copySha: "Copy SHA-256",
+    copyRecord: "Copy record", copyOriginalMarkdown: "Copy original Markdown", copyId: "Copy ID", copySha: "Copy SHA-256",
     file: "File", missing: "not in this copy", none: "No entries here yet.",
     dayShown: "Showing", clear: "Show all", loadFail: "Could not load data.json. Start with ./khata start",
     copied: "Copied", copyFail: "Copy failed", dayCount: n => `${n} ${n === 1 ? "entry" : "entries"}`,
@@ -358,7 +384,7 @@ const I18N = {
     less: "কম", more2: "বেশি", search: "আইডি, শিরোনাম, লেখা, ট্যাগ খুঁজুন…", all: "সব",
     stats: { total: "মোট এন্ট্রি", week: "গত ৭ দিন", mood: "গড় মুড", latest: "সর্বশেষ" },
     more: "পুরোটা পড়ুন", lessTxt: "সংক্ষেপে", dhaka: "ঢাকা", utc: "ইউটিসি", moodLbl: "মুড",
-    copyRecord: "রেকর্ড কপি", copyId: "আইডি কপি", copySha: "SHA-256 কপি",
+    copyRecord: "রেকর্ড কপি", copyOriginalMarkdown: "মূল Markdown কপি", copyId: "আইডি কপি", copySha: "SHA-256 কপি",
     file: "ফাইল", missing: "এই কপিতে নেই", none: "এখানে এখনো কোনো এন্ট্রি নেই।",
     dayShown: "দেখানো হচ্ছে", clear: "সব দেখুন", loadFail: "data.json লোড করা যায়নি। ./khata start দিয়ে চালু করুন",
     copied: "কপি হয়েছে", copyFail: "কপি ব্যর্থ", dayCount: n => `${n}টি এন্ট্রি`,
@@ -382,7 +408,7 @@ const I18N = {
     less: "أقل", more2: "أكثر", search: "ابحث بالمعرف أو العنوان أو النص أو الوسم…", all: "الكل",
     stats: { total: "عدد الإدخالات", week: "آخر 7 أيام", mood: "متوسط المزاج", latest: "الأحدث" },
     more: "اقرأ كاملًا", lessTxt: "عرض أقل", dhaka: "دكا", utc: "التوقيت العالمي", moodLbl: "المزاج",
-    copyRecord: "نسخ السجل", copyId: "نسخ المعرف", copySha: "نسخ SHA-256",
+    copyRecord: "نسخ السجل", copyOriginalMarkdown: "نسخ Markdown الأصلي", copyId: "نسخ المعرف", copySha: "نسخ SHA-256",
     file: "الملف", missing: "غير موجود في هذه النسخة", none: "لا توجد إدخالات هنا بعد.",
     dayShown: "يتم عرض", clear: "عرض الكل", loadFail: "تعذّر تحميل data.json. شغّل ./khata start",
     copied: "تم النسخ", copyFail: "فشل النسخ", dayCount: n => `${n} ${n === 1 ? "إدخال" : n === 2 ? "إدخالان" : "إدخالات"}`,
@@ -402,16 +428,21 @@ const todayKey = new Date(Date.now() + 6 * 3600e3).toISOString().slice(0, 10); /
 const $ = (s) => document.querySelector(s);
 const t = (k) => I18N[state.lang][k];
 const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const dayOf = (ts) => ts.slice(0, 10);
-const toMs = (ts) => Date.parse(ts.replace(" ", "T") + "Z");
+const dayOf = (ts) => String(ts || "").slice(0, 10);
+const toMs = (ts) => Date.parse(String(ts || "").replace(" ", "T") + "Z");
 const loc = () => LOCALE[state.lang];
 const fmtDay = (key) => new Date(key + "T00:00:00").toLocaleDateString(loc(), { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 
-/* Dhaka time formatting (always Asia/Dhaka, whatever the device timezone) */
 function dhakaText(date) {
   return new Intl.DateTimeFormat(loc(), {
-    timeZone: "Asia/Dhaka", day: "numeric", month: "short", year: "numeric",
-    hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
+    timeZone: "Asia/Dhaka",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23"
   }).format(date);
 }
 
@@ -421,30 +452,97 @@ function tickClock() {
 }
 
 function renderUpdated() {
-  const latest = state.entries.reduce((best, e) => (!best || toMs(e.utc_time) > toMs(best.utc_time) ? e : best), null);
+  const latest = state.entries.reduce(
+    (best, entry) => (!best || toMs(entry.utc_time) > toMs(best.utc_time) ? entry : best),
+    null
+  );
   $("#lastEntry").textContent = latest ? dhakaText(new Date(toMs(latest.utc_time))) : t("noTime");
   $("#fileUpd").textContent = state.fileMod ? dhakaText(state.fileMod) : t("noTime");
 }
 
-function toast(msg) {
+function toast(message) {
   const el = $("#toast");
-  el.textContent = msg;
+  el.textContent = message;
   el.classList.add("show");
-  clearTimeout(toast.t);
-  toast.t = setTimeout(() => el.classList.remove("show"), 1500);
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => el.classList.remove("show"), 1500);
 }
+
 async function copyText(text) {
-  try { await navigator.clipboard.writeText(text); toast(t("copied")); }
-  catch { toast(t("copyFail")); }
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.append(area);
+      area.select();
+      const copied = document.execCommand("copy");
+      area.remove();
+      if (!copied) throw new Error("Copy failed");
+    }
+    toast(t("copied"));
+  } catch {
+    toast(t("copyFail"));
+  }
 }
-function recordMarkdown(e) {
-  const lines = [`## ${e.heading}`, "", `- Tracking: ${e.tracking_id} · Registry: ${e.registry}`,
-    `- Dhaka: ${e.dhaka_time} · UTC: ${e.utc_time}`, `- Category: ${e.category || "other"}`];
-  if (e.mood != null) lines.push(`- Mood: ${e.mood}/5`);
-  if (e.tags?.length) lines.push(`- Tags: ${e.tags.join(", ")}`);
-  if (e.links?.length) lines.push(`- Linked: ${e.links.join(", ")}`);
-  lines.push("", e.description);
+
+function recordMarkdown(entry) {
+  const lines = [
+    `## ${entry.heading}`,
+    "",
+    `- Tracking: ${entry.tracking_id} · Registry: ${entry.registry}`,
+    `- Dhaka: ${entry.dhaka_time} · UTC: ${entry.utc_time}`,
+    `- Category: ${entry.category || "other"}`
+  ];
+  if (entry.mood != null) lines.push(`- Mood: ${entry.mood}/5`);
+  if (entry.tags?.length) lines.push(`- Tags: ${entry.tags.join(", ")}`);
+  if (entry.links?.length) lines.push(`- Linked: ${entry.links.join(", ")}`);
+  lines.push("", entry.description || "");
   return lines.join("\n");
+}
+
+function safeMarkdownHtml(source) {
+  if (!window.marked || !window.DOMPurify) return null;
+
+  try {
+    const html = window.marked.parse(String(source ?? ""), {
+      gfm: true,
+      breaks: false
+    });
+    return window.DOMPurify.sanitize(html);
+  } catch {
+    return null;
+  }
+}
+
+function descriptionHtml(entry, expanded) {
+  const source = String(entry.description ?? "");
+  const isMarkdown = entry.description_format === "markdown";
+  const safeHtml = isMarkdown ? safeMarkdownHtml(source) : null;
+  const isLong = source.length > 170 || source.split("\n").length > 3;
+  const isOpen = state.open.has(entry.tracking_id);
+  const clampClass = isLong && !isOpen ? "clamp" : "";
+
+  if (isMarkdown && safeHtml !== null) {
+    return {
+      html: `<div class="desc markdown ${clampClass}">${safeHtml}</div>`,
+      isMarkdown: true,
+      isLong,
+      isOpen
+    };
+  }
+
+  return {
+    html: `<p class="desc plain ${clampClass}">${esc(source)}</p>`,
+    isMarkdown,
+    isLong,
+    isOpen,
+    fallback: isMarkdown
+  };
 }
 
 function applyLang() {
@@ -453,10 +551,18 @@ function applyLang() {
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   $("#title").textContent = t("title");
   document.title = lang === "en" ? "Nijer Khata" : t("title") + " · Nijer Khata";
-  document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
-  document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+  });
   $("#q").placeholder = t("search");
-  localStorage.setItem("khataLang", lang);
+
+  try {
+    localStorage.setItem("khataLang", lang);
+  } catch {}
+
   tickClock();
   renderUpdated();
   renderCats();
@@ -467,208 +573,361 @@ function applyLang() {
 
 function renderCats() {
   const keys = ["all", ...Object.keys(I18N[state.lang].cat)];
-  $("#cats").innerHTML = keys.map((k) => {
-    const label = k === "all" ? t("all") : I18N[state.lang].cat[k];
-    return `<button class="cat-btn" data-cat="${k}" aria-pressed="${state.cat === k}">${esc(label)}</button>`;
+  $("#cats").innerHTML = keys.map((key) => {
+    const label = key === "all" ? t("all") : I18N[state.lang].cat[key];
+    return `<button class="cat-btn" data-cat="${esc(key)}" aria-pressed="${state.cat === key}">${esc(label)}</button>`;
   }).join("");
 }
 
 function renderHeat() {
-  const y = +todayKey.slice(0, 4);
+  const year = Number(todayKey.slice(0, 4));
   const counts = {};
-  state.entries.forEach((e) => { const k = dayOf(e.dhaka_time); counts[k] = (counts[k] || 0) + 1; });
-  const first = new Date(Date.UTC(y, 0, 1));
-  let cells = first.getUTCDay(), html = "";
+
+  state.entries.forEach((entry) => {
+    const key = dayOf(entry.dhaka_time);
+    counts[key] = (counts[key] || 0) + 1;
+  });
+
+  const first = new Date(Date.UTC(year, 0, 1));
+  let cells = first.getUTCDay();
+  let html = "";
   const months = [];
+
   for (let i = 0; i < cells; i++) html += '<span class="ph"></span>';
-  for (let d = new Date(first); d.getUTCFullYear() === y; d.setUTCDate(d.getUTCDate() + 1)) {
-    const k = d.toISOString().slice(0, 10);
-    const n = counts[k] || 0;
-    const lvl = n === 0 ? 0 : n === 1 ? 1 : n === 2 ? 2 : n < 5 ? 3 : 4;
-    if (d.getUTCDate() === 1) months.push({ m: d.getUTCMonth(), col: Math.floor(cells / 7) });
-    const cls = ["d", `c${lvl}`];
-    if (k > todayKey) cls.push("fut");
-    if (k === todayKey) cls.push("today");
-    if (state.day === k) cls.push("sel");
-    html += `<button class="${cls.join(" ")}" data-day="${k}" ${k > todayKey ? "disabled" : ""} aria-label="${esc(fmtDay(k))}: ${n}"></button>`;
+
+  for (let date = new Date(first); date.getUTCFullYear() === year; date.setUTCDate(date.getUTCDate() + 1)) {
+    const key = date.toISOString().slice(0, 10);
+    const count = counts[key] || 0;
+    const level = count === 0 ? 0 : count === 1 ? 1 : count === 2 ? 2 : count < 5 ? 3 : 4;
+
+    if (date.getUTCDate() === 1) {
+      months.push({ month: date.getUTCMonth(), column: Math.floor(cells / 7) });
+    }
+
+    const classes = ["d", `c${level}`];
+    if (key > todayKey) classes.push("fut");
+    if (key === todayKey) classes.push("today");
+    if (state.day === key) classes.push("sel");
+
+    html += `<button class="${classes.join(" ")}" data-day="${key}" ${key > todayKey ? "disabled" : ""} aria-label="${esc(fmtDay(key))}: ${count}"></button>`;
     cells++;
   }
+
   $("#hmGrid").innerHTML = html;
+
   const step = 12 + 3;
-  $("#hmMonths").innerHTML = months.map((m) =>
-    `<span style="left:${m.col * step}px">${new Date(Date.UTC(y, m.m, 1)).toLocaleDateString(loc(), { month: "short", timeZone: "UTC" })}</span>`).join("");
+  $("#hmMonths").innerHTML = months.map((item) =>
+    `<span style="left:${item.column * step}px">${new Date(Date.UTC(year, item.month, 1)).toLocaleDateString(loc(), { month: "short", timeZone: "UTC" })}</span>`
+  ).join("");
   $("#hmMonths").style.width = `${Math.ceil(cells / 7) * step}px`;
-  const yearCount = state.entries.filter((e) => dayOf(e.dhaka_time).startsWith(String(y))).length;
-  $("#heroSum").textContent = `${yearCount} ${state.lang === "bn" ? "টি এন্ট্রি" : state.lang === "ar" ? "إدخال" : "entries"} · ${y}`;
-  const sc = $("#hmScroll");
-  sc.scrollLeft = sc.scrollWidth;
+
+  const yearCount = state.entries.filter((entry) => dayOf(entry.dhaka_time).startsWith(String(year))).length;
+  const unit = state.lang === "bn" ? "টি এন্ট্রি" : state.lang === "ar" ? "إدخال" : "entries";
+  $("#heroSum").textContent = `${yearCount} ${unit} · ${year}`;
+
+  const scroll = $("#hmScroll");
+  scroll.scrollLeft = scroll.scrollWidth;
 }
 
 function renderStats() {
   const now = Date.now();
-  const week = state.entries.filter((e) => now - toMs(e.utc_time) < 7 * 864e5).length;
-  const moods = state.entries.map((e) => e.mood).filter((m) => m != null);
-  const avg = moods.length ? (moods.reduce((a, b) => a + b, 0) / moods.length).toFixed(1) : "—";
+  const week = state.entries.filter((entry) => now - toMs(entry.utc_time) < 7 * 864e5).length;
+  const moods = state.entries.map((entry) => entry.mood).filter((mood) => mood != null);
+  const averageMood = moods.length
+    ? (moods.reduce((sum, mood) => sum + mood, 0) / moods.length).toFixed(1)
+    : "—";
+
   $("#stats").innerHTML = [
     `${t("stats").total} <b>${state.entries.length}</b>`,
     `${t("stats").week} <b>${week}</b>`,
-    `${t("stats").mood} <b>${avg}</b>`,
-    `${t("stats").latest} <b class="mono">${esc(state.entries[0]?.tracking_id ?? "—")}</b>`,
+    `${t("stats").mood} <b>${averageMood}</b>`,
+    `${t("stats").latest} <b class="mono">${esc(state.entries[0]?.tracking_id ?? "—")}</b>`
   ].join("");
 }
 
 function filtered() {
-  return state.entries.filter((e) => {
-    if (state.day && dayOf(e.dhaka_time) !== state.day) return false;
-    if (state.cat !== "all" && (e.category || "other") !== state.cat) return false;
-    return !state.query || JSON.stringify(e).toLowerCase().includes(state.query);
+  return state.entries.filter((entry) => {
+    if (state.day && dayOf(entry.dhaka_time) !== state.day) return false;
+    if (state.cat !== "all" && (entry.category || "other") !== state.cat) return false;
+    return !state.query || JSON.stringify(entry).toLowerCase().includes(state.query);
   });
 }
 
-function entryHtml(e) {
-  const long = e.description.length > 170 || e.description.split("\n").length > 3;
-  const open = state.open.has(e.tracking_id);
-  const cat = I18N[state.lang].cat[e.category] || I18N[state.lang].cat.other;
-  const mood = e.mood != null ? ` · ${t("moodLbl")} ${e.mood}/5` : "";
-  const tags = [...(e.tags || []), ...(e.links || [])];
-  const a = e.attachment;
-  const file = a ? `<div class="file">${t("file")}: ${a.missing ? `${esc(a.original)} (${t("missing")})` : `<a href="${esc(a.file)}" download>${esc(a.original)}</a>`}</div>` : "";
+function entryHtml(entry) {
+  const source = String(entry.description ?? "");
+  const isLong = source.length > 170 || source.split("\n").length > 3;
+  const open = state.open.has(entry.tracking_id);
+  const category = I18N[state.lang].cat[entry.category] || I18N[state.lang].cat.other;
+  const mood = entry.mood != null ? ` · ${t("moodLbl")} ${entry.mood}/5` : "";
+  const tags = [...(entry.tags || []), ...(entry.links || [])];
+  const attachment = entry.attachment;
+  const rendered = descriptionHtml(entry, open);
+
+  const fileHtml = attachment
+    ? `<div class="file">${esc(t("file"))}: ${
+        attachment.missing
+          ? `${esc(attachment.original)} (${esc(t("missing"))})`
+          : `<a href="${esc(attachment.file)}" download>${esc(attachment.original)}</a>`
+      }</div>`
+    : "";
+
+  const expandButton = isLong
+    ? `<button class="more" data-more="${esc(entry.tracking_id)}">${open ? esc(t("lessTxt")) : esc(t("more"))}</button>`
+    : "";
+
+  const markdownFallback = rendered.fallback
+    ? `<small class="markdown-fallback">${esc(
+        state.lang === "bn"
+          ? "Markdown renderer লোড হয়নি; plain-text আকারে দেখানো হচ্ছে।"
+          : state.lang === "ar"
+            ? "تعذّر تحميل عارض Markdown؛ يُعرض النص بشكل عادي."
+            : "Markdown renderer unavailable; showing plain text."
+      )}</small>`
+    : "";
+
   return `
   <article class="entry">
     <div class="ids mono">
-      <button data-copy="${esc(e.tracking_id)}" title="${t("copyId")}">${esc(e.tracking_id)}</button>
-      <button data-copy="${esc(e.registry)}" title="${t("copyId")}">${esc(e.registry)}</button>
-      <span class="cat">${esc(cat)}${mood}</span>
+      <button data-copy="${esc(entry.tracking_id)}" title="${esc(t("copyId"))}">${esc(entry.tracking_id)}</button>
+      <button data-copy="${esc(entry.registry)}" title="${esc(t("copyId"))}">${esc(entry.registry)}</button>
+      <span class="cat">${esc(category)}${esc(mood)}</span>
     </div>
-    <div class="times mono"><span>${t("dhaka")} ${esc(e.dhaka_time)}</span><span>${t("utc")} ${esc(e.utc_time)}</span></div>
-    <h4>${esc(e.heading)}</h4>
-    <p class="desc ${long && !open ? "clamp" : ""}">${esc(e.description)}</p>
-    ${long ? `<button class="more" data-more="${esc(e.tracking_id)}">${open ? t("lessTxt") : t("more")}</button>` : ""}
-    ${tags.length ? `<div class="tags">${tags.map(esc).join(" · ")}</div>` : ""}
-    ${file}
+    <div class="times mono"><span>${esc(t("dhaka"))} ${esc(entry.dhaka_time)}</span><span>${esc(t("utc"))} ${esc(entry.utc_time)}</span></div>
+    <h4>${esc(entry.heading)}</h4>
+    ${rendered.html}
+    ${markdownFallback}
+    ${expandButton}
+    ${tags.length ? `<div class="tags">${tags.map((tag) => esc(tag)).join(" · ")}</div>` : ""}
+    ${fileHtml}
     <div class="actions">
-      <button data-md="${esc(e.tracking_id)}">${t("copyRecord")}</button>
-      ${a ? `<button data-copy="${esc(a.sha256)}">${t("copySha")}</button>` : ""}
+      <button data-md="${esc(entry.tracking_id)}">${esc(t("copyRecord"))}</button>
+      ${entry.description_format === "markdown"
+        ? `<button data-md-source="${esc(entry.tracking_id)}">${esc(t("copyOriginalMarkdown"))}</button>`
+        : ""}
+      ${attachment ? `<button data-copy="${esc(attachment.sha256 || "")}">${esc(t("copySha"))}</button>` : ""}
     </div>
   </article>`;
 }
 
 function render() {
   const list = filtered();
-  const df = $("#dayFilter");
-  df.hidden = !state.day;
-  if (state.day) df.innerHTML = `<span>${t("dayShown")}: ${esc(fmtDay(state.day))}</span><button data-clear>${t("clear")}</button>`;
-  if (!list.length) { $("#timeline").innerHTML = `<p class="empty">${t("none")}</p>`; return; }
-  let html = "", last = null;
-  for (const e of list) {
-    const day = dayOf(e.dhaka_time);
-    if (day !== last) {
-      const n = list.filter((x) => dayOf(x.dhaka_time) === day).length;
-      html += `<div class="day-h"><h3>${esc(fmtDay(day))}</h3><span class="sub mono">${esc(day)} · ${esc(t("dayCount")(n))}</span></div>`;
-      last = day;
-    }
-    html += entryHtml(e);
+  const dayFilter = $("#dayFilter");
+
+  dayFilter.hidden = !state.day;
+  if (state.day) {
+    dayFilter.innerHTML = `<span>${esc(t("dayShown"))}: ${esc(fmtDay(state.day))}</span><button data-clear>${esc(t("clear"))}</button>`;
   }
+
+  if (!list.length) {
+    $("#timeline").innerHTML = `<p class="empty">${esc(t("none"))}</p>`;
+    return;
+  }
+
+  let html = "";
+  let lastDay = null;
+
+  for (const entry of list) {
+    const day = dayOf(entry.dhaka_time);
+
+    if (day !== lastDay) {
+      const dayCount = list.filter((item) => dayOf(item.dhaka_time) === day).length;
+      html += `<div class="day-h"><h3>${esc(fmtDay(day))}</h3><span class="sub mono">${esc(day)} · ${esc(t("dayCount")(dayCount))}</span></div>`;
+      lastDay = day;
+    }
+
+    html += entryHtml(entry);
+  }
+
   $("#timeline").innerHTML = html;
 }
 
 async function loadRegistry() {
-  try { $("#regBox").textContent = JSON.stringify(await (await fetch("registry.json", { cache: "no-store" })).json(), null, 2); }
-  catch { $("#regBox").textContent = "registry.json"; }
+  try {
+    const response = await fetch("registry.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    $("#regBox").textContent = JSON.stringify(await response.json(), null, 2);
+  } catch {
+    $("#regBox").textContent = "registry.json";
+  }
 }
 
 async function load() {
   try {
-    const res = await fetch("data.json", { cache: "no-store" });
-    if (!res.ok) throw new Error(res.status);
-    const lm = res.headers.get("last-modified");
-    state.fileMod = lm ? new Date(lm) : null;
-    state.entries = (await res.json()).entries || [];
-    renderHeat(); renderStats(); renderUpdated(); render();
+    const response = await fetch("data.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const lastModified = response.headers.get("last-modified");
+    state.fileMod = lastModified ? new Date(lastModified) : null;
+
+    const data = await response.json();
+    state.entries = Array.isArray(data.entries) ? data.entries : [];
+
+    renderHeat();
+    renderStats();
+    renderUpdated();
+    render();
   } catch {
-    $("#timeline").innerHTML = `<p class="empty">${t("loadFail")}</p>`;
+    $("#timeline").innerHTML = `<p class="empty">${esc(t("loadFail"))}</p>`;
   }
 }
 
 function applyTheme() {
   document.documentElement.dataset.theme = state.theme;
-  localStorage.setItem("khataTheme", state.theme);
-  const b = $("#theme");
-  b.textContent = state.theme === "dark" ? "☀" : "☾";
-  b.setAttribute("aria-label", state.theme === "dark" ? "Light theme" : "Dark theme");
+
+  try {
+    localStorage.setItem("khataTheme", state.theme);
+  } catch {}
+
+  const button = $("#theme");
+  button.textContent = state.theme === "dark" ? "☀" : "☾";
+  button.setAttribute(
+    "aria-label",
+    state.theme === "dark" ? "Light theme" : "Dark theme"
+  );
 }
 
-document.addEventListener("click", async (ev) => {
-  if (ev.target.closest("#theme")) { state.theme = state.theme === "dark" ? "light" : "dark"; applyTheme(); return; }
-  const lang = ev.target.closest("[data-lang]");
-  if (lang) { state.lang = lang.dataset.lang; applyLang(); return; }
-  const cat = ev.target.closest("[data-cat]");
-  if (cat) { state.cat = cat.dataset.cat; renderCats(); render(); return; }
-  const day = ev.target.closest("[data-day]");
-  if (day && !day.disabled) {
-    state.day = state.day === day.dataset.day ? null : day.dataset.day;
-    renderHeat(); render();
+document.addEventListener("click", async (event) => {
+  if (event.target.closest("#theme")) {
+    state.theme = state.theme === "dark" ? "light" : "dark";
+    applyTheme();
+    return;
+  }
+
+  const languageButton = event.target.closest("[data-lang]");
+  if (languageButton) {
+    state.lang = languageButton.dataset.lang;
+    applyLang();
+    return;
+  }
+
+  const categoryButton = event.target.closest("[data-cat]");
+  if (categoryButton) {
+    state.cat = categoryButton.dataset.cat;
+    renderCats();
+    render();
+    return;
+  }
+
+  const dayButton = event.target.closest("[data-day]");
+  if (dayButton && !dayButton.disabled) {
+    state.day = state.day === dayButton.dataset.day ? null : dayButton.dataset.day;
+    renderHeat();
+    render();
     if (state.day) $("#timeline").scrollIntoView({ block: "start" });
     return;
   }
-  if (ev.target.closest("[data-clear]")) { state.day = null; renderHeat(); render(); return; }
-  const more = ev.target.closest("[data-more]");
-  if (more) {
-    const id = more.dataset.more;
+
+  if (event.target.closest("[data-clear]")) {
+    state.day = null;
+    renderHeat();
+    render();
+    return;
+  }
+
+  const moreButton = event.target.closest("[data-more]");
+  if (moreButton) {
+    const id = moreButton.dataset.more;
     state.open.has(id) ? state.open.delete(id) : state.open.add(id);
     render();
     return;
   }
-  const md = ev.target.closest("[data-md]");
-  if (md) {
-    const e = state.entries.find((x) => x.tracking_id === md.dataset.md);
-    if (e) await copyText(recordMarkdown(e));
+
+  const markdownSourceButton = event.target.closest("[data-md-source]");
+  if (markdownSourceButton) {
+    const entry = state.entries.find(
+      (item) => item.tracking_id === markdownSourceButton.dataset.mdSource
+    );
+    if (entry) await copyText(entry.description);
     return;
   }
-  const copy = ev.target.closest("[data-copy]");
-  if (copy) await copyText(copy.dataset.copy);
+
+  const recordButton = event.target.closest("[data-md]");
+  if (recordButton) {
+    const entry = state.entries.find(
+      (item) => item.tracking_id === recordButton.dataset.md
+    );
+    if (entry) await copyText(recordMarkdown(entry));
+    return;
+  }
+
+  const copyButton = event.target.closest("[data-copy]");
+  if (copyButton) await copyText(copyButton.dataset.copy);
 });
 
-$("#q").addEventListener("input", (e) => { state.query = e.target.value.trim().toLowerCase(); render(); });
+$("#q").addEventListener("input", (event) => {
+  state.query = event.target.value.trim().toLowerCase();
+  render();
+});
 
 /* Splash: shown on a fresh visit or reload; skipped when moving inside the site. */
 (function splash() {
-  const root = document.documentElement, splashEl = document.getElementById("splash");
-  if (!splashEl || !root.classList.contains("splash-on")) { root.classList.add("splash-gone"); return; }
-  const MIN = matchMedia("(prefers-reduced-motion: reduce)").matches ? 300 : 1800;
-  const MAX = 4200, t0 = Date.now();
+  const root = document.documentElement;
+  const splash = document.getElementById("splash");
+
+  if (!splash || !root.classList.contains("splash-on")) {
+    root.classList.add("splash-gone");
+    return;
+  }
+
+  const minDuration = matchMedia("(prefers-reduced-motion: reduce)").matches ? 300 : 1800;
+  const maxDuration = 4200;
+  const startedAt = Date.now();
   let done = false;
-  const bar = document.getElementById("progress");
-  if (bar) bar.style.animationDuration = MIN + "ms";
+
+  const progress = document.getElementById("progress");
+  if (progress) progress.style.animationDuration = `${minDuration}ms`;
+
   function finish() {
     if (done) return;
     done = true;
-    splashEl.classList.add("is-done");
+    splash.classList.add("is-done");
     setTimeout(() => root.classList.add("splash-gone"), 650);
   }
+
   function check() {
     if (done) return;
-    const el = Date.now() - t0;
-    if (el >= MAX) return finish();
-    if (document.readyState === "complete" && el >= MIN) return finish();
+    const elapsed = Date.now() - startedAt;
+    if (elapsed >= maxDuration) return finish();
+    if (document.readyState === "complete" && elapsed >= minDuration) return finish();
     setTimeout(check, 150);
   }
-  document.getElementById("skip").addEventListener("click", (e) => { e.stopPropagation(); finish(); });
-  splashEl.addEventListener("click", finish);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") finish(); });
+
+  document.getElementById("skip").addEventListener("click", (event) => {
+    event.stopPropagation();
+    finish();
+  });
+  splash.addEventListener("click", finish);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") finish();
+  });
   window.addEventListener("load", check);
-  setTimeout(check, MIN);
-  setTimeout(finish, MAX + 300);
+  setTimeout(check, minDuration);
+  setTimeout(finish, maxDuration + 300);
 })();
 
-state.lang = ["en", "bn", "ar"].includes(localStorage.getItem("khataLang")) ? localStorage.getItem("khataLang") : "en";
-state.theme = document.documentElement.dataset.theme || localStorage.getItem("khataTheme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+try {
+  const savedLanguage = localStorage.getItem("khataLang");
+  state.lang = ["en", "bn", "ar"].includes(savedLanguage) ? savedLanguage : "en";
+} catch {
+  state.lang = "en";
+}
+
+try {
+  state.theme =
+    document.documentElement.dataset.theme ||
+    localStorage.getItem("khataTheme") ||
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+} catch {
+  state.theme = document.documentElement.dataset.theme || "light";
+}
+
 applyTheme();
 applyLang();
 setInterval(tickClock, 1000);
 load();
 loadRegistry();
 </script>
+
 <script src="assets/install.js" defer></script>
 <script src="assets/menu.js" defer></script>
 </body>

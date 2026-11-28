@@ -72,6 +72,14 @@
     "updated_at": "2026-11-27T02:20:22+06:00"
   },
   {
+    "id": "NOTE-FD4CBA4540",
+    "title": "index.mjportal.v8",
+    "path": "index.mjportal.v8.md",
+    "folder": "",
+    "created_at": "2026-11-29T01:23:43+06:00",
+    "updated_at": "2026-11-29T01:23:23+06:00"
+  },
+  {
     "id": "NOTE-0F434D5981",
     "title": "direction",
     "path": "json/direction.md",
@@ -112,6 +120,14 @@
     "updated_at": "2026-11-26T16:13:05+06:00"
   },
   {
+    "id": "NOTE-350F9BECD6",
+    "title": "life.py",
+    "path": "life.py.md",
+    "folder": "",
+    "created_at": "2026-11-29T01:23:43+06:00",
+    "updated_at": "2026-11-29T01:11:23+06:00"
+  },
+  {
     "id": "NOTE-B02CB55928",
     "title": "mj-ai",
     "path": "mj-ai.md",
@@ -142,6 +158,14 @@
     "folder": "",
     "created_at": "2026-11-28T05:27:13+06:00",
     "updated_at": "2026-11-27T17:42:44+06:00"
+  },
+  {
+    "id": "NOTE-6AEA4492E9",
+    "title": "test",
+    "path": "test.md",
+    "folder": "",
+    "created_at": "2026-11-29T01:23:43+06:00",
+    "updated_at": "2026-11-29T01:04:37+06:00"
   },
   {
     "id": "NOTE-A291F51253",

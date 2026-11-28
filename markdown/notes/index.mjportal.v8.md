@@ -1,0 +1,959 @@
+নিচেরটি `index.html`-এর পূর্ণ বিকল্প। Markdown হিসেবে যোগ করা entry (`description_format: "markdown"`) সুন্দরভাবে render হবে; **রেকর্ড কপি** আগের মতো metadata-সহ পুরো রেকর্ড কপি করবে, আর নতুন **মূল Markdown কপি** বোতামটি শুধু আসল Markdown source কপি করবে। পুরোনো entry-তে format metadata না থাকলে সেগুলো plain text হিসেবেই দেখাবে।
+
+প্রতিস্থাপনের আগে root `index.html` ও `data.json`-এর backup নিন। Markdown render করতে CDN থেকে `marked` ও `DOMPurify` লাগে; ইন্টারনেট না থাকলে লেখা নিরাপদ plain-text fallback হিসেবে দেখাবে।
+
+```html name=index.html url=https://github.com/MJ-Ahmad/mjportal/blob/main/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d1b1f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script>
+/* Runs before paint: theme + splash decision (same policy as the main MJ site). */
+(function () {
+  var r = document.documentElement, show = true;
+  try {
+    var th = localStorage.getItem('khataTheme');
+    if (th === 'light' || th === 'dark') r.setAttribute('data-theme', th);
+    var q = location.search, nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    if (/[?&]splash=1\b/.test(q)) show = true;
+    else if (/[?&]splash=0\b/.test(q)) show = false;
+    else if (nav && nav.type === 'back_forward') show = false;
+    else if (nav && nav.type === 'reload') show = true;
+    else if (document.referrer) {
+      var u = new URL(document.referrer), base = location.pathname.replace(/index\.html$/, '');
+      if (u.origin === location.origin && u.pathname.indexOf(base) === 0) show = false;
+    }
+  } catch (e) {}
+  r.className += show ? ' splash-on' : ' splash-off';
+})();
+</script>
+<title>MJ Portal</title>
+<meta name="description" content="শেখা, কাজ, স্বাস্থ্য, ইমান ও আত্মবিশ্লেষণের একটি শান্ত, উত্তরাধিকারযোগ্য খাতা — সাথে সুশৃঙ্খল শেখার কেন্দ্র ও টার্মিনাল।">
+<meta name="author" content="MJ Ahmad">
+<meta name="theme-color" content="#0d1b1f">
+<link rel="canonical" href="https://mj-ahmad.github.io/mjportal/">
+
+<!-- Share preview: WhatsApp, Messenger, Telegram, Facebook, LinkedIn, X. Run: ./khata url <your-address> to change the base. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nijer Khata · নিজের খাতা">
+<meta property="og:locale" content="bn_BD">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://mj-ahmad.github.io/mjportal/">
+<meta property="og:title" content="নিজের খাতা · Nijer Khata">
+<meta property="og:description" content="শেখা, কাজ, স্বাস্থ্য ও আত্মবিশ্লেষণের একটি শান্ত খাতা — সাথে শেখার কেন্দ্র ও টার্মিনাল।">
+<meta property="og:image" content="https://mj-ahmad.github.io/mjportal/assets/branding/og/og-1200x630.png">
+<meta property="og:image:secure_url" content="https://mj-ahmad.github.io/mjportal/assets/branding/og/og-1200x630.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="নিজের খাতা লোগো">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="নিজের খাতা · Nijer Khata">
+<meta name="twitter:description" content="শেখা, কাজ, স্বাস্থ্য ও আত্মবিশ্লেষণের একটি শান্ত খাতা।">
+<meta name="twitter:image" content="https://mj-ahmad.github.io/mjportal/assets/branding/og/og-1200x630.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/branding/logos/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/branding/logos/favicon/favicon-16.png">
+<link rel="icon" type="image/png" sizes="96x96" href="assets/branding/logos/favicon/favicon-96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/branding/logos/app-icons/ios-icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Galada&family=Cormorant+Garamond:wght@500;600&family=Tiro+Bangla&family=Hind+Siliguri:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- Markdown parser and sanitizer. Plain-text fallback is used if either CDN library is unavailable. -->
+<script defer src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+<style>
+:root{--bg:#eef3f1;--surface:#f8fbfa;--line:#d3dfd8;--ink:#14303a;--muted:#5b7270;--moss:#2e6b55;--amber:#c7851c;--violet:#5f4a8b;--c0:#e0e9e4;--c1:#b9d4c7;--c2:#7fae98;--c3:#2e6b55;--c4:#14303a;--cell:12px;--gap:3px;color-scheme:light}
+html[data-theme="dark"]{--bg:#0d1b1f;--surface:#132529;--line:#24393e;--ink:#e6f0ec;--muted:#93aaa4;--moss:#6fb896;--amber:#e0a445;--violet:#b3a1e0;--c0:#1d3034;--c1:#2c4d4a;--c2:#3e7463;--c3:#6fb08f;--c4:#cfeedd;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 "Hind Siliguri",system-ui,sans-serif;padding:env(safe-area-inset-top,0) env(safe-area-inset-right,0) env(safe-area-inset-bottom,0)}
+a{color:var(--moss)}
+.wrap{max-width:960px;margin:0 auto;padding:24px 18px 56px}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12.5px}
+.serif{font-family:"Tiro Bangla",Georgia,serif;font-weight:400}
+.sub{color:var(--muted);font-size:14px;margin:0}
+
+/* ---------- Splash ---------- */
+#splash{position:fixed;inset:0;z-index:999;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;background:#0d1b1f;color:#e6f0ec;text-align:center;cursor:pointer;transition:opacity .6s ease,visibility .6s ease;-webkit-tap-highlight-color:transparent}
+.splash-on #splash{display:flex}
+#splash.is-done{opacity:0;visibility:hidden;pointer-events:none}
+.splash-gone #splash,.splash-off #splash{display:none!important}
+.splash-logo{width:min(270px,70vw);height:auto;max-height:34vh;object-fit:contain;animation:rise .9s ease both}
+.splash-name{margin:0;font-family:"Galada","Tiro Bangla",serif;font-size:2rem;line-height:1.3;animation:rise .9s .15s ease both}
+.splash-tag{margin:0;color:#93aaa4;font-size:.95rem;animation:rise .9s .3s ease both}
+.progress-bar{width:min(220px,60vw);height:3px;margin-top:8px;background:#24393e;border-radius:3px;overflow:hidden}
+.progress{height:100%;width:100%;background:#e0a445;transform:scaleX(0);transform-origin:left;animation:fill linear forwards}
+html[dir="rtl"] .progress{transform-origin:right}
+.splash-skip{margin-top:6px;min-height:42px;padding:.4rem 1.3rem;border:1px solid #2c4d4a;border-radius:999px;background:transparent;color:#93aaa4;font:inherit;font-size:.9rem;cursor:pointer}
+.splash-skip:hover,.splash-skip:focus-visible{color:#e0a445;border-color:#e0a445}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes fill{to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.splash-logo,.splash-name,.splash-tag{animation:none}.progress{animation:none;transform:scaleX(1)}}
+
+/* ---------- Header ---------- */
+header{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:12px;align-items:center;min-width:0;text-decoration:none;color:var(--ink)}
+.brand img{width:52px;height:52px;border-radius:50%;object-fit:contain;flex:0 0 52px;mix-blend-mode:multiply}
+html[data-theme="dark"] .brand img{filter:invert(1);mix-blend-mode:screen}
+h1.brand-title{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:42px;line-height:1.05;letter-spacing:.3px}
+html[lang="bn"] h1.brand-title,html[lang="ar"] h1.brand-title{font-family:"Galada","Tiro Bangla",serif;font-weight:400;font-size:44px;letter-spacing:0;line-height:1.2}
+html[lang="ar"] h1.brand-title{font-family:"Noto Naskh Arabic",Georgia,serif;font-size:40px}
+.tools{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.clock{color:var(--muted);font-size:12.5px;white-space:nowrap;direction:ltr}
+.clock b{color:var(--ink);font-weight:500}
+.theme-btn{background:none;border:1px solid var(--line);border-radius:50%;width:34px;height:34px;color:var(--ink);cursor:pointer;font-size:16px;line-height:1;padding:0}
+.lang{display:flex;gap:14px}
+.lang button{background:none;border:0;border-bottom:2px solid transparent;padding:4px 0;color:var(--muted);cursor:pointer;font:inherit;font-size:14px}
+.lang button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--amber)}
+
+/* ---------- Home ---------- */
+.home{padding:26px 0 6px}
+.home h2{margin:0;font-family:"Tiro Bangla",serif;font-weight:400;font-size:30px;line-height:1.25}
+html[lang="ar"] .home h2{font-family:"Noto Naskh Arabic",serif}
+.home .sub{margin-top:4px}
+.updated{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--muted);font-size:12.5px}
+.updated b{color:var(--ink);font-weight:500}
+.nav-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:20px}
+.nav-card{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);text-decoration:none;transition:border-color .2s,transform .2s}
+.nav-card:hover,.nav-card:focus-visible{border-color:var(--moss);transform:translateY(-2px);outline:none}
+.nav-card svg{flex:0 0 22px;margin-top:2px;color:var(--violet)}
+.nav-card strong{display:block;font-weight:600;font-size:16px;line-height:1.3}
+.nav-card span{display:block;color:var(--muted);font-size:13.5px;line-height:1.5}
+
+/* ---------- Dashboard ---------- */
+section.hero{padding:24px 0 8px}
+.hero h2{font-size:22px;margin:0 0 2px}
+.hm-scroll{overflow-x:auto;padding:12px 0 6px;scrollbar-width:thin;direction:ltr}
+.hm-months{position:relative;height:18px}
+.hm-months span{position:absolute;top:0;font-size:12px;color:var(--muted);white-space:nowrap}
+.hm-grid{display:grid;grid-template-rows:repeat(7,var(--cell));grid-auto-flow:column;grid-auto-columns:var(--cell);gap:var(--gap);width:max-content}
+.hm-grid .ph{width:var(--cell);height:var(--cell)}
+.d{width:var(--cell);height:var(--cell);border:0;border-radius:3px;padding:0;background:var(--c0);cursor:pointer}
+.d.c1{background:var(--c1)}.d.c2{background:var(--c2)}.d.c3{background:var(--c3)}.d.c4{background:var(--c4)}
+.d.fut{background:transparent;border:1px dashed var(--line);cursor:default}
+.d.today{outline:2px solid var(--amber);outline-offset:1px}
+.d.sel{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--violet)}
+.d:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.hm-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-top:6px}
+.legend{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+.legend i{width:var(--cell);height:var(--cell);border-radius:3px;display:inline-block;margin:0 2px}
+.stats{margin:18px 0 0;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:4px 18px}
+.stats b{color:var(--ink);font-weight:500}
+.controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:22px 0 4px}
+#q{flex:1 1 240px;padding:10px 2px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;outline:none}
+#q:focus{border-bottom-color:var(--moss)}
+.cats{display:flex;gap:6px 14px;flex-wrap:wrap}
+.cat-btn{background:none;border:0;padding:4px 0;color:var(--muted);cursor:pointer;font:inherit;font-size:14px;border-bottom:1px solid transparent}
+.cat-btn[aria-pressed="true"]{color:var(--violet);border-bottom-color:var(--violet)}
+.day-filter{display:flex;gap:10px;align-items:center;margin:14px 0 0;font-size:14px;color:var(--muted)}
+.day-filter button{background:none;border:0;color:var(--moss);cursor:pointer;font:inherit;padding:0;text-decoration:underline}
+.day-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin:34px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.day-h h3{font-family:"Tiro Bangla",serif;font-weight:400;font-size:20px;margin:0}
+html[lang="ar"] .day-h h3{font-family:"Noto Naskh Arabic",serif}
+.entry{padding:16px 0 18px;border-bottom:1px solid var(--line)}
+.ids{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;color:var(--muted)}
+.ids button{background:none;border:0;padding:0;color:var(--moss);cursor:pointer;font:inherit}
+.ids .cat{color:var(--violet);font-size:13px}
+.times{color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 16px;margin-top:2px;direction:ltr;justify-content:flex-start}
+html[dir="rtl"] .times{justify-content:flex-end}
+.entry h4{font-size:18px;font-weight:600;margin:8px 0 2px;line-height:1.4;word-break:break-word}
+
+/* Plain text and rendered Markdown descriptions */
+.desc{margin:0;white-space:pre-line;color:#233c44;word-break:break-word}
+html[data-theme="dark"] .desc{color:#c9dcd5}
+.desc.plain.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.desc.markdown{white-space:normal;line-height:1.75}
+.desc.markdown p,.desc.markdown ul,.desc.markdown ol,.desc.markdown blockquote,.desc.markdown pre,.desc.markdown table{margin:0 0 12px}
+.desc.markdown h1,.desc.markdown h2,.desc.markdown h3,.desc.markdown h4{margin:14px 0 7px;line-height:1.35;color:var(--ink);overflow-wrap:anywhere}
+.desc.markdown h1{font-size:1.45em}
+.desc.markdown h2{font-size:1.3em}
+.desc.markdown h3{font-size:1.15em}
+.desc.markdown ul,.desc.markdown ol{padding-inline-start:24px}
+.desc.markdown blockquote{padding:8px 12px;border-inline-start:3px solid var(--amber);border-radius:0 7px 7px 0;background:var(--surface);color:var(--muted)}
+.desc.markdown pre{max-width:100%;overflow:auto;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);direction:ltr;text-align:left;white-space:pre}
+.desc.markdown pre code,.desc.markdown :not(pre)>code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+.desc.markdown :not(pre)>code{padding:2px 5px;border-radius:4px;background:var(--surface)}
+.desc.markdown table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+.desc.markdown th,.desc.markdown td{padding:6px 9px;border:1px solid var(--line);text-align:start}
+.desc.markdown a{color:var(--moss);text-underline-offset:3px}
+.desc.markdown img{max-width:100%;height:auto;border-radius:8px}
+.desc.markdown.clamp{position:relative;max-height:13em;overflow:hidden}
+.desc.markdown.clamp::after{content:"";position:absolute;right:0;bottom:0;left:0;height:3.5em;background:linear-gradient(transparent,var(--bg))}
+html[data-theme="dark"] .desc.markdown.clamp::after{background:linear-gradient(transparent,var(--bg))}
+.more{background:none;border:0;padding:4px 0;color:var(--moss);cursor:pointer;font:inherit;font-size:14px}
+.tags{margin-top:6px;color:var(--violet);font-size:13px;word-break:break-word}
+.file{margin-top:6px;font-size:13px;color:var(--muted);word-break:break-all}
+.file a{color:var(--moss)}
+.actions{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:13.5px}
+.actions button{background:none;border:0;padding:4px 0;color:var(--moss);cursor:pointer;font:inherit}
+.empty{padding:40px 0;color:var(--muted);text-align:center}
+section.doc{margin-top:26px;padding-top:6px;scroll-margin-top:12px}
+section.doc h3{font-family:"Tiro Bangla",serif;font-weight:400;font-size:20px;margin:0 0 6px}
+section.doc p{margin:0 0 10px;color:var(--muted)}
+pre{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto;font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.6;white-space:pre;color:var(--ink);direction:ltr;text-align:left}
+
+/* ---------- Footer ---------- */
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 18px}
+footer a{color:var(--moss);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+.toast.show{opacity:1}
+
+@media (max-width:640px){
+  h1.brand-title{font-size:36px}
+  html[lang="bn"] h1.brand-title,html[lang="ar"] h1.brand-title{font-size:36px}
+  :root{--cell:11px;--gap:3px}
+  .entry h4{font-size:17px}
+  .home h2{font-size:26px}
+  .clock{width:100%;order:3}
+  .desc.markdown pre{font-size:12px}
+  .desc.markdown.clamp{max-height:11em}
+}
+</style>
+</head>
+<body>
+
+<!-- Splash -->
+<div id="splash" role="status" aria-live="polite" title="">
+  <img class="splash-logo" src="assets/branding/logos/web/mj-logo-soft.png" alt="" width="270" height="165">
+  <p class="splash-name" data-i18n="title"></p>
+  <p class="splash-tag" data-i18n="splashTag"></p>
+  <div class="progress-bar" aria-hidden="true"><div class="progress" id="progress"></div></div>
+  <button type="button" class="splash-skip" id="skip" data-i18n="skip"></button>
+</div>
+
+<div class="wrap">
+
+<header>
+  <a class="brand" href="./" aria-label="Nijer Khata">
+    <img id="logo" src="assets/logo.png" alt="" onerror="this.remove()">
+    <h1 id="title" class="brand-title"></h1>
+  </a>
+  <div class="tools">
+    <span class="clock mono" id="clock" aria-live="off"></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="bn" aria-pressed="false">বাংলা</button>
+      <button type="button" data-lang="ar" aria-pressed="false">العربية</button>
+    </div>
+    <button type="button" id="theme" class="theme-btn" aria-label="Theme"></button>
+  </div>
+</header>
+
+<section class="home" aria-labelledby="homeT">
+  <h2 id="homeT" data-i18n="homeTitle"></h2>
+  <p class="sub" data-i18n="homeSub"></p>
+  <p class="updated mono">
+    <span><span data-i18n="lastEntry"></span>: <b id="lastEntry">—</b></span>
+    <span><span data-i18n="fileUpd"></span>: <b id="fileUpd">—</b></span>
+  </p>
+  <nav class="nav-cards" aria-label="Sections">
+    <a class="nav-card" href="learn/">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 5v16"/></svg>
+      <div><strong data-i18n="cardLearn"></strong><span data-i18n="cardLearnSub"></span></div>
+    </a>
+    <a class="nav-card" href="terminal/">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg>
+      <div><strong data-i18n="cardTerm"></strong><span data-i18n="cardTermSub"></span></div>
+    </a>
+    <a class="nav-card" href="private/">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+      <div><strong>ব্যক্তিগত</strong><span>পাসওয়ার্ড দিয়ে খুলুন</span></div>
+    </a>
+    <a class="nav-card" href="#dash">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+      <div><strong data-i18n="cardDash"></strong><span data-i18n="cardDashSub"></span></div>
+    </a>
+    <a class="nav-card" href="../">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+      <div><strong data-i18n="cardMj"></strong><span data-i18n="cardMjSub"></span></div>
+    </a>
+  </nav>
+</section>
+
+<div id="dash">
+<section class="hero" aria-labelledby="heroT">
+  <h2 id="heroT" class="serif" data-i18n="heroTitle"></h2>
+  <p class="sub" id="heroSum"></p>
+  <div class="hm-scroll" id="hmScroll">
+    <div class="hm-months" id="hmMonths"></div>
+    <div class="hm-grid" id="hmGrid"></div>
+  </div>
+  <div class="hm-foot">
+    <span class="sub" data-i18n="heatHint"></span>
+    <span class="legend"><span data-i18n="less"></span><i class="d c0"></i><i class="d c1"></i><i class="d c2"></i><i class="d c3"></i><i class="d c4"></i><span data-i18n="more2"></span></span>
+  </div>
+  <div class="stats" id="stats"></div>
+</section>
+
+<div class="controls">
+  <input id="q" type="search" autocomplete="off" aria-label="search">
+  <div class="cats" id="cats"></div>
+</div>
+<div id="dayFilter" class="day-filter" hidden></div>
+
+<main id="timeline"></main>
+</div>
+
+<section id="help" class="doc"><h3 data-i18n="helpTitle"></h3><p data-i18n="helpBody"></p></section>
+<section id="cli" class="doc"><h3 data-i18n="cliTitle"></h3><pre>./khata start                 # validate, then serve on http://127.0.0.1:8000
+./khata status                # database check + summary
+./khata log "today's progress" --category learning --mood 4
+./khata add "Heading" "Description" --body-file notes.md --tag a,b --link TASK-000001
+./khata add "Heading" "Description" --add-file ./proof.pdf
+./khata list --limit 10
+./khata time                  # Dhaka and UTC now
+./khata learn list            # learning subjects
+./khata learn open geojson
+./khata url https://your-address/nijer-khata
+./khata backup
+./khata help</pre></section>
+<section id="dev" class="doc"><h3 data-i18n="devTitle"></h3><p data-i18n="devBody"></p><pre>khata          terminal command shell (bash)
+life.py        CLI and storage library (atomic writes, IDs, checksums)
+data.json      every entry, newest first
+registry.json  ID counters (LIFE-, REG-)
+site.json      public base URL used in share previews
+learn/         learning hub: subjects.json + build.py generate the pages
+terminal/      browser terminal
+attachments/   files added with --add-file
+assets/        logos, icons, share image
+index.html     this page (static, no build step)
+run.sh         validate and serve</pre></section>
+<section id="registry" class="doc"><h3 data-i18n="regTitle"></h3><pre id="regBox">…</pre></section>
+<section id="self" class="doc"><h3 data-i18n="selfTitle"></h3><p data-i18n="selfBody"></p></section>
+
+<footer>
+  <span data-i18n="footer"></span>
+  <nav>
+    <a href="#help" data-i18n="navHelp"></a>
+    <a href="#cli" data-i18n="navCli"></a>
+    <a href="#dev" data-i18n="navDev"></a>
+    <a href="#registry" data-i18n="navReg"></a>
+    <a href="learn/" data-i18n="navLearn"></a>
+    <a href="terminal/" data-i18n="navTerm"></a>
+    <a href="private/">ব্যক্তিগত</a>
+    <a href="private/?role=user">ইউজার লগইন</a>
+    <a href="private/?role=admin">অ্যাডমিন লগইন</a>
+    <a href="../" data-i18n="navMj"></a>
+  </nav>
+</footer>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script>
+const I18N = {
+  en: {
+    title: "Nijer Khata", homeTitle: "Welcome to your ledger", homeSub: "A quiet, inheritable record of learning, work, health and reflection.",
+    splashTag: "Preparing…", skip: "Skip", clockLbl: "Dhaka now", tz: "Dhaka · UTC+06:00",
+    lastEntry: "Latest entry", fileUpd: "Data file updated", noTime: "—",
+    cardLearn: "Learning hub", cardLearnSub: "Structured paths, one page per subject",
+    cardTerm: "Terminal", cardTermSub: "Run commands from the browser",
+    cardDash: "Dashboard", cardDashSub: "Entries, heatmap and search",
+    cardMj: "MJ Ahmad", cardMjSub: "Main site",
+    heroTitle: "The year so far", heatHint: "Each square is a day. Tap one to read it.",
+    less: "Less", more2: "More", search: "Search ID, heading, text, tags…", all: "All",
+    stats: { total: "Entries", week: "Last 7 days", mood: "Average mood", latest: "Latest" },
+    more: "Read full", lessTxt: "Show less", dhaka: "Dhaka", utc: "UTC", moodLbl: "Mood",
+    copyRecord: "Copy record", copyOriginalMarkdown: "Copy original Markdown", copyId: "Copy ID", copySha: "Copy SHA-256",
+    file: "File", missing: "not in this copy", none: "No entries here yet.",
+    dayShown: "Showing", clear: "Show all", loadFail: "Could not load data.json. Start with ./khata start",
+    copied: "Copied", copyFail: "Copy failed", dayCount: n => `${n} ${n === 1 ? "entry" : "entries"}`,
+    helpTitle: "Help", cliTitle: "Command shell", devTitle: "Developer", regTitle: "Registry", selfTitle: "Self Tracker",
+    navHelp: "Help", navCli: "Commands", navDev: "Developer", navReg: "Registry", navSelf: "Self Tracker", navLearn: "Learning hub", navTerm: "Terminal", navMj: "← MJ Ahmad",
+    footer: "Track every step. Keep it inheritable.",
+    helpBody: "Every entry has a LIFE tracking ID, a REG registry ID, and Dhaka and UTC timestamps. Tap a square to see that day, or tap an entry to read it in full.",
+    devBody: "Plain files with no build step. Copy the folder and the whole system is inherited.",
+    selfBody: "A quiet record of learning, work, health, faith and reflection. Write small, come back often, and let the year show the progress.",
+    cat: { health: "Health", learning: "Learning", work: "Work", habits: "Habits", relationships: "Relationships", faith: "Faith", finance: "Finance", reflection: "Reflection", other: "Other" }
+  },
+  bn: {
+    title: "নিজের খাতা", homeTitle: "আপনার খাতায় স্বাগতম", homeSub: "শেখা, কাজ, স্বাস্থ্য ও আত্মবিশ্লেষণের একটি শান্ত, উত্তরাধিকারযোগ্য রেকর্ড।",
+    splashTag: "প্রস্তুত হচ্ছে…", skip: "এড়িয়ে যান", clockLbl: "ঢাকা এখন", tz: "ঢাকা · UTC+06:00",
+    lastEntry: "সর্বশেষ এন্ট্রি", fileUpd: "ডেটা ফাইল আপডেট", noTime: "—",
+    cardLearn: "শেখার কেন্দ্র", cardLearnSub: "সুশৃঙ্খল পথ, প্রতি বিষয়ে আলাদা পেজ",
+    cardTerm: "টার্মিনাল", cardTermSub: "ব্রাউজার থেকে কমান্ড চালান",
+    cardDash: "ড্যাশবোর্ড", cardDashSub: "এন্ট্রি, হিটম্যাপ ও খোঁজ",
+    cardMj: "এম জে আহমদ", cardMjSub: "মূল সাইট",
+    heroTitle: "এই বছরের এক নজর", heatHint: "প্রতিটি বর্গ এক একটি দিন। দেখতে চাইলে চাপুন।",
+    less: "কম", more2: "বেশি", search: "আইডি, শিরোনাম, লেখা, ট্যাগ খুঁজুন…", all: "সব",
+    stats: { total: "মোট এন্ট্রি", week: "গত ৭ দিন", mood: "গড় মুড", latest: "সর্বশেষ" },
+    more: "পুরোটা পড়ুন", lessTxt: "সংক্ষেপে", dhaka: "ঢাকা", utc: "ইউটিসি", moodLbl: "মুড",
+    copyRecord: "রেকর্ড কপি", copyOriginalMarkdown: "মূল Markdown কপি", copyId: "আইডি কপি", copySha: "SHA-256 কপি",
+    file: "ফাইল", missing: "এই কপিতে নেই", none: "এখানে এখনো কোনো এন্ট্রি নেই।",
+    dayShown: "দেখানো হচ্ছে", clear: "সব দেখুন", loadFail: "data.json লোড করা যায়নি। ./khata start দিয়ে চালু করুন",
+    copied: "কপি হয়েছে", copyFail: "কপি ব্যর্থ", dayCount: n => `${n}টি এন্ট্রি`,
+    helpTitle: "সাহায্য", cliTitle: "কমান্ড শেল", devTitle: "ডেভেলপার", regTitle: "রেজিস্ট্রি", selfTitle: "সেলফ ট্র্যাকার",
+    navHelp: "সাহায্য", navCli: "কমান্ড", navDev: "ডেভেলপার", navReg: "রেজিস্ট্রি", navSelf: "সেলফ ট্র্যাকার", navLearn: "শেখার কেন্দ্র", navTerm: "টার্মিনাল", navMj: "← এম জে আহমদ",
+    footer: "প্রতিটি ধাপ লিখে রাখুন। উত্তরাধিকারযোগ্য রাখুন।",
+    helpBody: "প্রতিটি এন্ট্রির আছে LIFE ট্র্যাকিং আইডি, REG রেজিস্ট্রি আইডি, ঢাকা ও UTC সময়। কোনো বর্গে চাপলে সেই দিনের লেখা দেখা যাবে, আর এন্ট্রিতে চাপলে পুরোটা পড়া যাবে।",
+    devBody: "কোনো বিল্ড ছাড়াই সাধারণ ফাইল। ফোল্ডারটি কপি করলেই পুরো সিস্টেম পাওয়া যায়।",
+    selfBody: "শেখা, কাজ, স্বাস্থ্য, ইমান আর আত্মবিশ্লেষণের একটি শান্ত খাতা। ছোট করে লিখুন, বারবার ফিরে আসুন, আর বছরটিই অগ্রগতি দেখাক।",
+    cat: { health: "স্বাস্থ্য", learning: "শিক্ষা", work: "কাজ", habits: "অভ্যাস", relationships: "সম্পর্ক", faith: "ইমান", finance: "অর্থ", reflection: "আত্মবিশ্লেষণ", other: "অন্যান্য" }
+  },
+  ar: {
+    title: "نيجِر خاتا", homeTitle: "مرحبًا بك في دفترك", homeSub: "سجلّ هادئ وقابل للتوارث للتعلم والعمل والصحة والتأمل.",
+    splashTag: "جارٍ التحضير…", skip: "تخطي", clockLbl: "الوقت في دكا", tz: "دكا · UTC+06:00",
+    lastEntry: "آخر إدخال", fileUpd: "آخر تحديث للبيانات", noTime: "—",
+    cardLearn: "مركز التعلم", cardLearnSub: "مسارات منظمة، صفحة لكل موضوع",
+    cardTerm: "الطرفية", cardTermSub: "نفّذ الأوامر من المتصفح",
+    cardDash: "لوحة المتابعة", cardDashSub: "الإدخالات والخريطة الحرارية والبحث",
+    cardMj: "إم جي أحمد", cardMjSub: "الموقع الرئيسي",
+    heroTitle: "نظرة على هذا العام", heatHint: "كل مربع يمثل يومًا. اضغط عليه لقراءته.",
+    less: "أقل", more2: "أكثر", search: "ابحث بالمعرف أو العنوان أو النص أو الوسم…", all: "الكل",
+    stats: { total: "عدد الإدخالات", week: "آخر 7 أيام", mood: "متوسط المزاج", latest: "الأحدث" },
+    more: "اقرأ كاملًا", lessTxt: "عرض أقل", dhaka: "دكا", utc: "التوقيت العالمي", moodLbl: "المزاج",
+    copyRecord: "نسخ السجل", copyOriginalMarkdown: "نسخ Markdown الأصلي", copyId: "نسخ المعرف", copySha: "نسخ SHA-256",
+    file: "الملف", missing: "غير موجود في هذه النسخة", none: "لا توجد إدخالات هنا بعد.",
+    dayShown: "يتم عرض", clear: "عرض الكل", loadFail: "تعذّر تحميل data.json. شغّل ./khata start",
+    copied: "تم النسخ", copyFail: "فشل النسخ", dayCount: n => `${n} ${n === 1 ? "إدخال" : n === 2 ? "إدخالان" : "إدخالات"}`,
+    helpTitle: "المساعدة", cliTitle: "قشرة الأوامر", devTitle: "للمطورين", regTitle: "السجل", selfTitle: "متتبّع الذات",
+    navHelp: "المساعدة", navCli: "الأوامر", navDev: "للمطورين", navReg: "السجل", navSelf: "متتبّع الذات", navLearn: "مركز التعلم", navTerm: "الطرفية", navMj: "إم جي أحمد →",
+    footer: "تتبّع كل خطوة. واجعلها قابلة للتوارث.",
+    helpBody: "لكل إدخال معرّف تتبع LIFE ومعرّف سجل REG وتوقيت دكا والتوقيت العالمي. اضغط على مربع لرؤية ذلك اليوم، أو على إدخال لقراءته كاملًا.",
+    devBody: "ملفات بسيطة دون خطوة بناء. انسخ المجلد فتنتقل المنظومة كاملة.",
+    selfBody: "سجل هادئ للتعلم والعمل والصحة والإيمان والتأمل. اكتب بإيجاز، وعد كثيرًا، ودع العام يُظهر التقدم.",
+    cat: { health: "الصحة", learning: "التعلم", work: "العمل", habits: "العادات", relationships: "العلاقات", faith: "الإيمان", finance: "المال", reflection: "التأمل", other: "أخرى" }
+  }
+};
+
+const LOCALE = { en: "en-GB", bn: "bn-BD", ar: "ar" };
+const state = { lang: "en", theme: "light", query: "", cat: "all", day: null, entries: [], open: new Set(), fileMod: null };
+const todayKey = new Date(Date.now() + 6 * 3600e3).toISOString().slice(0, 10); // Dhaka date
+const $ = (s) => document.querySelector(s);
+const t = (k) => I18N[state.lang][k];
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const dayOf = (ts) => String(ts || "").slice(0, 10);
+const toMs = (ts) => Date.parse(String(ts || "").replace(" ", "T") + "Z");
+const loc = () => LOCALE[state.lang];
+const fmtDay = (key) => new Date(key + "T00:00:00").toLocaleDateString(loc(), { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+
+function dhakaText(date) {
+  return new Intl.DateTimeFormat(loc(), {
+    timeZone: "Asia/Dhaka",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23"
+  }).format(date);
+}
+
+function tickClock() {
+  const el = $("#clock");
+  if (el) el.innerHTML = `${esc(t("clockLbl"))} <b>${esc(dhakaText(new Date()))}</b>`;
+}
+
+function renderUpdated() {
+  const latest = state.entries.reduce(
+    (best, entry) => (!best || toMs(entry.utc_time) > toMs(best.utc_time) ? entry : best),
+    null
+  );
+  $("#lastEntry").textContent = latest ? dhakaText(new Date(toMs(latest.utc_time))) : t("noTime");
+  $("#fileUpd").textContent = state.fileMod ? dhakaText(state.fileMod) : t("noTime");
+}
+
+function toast(message) {
+  const el = $("#toast");
+  el.textContent = message;
+  el.classList.add("show");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => el.classList.remove("show"), 1500);
+}
+
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.append(area);
+      area.select();
+      const copied = document.execCommand("copy");
+      area.remove();
+      if (!copied) throw new Error("Copy failed");
+    }
+    toast(t("copied"));
+  } catch {
+    toast(t("copyFail"));
+  }
+}
+
+function recordMarkdown(entry) {
+  const lines = [
+    `## ${entry.heading}`,
+    "",
+    `- Tracking: ${entry.tracking_id} · Registry: ${entry.registry}`,
+    `- Dhaka: ${entry.dhaka_time} · UTC: ${entry.utc_time}`,
+    `- Category: ${entry.category || "other"}`
+  ];
+  if (entry.mood != null) lines.push(`- Mood: ${entry.mood}/5`);
+  if (entry.tags?.length) lines.push(`- Tags: ${entry.tags.join(", ")}`);
+  if (entry.links?.length) lines.push(`- Linked: ${entry.links.join(", ")}`);
+  lines.push("", entry.description || "");
+  return lines.join("\n");
+}
+
+function safeMarkdownHtml(source) {
+  if (!window.marked || !window.DOMPurify) return null;
+
+  try {
+    const html = window.marked.parse(String(source ?? ""), {
+      gfm: true,
+      breaks: false
+    });
+    return window.DOMPurify.sanitize(html);
+  } catch {
+    return null;
+  }
+}
+
+function descriptionHtml(entry, expanded) {
+  const source = String(entry.description ?? "");
+  const isMarkdown = entry.description_format === "markdown";
+  const safeHtml = isMarkdown ? safeMarkdownHtml(source) : null;
+  const isLong = source.length > 170 || source.split("\n").length > 3;
+  const isOpen = state.open.has(entry.tracking_id);
+  const clampClass = isLong && !isOpen ? "clamp" : "";
+
+  if (isMarkdown && safeHtml !== null) {
+    return {
+      html: `<div class="desc markdown ${clampClass}">${safeHtml}</div>`,
+      isMarkdown: true,
+      isLong,
+      isOpen
+    };
+  }
+
+  return {
+    html: `<p class="desc plain ${clampClass}">${esc(source)}</p>`,
+    isMarkdown,
+    isLong,
+    isOpen,
+    fallback: isMarkdown
+  };
+}
+
+function applyLang() {
+  const lang = state.lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  $("#title").textContent = t("title");
+  document.title = lang === "en" ? "Nijer Khata" : t("title") + " · Nijer Khata";
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+  });
+  $("#q").placeholder = t("search");
+
+  try {
+    localStorage.setItem("khataLang", lang);
+  } catch {}
+
+  tickClock();
+  renderUpdated();
+  renderCats();
+  renderHeat();
+  renderStats();
+  render();
+}
+
+function renderCats() {
+  const keys = ["all", ...Object.keys(I18N[state.lang].cat)];
+  $("#cats").innerHTML = keys.map((key) => {
+    const label = key === "all" ? t("all") : I18N[state.lang].cat[key];
+    return `<button class="cat-btn" data-cat="${esc(key)}" aria-pressed="${state.cat === key}">${esc(label)}</button>`;
+  }).join("");
+}
+
+function renderHeat() {
+  const year = Number(todayKey.slice(0, 4));
+  const counts = {};
+
+  state.entries.forEach((entry) => {
+    const key = dayOf(entry.dhaka_time);
+    counts[key] = (counts[key] || 0) + 1;
+  });
+
+  const first = new Date(Date.UTC(year, 0, 1));
+  let cells = first.getUTCDay();
+  let html = "";
+  const months = [];
+
+  for (let i = 0; i < cells; i++) html += '<span class="ph"></span>';
+
+  for (let date = new Date(first); date.getUTCFullYear() === year; date.setUTCDate(date.getUTCDate() + 1)) {
+    const key = date.toISOString().slice(0, 10);
+    const count = counts[key] || 0;
+    const level = count === 0 ? 0 : count === 1 ? 1 : count === 2 ? 2 : count < 5 ? 3 : 4;
+
+    if (date.getUTCDate() === 1) {
+      months.push({ month: date.getUTCMonth(), column: Math.floor(cells / 7) });
+    }
+
+    const classes = ["d", `c${level}`];
+    if (key > todayKey) classes.push("fut");
+    if (key === todayKey) classes.push("today");
+    if (state.day === key) classes.push("sel");
+
+    html += `<button class="${classes.join(" ")}" data-day="${key}" ${key > todayKey ? "disabled" : ""} aria-label="${esc(fmtDay(key))}: ${count}"></button>`;
+    cells++;
+  }
+
+  $("#hmGrid").innerHTML = html;
+
+  const step = 12 + 3;
+  $("#hmMonths").innerHTML = months.map((item) =>
+    `<span style="left:${item.column * step}px">${new Date(Date.UTC(year, item.month, 1)).toLocaleDateString(loc(), { month: "short", timeZone: "UTC" })}</span>`
+  ).join("");
+  $("#hmMonths").style.width = `${Math.ceil(cells / 7) * step}px`;
+
+  const yearCount = state.entries.filter((entry) => dayOf(entry.dhaka_time).startsWith(String(year))).length;
+  const unit = state.lang === "bn" ? "টি এন্ট্রি" : state.lang === "ar" ? "إدخال" : "entries";
+  $("#heroSum").textContent = `${yearCount} ${unit} · ${year}`;
+
+  const scroll = $("#hmScroll");
+  scroll.scrollLeft = scroll.scrollWidth;
+}
+
+function renderStats() {
+  const now = Date.now();
+  const week = state.entries.filter((entry) => now - toMs(entry.utc_time) < 7 * 864e5).length;
+  const moods = state.entries.map((entry) => entry.mood).filter((mood) => mood != null);
+  const averageMood = moods.length
+    ? (moods.reduce((sum, mood) => sum + mood, 0) / moods.length).toFixed(1)
+    : "—";
+
+  $("#stats").innerHTML = [
+    `${t("stats").total} <b>${state.entries.length}</b>`,
+    `${t("stats").week} <b>${week}</b>`,
+    `${t("stats").mood} <b>${averageMood}</b>`,
+    `${t("stats").latest} <b class="mono">${esc(state.entries[0]?.tracking_id ?? "—")}</b>`
+  ].join("");
+}
+
+function filtered() {
+  return state.entries.filter((entry) => {
+    if (state.day && dayOf(entry.dhaka_time) !== state.day) return false;
+    if (state.cat !== "all" && (entry.category || "other") !== state.cat) return false;
+    return !state.query || JSON.stringify(entry).toLowerCase().includes(state.query);
+  });
+}
+
+function entryHtml(entry) {
+  const source = String(entry.description ?? "");
+  const isLong = source.length > 170 || source.split("\n").length > 3;
+  const open = state.open.has(entry.tracking_id);
+  const category = I18N[state.lang].cat[entry.category] || I18N[state.lang].cat.other;
+  const mood = entry.mood != null ? ` · ${t("moodLbl")} ${entry.mood}/5` : "";
+  const tags = [...(entry.tags || []), ...(entry.links || [])];
+  const attachment = entry.attachment;
+  const rendered = descriptionHtml(entry, open);
+
+  const fileHtml = attachment
+    ? `<div class="file">${esc(t("file"))}: ${
+        attachment.missing
+          ? `${esc(attachment.original)} (${esc(t("missing"))})`
+          : `<a href="${esc(attachment.file)}" download>${esc(attachment.original)}</a>`
+      }</div>`
+    : "";
+
+  const expandButton = isLong
+    ? `<button class="more" data-more="${esc(entry.tracking_id)}">${open ? esc(t("lessTxt")) : esc(t("more"))}</button>`
+    : "";
+
+  const markdownFallback = rendered.fallback
+    ? `<small class="markdown-fallback">${esc(
+        state.lang === "bn"
+          ? "Markdown renderer লোড হয়নি; plain-text আকারে দেখানো হচ্ছে।"
+          : state.lang === "ar"
+            ? "تعذّر تحميل عارض Markdown؛ يُعرض النص بشكل عادي."
+            : "Markdown renderer unavailable; showing plain text."
+      )}</small>`
+    : "";
+
+  return `
+  <article class="entry">
+    <div class="ids mono">
+      <button data-copy="${esc(entry.tracking_id)}" title="${esc(t("copyId"))}">${esc(entry.tracking_id)}</button>
+      <button data-copy="${esc(entry.registry)}" title="${esc(t("copyId"))}">${esc(entry.registry)}</button>
+      <span class="cat">${esc(category)}${esc(mood)}</span>
+    </div>
+    <div class="times mono"><span>${esc(t("dhaka"))} ${esc(entry.dhaka_time)}</span><span>${esc(t("utc"))} ${esc(entry.utc_time)}</span></div>
+    <h4>${esc(entry.heading)}</h4>
+    ${rendered.html}
+    ${markdownFallback}
+    ${expandButton}
+    ${tags.length ? `<div class="tags">${tags.map((tag) => esc(tag)).join(" · ")}</div>` : ""}
+    ${fileHtml}
+    <div class="actions">
+      <button data-md="${esc(entry.tracking_id)}">${esc(t("copyRecord"))}</button>
+      ${entry.description_format === "markdown"
+        ? `<button data-md-source="${esc(entry.tracking_id)}">${esc(t("copyOriginalMarkdown"))}</button>`
+        : ""}
+      ${attachment ? `<button data-copy="${esc(attachment.sha256 || "")}">${esc(t("copySha"))}</button>` : ""}
+    </div>
+  </article>`;
+}
+
+function render() {
+  const list = filtered();
+  const dayFilter = $("#dayFilter");
+
+  dayFilter.hidden = !state.day;
+  if (state.day) {
+    dayFilter.innerHTML = `<span>${esc(t("dayShown"))}: ${esc(fmtDay(state.day))}</span><button data-clear>${esc(t("clear"))}</button>`;
+  }
+
+  if (!list.length) {
+    $("#timeline").innerHTML = `<p class="empty">${esc(t("none"))}</p>`;
+    return;
+  }
+
+  let html = "";
+  let lastDay = null;
+
+  for (const entry of list) {
+    const day = dayOf(entry.dhaka_time);
+
+    if (day !== lastDay) {
+      const dayCount = list.filter((item) => dayOf(item.dhaka_time) === day).length;
+      html += `<div class="day-h"><h3>${esc(fmtDay(day))}</h3><span class="sub mono">${esc(day)} · ${esc(t("dayCount")(dayCount))}</span></div>`;
+      lastDay = day;
+    }
+
+    html += entryHtml(entry);
+  }
+
+  $("#timeline").innerHTML = html;
+}
+
+async function loadRegistry() {
+  try {
+    const response = await fetch("registry.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    $("#regBox").textContent = JSON.stringify(await response.json(), null, 2);
+  } catch {
+    $("#regBox").textContent = "registry.json";
+  }
+}
+
+async function load() {
+  try {
+    const response = await fetch("data.json", { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const lastModified = response.headers.get("last-modified");
+    state.fileMod = lastModified ? new Date(lastModified) : null;
+
+    const data = await response.json();
+    state.entries = Array.isArray(data.entries) ? data.entries : [];
+
+    renderHeat();
+    renderStats();
+    renderUpdated();
+    render();
+  } catch {
+    $("#timeline").innerHTML = `<p class="empty">${esc(t("loadFail"))}</p>`;
+  }
+}
+
+function applyTheme() {
+  document.documentElement.dataset.theme = state.theme;
+
+  try {
+    localStorage.setItem("khataTheme", state.theme);
+  } catch {}
+
+  const button = $("#theme");
+  button.textContent = state.theme === "dark" ? "☀" : "☾";
+  button.setAttribute(
+    "aria-label",
+    state.theme === "dark" ? "Light theme" : "Dark theme"
+  );
+}
+
+document.addEventListener("click", async (event) => {
+  if (event.target.closest("#theme")) {
+    state.theme = state.theme === "dark" ? "light" : "dark";
+    applyTheme();
+    return;
+  }
+
+  const languageButton = event.target.closest("[data-lang]");
+  if (languageButton) {
+    state.lang = languageButton.dataset.lang;
+    applyLang();
+    return;
+  }
+
+  const categoryButton = event.target.closest("[data-cat]");
+  if (categoryButton) {
+    state.cat = categoryButton.dataset.cat;
+    renderCats();
+    render();
+    return;
+  }
+
+  const dayButton = event.target.closest("[data-day]");
+  if (dayButton && !dayButton.disabled) {
+    state.day = state.day === dayButton.dataset.day ? null : dayButton.dataset.day;
+    renderHeat();
+    render();
+    if (state.day) $("#timeline").scrollIntoView({ block: "start" });
+    return;
+  }
+
+  if (event.target.closest("[data-clear]")) {
+    state.day = null;
+    renderHeat();
+    render();
+    return;
+  }
+
+  const moreButton = event.target.closest("[data-more]");
+  if (moreButton) {
+    const id = moreButton.dataset.more;
+    state.open.has(id) ? state.open.delete(id) : state.open.add(id);
+    render();
+    return;
+  }
+
+  const markdownSourceButton = event.target.closest("[data-md-source]");
+  if (markdownSourceButton) {
+    const entry = state.entries.find(
+      (item) => item.tracking_id === markdownSourceButton.dataset.mdSource
+    );
+    if (entry) await copyText(entry.description);
+    return;
+  }
+
+  const recordButton = event.target.closest("[data-md]");
+  if (recordButton) {
+    const entry = state.entries.find(
+      (item) => item.tracking_id === recordButton.dataset.md
+    );
+    if (entry) await copyText(recordMarkdown(entry));
+    return;
+  }
+
+  const copyButton = event.target.closest("[data-copy]");
+  if (copyButton) await copyText(copyButton.dataset.copy);
+});
+
+$("#q").addEventListener("input", (event) => {
+  state.query = event.target.value.trim().toLowerCase();
+  render();
+});
+
+/* Splash: shown on a fresh visit or reload; skipped when moving inside the site. */
+(function splash() {
+  const root = document.documentElement;
+  const splash = document.getElementById("splash");
+
+  if (!splash || !root.classList.contains("splash-on")) {
+    root.classList.add("splash-gone");
+    return;
+  }
+
+  const minDuration = matchMedia("(prefers-reduced-motion: reduce)").matches ? 300 : 1800;
+  const maxDuration = 4200;
+  const startedAt = Date.now();
+  let done = false;
+
+  const progress = document.getElementById("progress");
+  if (progress) progress.style.animationDuration = `${minDuration}ms`;
+
+  function finish() {
+    if (done) return;
+    done = true;
+    splash.classList.add("is-done");
+    setTimeout(() => root.classList.add("splash-gone"), 650);
+  }
+
+  function check() {
+    if (done) return;
+    const elapsed = Date.now() - startedAt;
+    if (elapsed >= maxDuration) return finish();
+    if (document.readyState === "complete" && elapsed >= minDuration) return finish();
+    setTimeout(check, 150);
+  }
+
+  document.getElementById("skip").addEventListener("click", (event) => {
+    event.stopPropagation();
+    finish();
+  });
+  splash.addEventListener("click", finish);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") finish();
+  });
+  window.addEventListener("load", check);
+  setTimeout(check, minDuration);
+  setTimeout(finish, maxDuration + 300);
+})();
+
+try {
+  const savedLanguage = localStorage.getItem("khataLang");
+  state.lang = ["en", "bn", "ar"].includes(savedLanguage) ? savedLanguage : "en";
+} catch {
+  state.lang = "en";
+}
+
+try {
+  state.theme =
+    document.documentElement.dataset.theme ||
+    localStorage.getItem("khataTheme") ||
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+} catch {
+  state.theme = document.documentElement.dataset.theme || "light";
+}
+
+applyTheme();
+applyLang();
+setInterval(tickClock, 1000);
+load();
+loadRegistry();
+</script>
+
+<script src="assets/install.js" defer></script>
+<script src="assets/menu.js" defer></script>
+</body>
+</html>
+```
+
+এটি `life.py`-এর আগের পূর্ণ বিকল্পের সঙ্গে ব্যবহার করুন। Markdown entry-এর metadata যোগ হয়েছে, তাই নতুন `.md` body-file দিয়ে পরীক্ষা করুন:
+
+```bash
+python3 life.py add "Markdown test" \
+  --body-file ./markdown/notes/test.md \
+  --category learning
+```
+
+তারপর:
+
+```bash
+python3 life.py validate
+./run.sh
+```
+
+**Copy record** আগের মতো রেকর্ড ও description-সহ Markdown summary কপি করবে। **মূল Markdown কপি** শুধু description-এ থাকা source কপি করবে। `data.json`-এ আগে থেকে থাকা entry-গুলো untouched থাকবে এবং `description_format` না থাকলে plain text হিসেবেই render হবে।
+
+

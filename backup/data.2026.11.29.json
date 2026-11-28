@@ -1,0 +1,239 @@
+{
+    "entries": [
+        {
+            "tracking_id": "LIFE-000015",
+            "registry": "REG-000015",
+            "dhaka_time": "2026-11-29 00:42:24.530",
+            "utc_time": "2026-11-28 18:42:24.530",
+            "category": "learning",
+            "mood": null,
+            "heading": "Enhancement Request",
+            "description": "আপনার বক্তব্যটি মোটামুটি পরিষ্কার, তবে একজন ডেভেলপার বা প্রজেক্ট মেইনটেইনারের কাছে পাঠানোর জন্য এটিকে আরও কাঠামোবদ্ধ, পেশাদার এবং টেকনিক্যালি স্পষ্ট করা ভালো। নিচে একটি আদর্শ সংস্করণ দিলাম:\n\n---\n\n# Feature Enhancement Request for MJPortal\n\n## Subject\nEnhancement Request: User-Friendly Markdown Rendering While Preserving Original Markdown Copy Functionality\n\n## Background\n\nMJPortal প্রজেক্টে `life.py` স্ক্রিপ্ট ব্যবহার করে নিম্নলিখিত কমান্ডের মাধ্যমে নতুন কনটেন্ট যুক্ত করা হয়:\n\n```bash\npython3 life.py add \"Heading\" \"Description\" [--body-file notes.md] [--category C]\n```\n\nকনটেন্ট যুক্ত হওয়ার পর তা `index.html` এর মাধ্যমে প্রকাশিত হয়। বর্তমানে প্রকাশনা ব্যবস্থা, কপি ফিচার, পূর্ণাঙ্গ ভিউ, সংকুচিত/বিস্তৃত প্রদর্শনসহ অন্যান্য বিদ্যমান ফিচার যথাযথভাবে কাজ করছে।\n\n## Current Behavior\n\nযখন `--body-file` অপশনের মাধ্যমে কোনো Markdown (`.md`) ফাইল যুক্ত করা হয়, তখন সেই Markdown কনটেন্ট ওয়েবসাইটে মূল Markdown সিনট্যাক্সসহ প্রদর্শিত হয়।\n\nউদাহরণস্বরূপ:\n\n```markdown\n# Title\n\n## Subtitle\n\n- Item 1\n- Item 2\n\n**Bold Text**\n```\n\nব্যবহারকারীরা Markdown কোড দেখতে পান, যা সাধারণ পাঠকের জন্য তুলনামূলকভাবে কম ব্যবহারবান্ধব।\n\n## Proposed Enhancement\n\nঅনুরোধ করা হচ্ছে যে, `.md` ফাইল থেকে যুক্ত হওয়া কনটেন্ট প্রকাশের সময় Markdown Parser ব্যবহার করে HTML-এ রেন্ডার করা হোক এবং একটি সুন্দর, পাঠকবান্ধব UI-তে প্রদর্শন করা হোক।\n\nঅর্থাৎ:\n\n- Heading গুলো যথাযথ স্টাইলে প্রদর্শিত হবে।\n- List গুলো সুন্দরভাবে রেন্ডার হবে।\n- Bold, Italic, Blockquote, Code Block ইত্যাদি সঠিকভাবে উপস্থাপিত হবে।\n- Responsive এবং Readable Layout থাকবে।\n- পাঠক Markdown Source নয়, Rendered Content দেখবেন।\n\n## Important Requirement\n\nবর্তমান Copy ফিচারের আচরণ অপরিবর্তিত রাখা গুরুত্বপূর্ণ।\n\nঅর্থাৎ:\n\n✅ Display Mode:\n\nRendered HTML / User-Friendly View\n\n✅ Copy Mode:\n\nOriginal Markdown Content\n\nতাই ব্যবহারকারী যখন \"Copy\" অপশন ব্যবহার করবেন, তখন বর্তমানে যেভাবে মূল Markdown কনটেন্ট কপি হয়, সেটি যেন ঠিক একইভাবে বজায় থাকে।\n\n## Expected Outcome\n\n- Markdown Content → সুন্দরভাবে Rendered Display\n- Copy Function → Original Markdown Copy\n- Existing Features → Unchanged\n- Improved Reading Experience\n- Better UI/UX for End Users\n\n## Request\n\nউক্ত ফিচারটি বাস্তবায়নের জন্য যথাযথ দিকনির্দেশনা, কোড আপডেট অথবা ইমপ্লিমেন্টেশন সহযোগিতা কামনা করছি।\n\nধন্যবাদ।\n\n---\n\nএই ফরম্যাটটি একজন ডেভেলপারের কাছে পাঠালে তিনি খুব দ্রুত বুঝতে পারবেন:\n1. বর্তমান সিস্টেম কীভাবে কাজ করে।\n2. সমস্যা কোথায়।\n3. আপনি কী পরিবর্তন চান।\n4. কোন আচরণ পরিবর্তন করা যাবে না।\n5. প্রত্যাশিত ফলাফল কী।\n\nএটাই সাধারণত ওপেন সোর্স প্রজেক্ট, GitHub Issue, Technical Request, Feature Request বা পেশাদার সফটওয়্যার ডেভেলপমেন্ট যোগাযোগের আদর্শ কাঠামো।",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000014",
+            "registry": "REG-000014",
+            "dhaka_time": "2026-11-29 00:15:14.246",
+            "utc_time": "2026-11-28 18:15:14.246",
+            "category": "learning",
+            "mood": null,
+            "heading": "Agenda",
+            "description": "অবশ্যই। আপনি যেহেতু ভবিষ্যতে কোনো ব্যক্তি, প্রতিষ্ঠান, বিশেষজ্ঞ বা আমার মতো AI-এর কাছে প্রযুক্তিগত সহযোগিতা চাইতে পারেন, তাই আগে তিনটি মৌলিক বিষয় পরিষ্কার করা যাক।\n\n### ১. Agenda (এজেন্ডা) কাকে বলে?\n\n**Agenda** হলো কোনো আলোচনা, মিটিং, উপস্থাপনা বা সহযোগিতা চাওয়ার মূল উদ্দেশ্য ও আলোচ্য বিষয়গুলোর সংক্ষিপ্ত তালিকা।\n\nসহজ ভাষায়:\n\n> \"আমি কেন যোগাযোগ করছি এবং কী কী বিষয় নিয়ে আলোচনা করতে চাই\" - সেটাই Agenda।\n\nউদাহরণ:\n\n**Agenda:**\n1. ওয়েবসাইট তৈরির প্রয়োজনীয়তা আলোচনা।\n2. সম্ভাব্য প্রযুক্তি নির্বাচন।\n3. বাজেট ও সময়সীমা নির্ধারণ।\n4. পরবর্তী করণীয় ঠিক করা।\n\n---\n\n### ২. Requirements (রিকোয়ারমেন্টস) কাকে বলে?\n\n**Requirements** হলো আপনি আসলে কী চান, কী সমস্যা সমাধান করতে চান, এবং চূড়ান্ত ফলাফল কেমন হওয়া উচিত তার বিস্তারিত বিবরণ।\n\nসহজ ভাষায়:\n\n> \"কাজটি কীভাবে হবে এবং শেষ পর্যন্ত কী পাওয়া যাবে\" - সেটাই Requirement।\n\nউদাহরণ:\n\nধরুন আপনি একটি ওয়েবসাইট চান।\n\n**Requirements:**\n- ব্যবহারকারী রেজিস্ট্রেশন করতে পারবে।\n- লগইন সিস্টেম থাকবে।\n- বাংলা ভাষা সাপোর্ট করবে।\n- মোবাইল ও কম্পিউটারে সুন্দরভাবে চলবে।\n- অ্যাডমিন প্যানেল থাকবে।\n\n---\n\n## ৩. প্রযুক্তিগত সহযোগিতা চাওয়ার আদর্শ, নমনীয় ও সঠিক পদ্ধতি\n\nযখন কোনো বিশেষজ্ঞ, ডেভেলপার, প্রকৌশলী বা AI-এর কাছে সাহায্য চাইবেন, তখন নিচের কাঠামো অনুসরণ করলে সবচেয়ে ভালো ফল পাবেন।\n\n### ধাপ ১: Background (প্রেক্ষাপট)\n\nআপনি কী করছেন?\n\nউদাহরণ:\n\n> আমি একটি অনলাইন শিক্ষা প্ল্যাটফর্ম তৈরি করার পরিকল্পনা করছি।\n\n---\n\n### ধাপ ২: Objective (উদ্দেশ্য)\n\nআপনি কী অর্জন করতে চান?\n\nউদাহরণ:\n\n> শিক্ষার্থীরা যেন অনলাইনে কোর্স দেখতে ও পরীক্ষায় অংশ নিতে পারে।\n\n---\n\n### ধাপ ৩: Current Situation (বর্তমান অবস্থা)\n\nএখন পর্যন্ত কী করেছেন?\n\nউদাহরণ:\n\n> ডোমেইন কিনেছি, কিন্তু প্রযুক্তিগত কাঠামো নির্বাচন করিনি।\n\n---\n\n### ধাপ ৪: Requirements (চাহিদা)\n\nআপনার নির্দিষ্ট প্রয়োজনগুলো লিখুন।\n\nউদাহরণ:\n\n- ভিডিও কোর্স\n- অনলাইন পরীক্ষা\n- সার্টিফিকেট\n- মোবাইল সাপোর্ট\n- বাংলা ইন্টারফেস\n\n---\n\n### ধাপ ৫: Constraints (সীমাবদ্ধতা)\n\nযদি কোনো সীমাবদ্ধতা থাকে।\n\nউদাহরণ:\n\n- বাজেট সীমিত\n- ওপেন সোর্স প্রযুক্তি অগ্রাধিকার\n- ৩ মাসের মধ্যে চালু করতে হবে\n\n---\n\n### ধাপ ৬: Expected Help (কী ধরনের সাহায্য চান)\n\nএটি অত্যন্ত গুরুত্বপূর্ণ।\n\nউদাহরণ:\n\n> আমি চাই আপনি প্রযুক্তিগত আর্কিটেকচার, ব্যবহৃত প্রযুক্তি, সম্ভাব্য খরচ এবং বাস্তবায়ন পরিকল্পনা প্রস্তাব করুন।\n\n---\n\n## একটি আদর্শ টেমপ্লেট\n\n```text\nবিষয়: প্রযুক্তিগত সহযোগিতা অনুরোধ\n\nAgenda:\n[মূল আলোচ্য বিষয়]\n\nBackground:\n[বর্তমান প্রেক্ষাপট]\n\nObjective:\n[কী অর্জন করতে চান]\n\nRequirements:\n- ...\n- ...\n- ...\n\nConstraints:\n- ...\n- ...\n\nExpected Help:\n[কী ধরনের সহযোগিতা চান]\n\nAdditional Information:\n[অন্য প্রাসঙ্গিক তথ্য]\n```\n\n---\n\n## আপনার ক্ষেত্রে\n\nআপনি যখন বলছেন:\n\n> \"যেমন আপনার কাছে এই মুহূর্তে একটি বিষয়ে সহযোগিতা কামনা করছি\"\n\nতখন সবচেয়ে কার্যকর উপস্থাপনা হবে এমন:\n\n```text\nAgenda:\nনির্দিষ্ট\n\n```\n\n---\n\nঠিক বলেছেন। আমি আসলে ধারণাগুলো ব্যাখ্যা করেছি, কিন্তু আলোচনার একটি গুরুত্বপূর্ণ অংশ বাকি ছিল: **কেন সঠিকভাবে Agenda ও Requirements উপস্থাপন করা জরুরি, এবং সহযোগিতা চাওয়ার সময় মানুষের সবচেয়ে সাধারণ ভুলগুলো কী।**\n\nসংক্ষেপে বলি।\n\n### কেন Agenda দরকার?\n\nধরুন আপনি কাউকে বললেন:\n\n> \"আমার একটা প্রযুক্তিগত সমস্যা আছে, সাহায্য করুন।\"\n\nএখানে সমস্যাটা কী, উদ্দেশ্য কী, আপনি কী সাহায্য চান, কিছুই স্পষ্ট নয়।\n\nকিন্তু যদি বলেন:\n\n> Agenda: একটি স্বয়ংক্রিয় রিপোর্টিং সিস্টেম তৈরির বিষয়ে পরামর্শ প্রয়োজন।\n\nতাহলে সাহায্যকারী ব্যক্তি প্রথমেই আলোচনার দিক বুঝতে পারবেন।\n\n---\n\n### কেন Requirements দরকার?\n\nঅনেক সময় মানুষ সমাধান চায়, কিন্তু চাহিদা স্পষ্ট করে না।\n\nউদাহরণ:\n\n> \"আমার একটা সফটওয়্যার লাগবে।\"\n\nএটি Requirement নয়।\n\nবরং:\n\n> - ১০০০ ব্যবহারকারী সাপোর্ট করতে হবে।\n> - মোবাইল ও ওয়েব উভয় প্ল্যাটফর্মে চলতে হবে।\n> - বাংলা ভাষা সাপোর্ট করতে হবে।\n> - রিপোর্ট PDF আকারে ডাউনলোড করা যাবে।\n\nএগুলো Requirement।\n\n---\n\n### সহযোগিতা চাওয়ার সময় সবচেয়ে সাধারণ ভুল\n\n❌ সমস্যা না বলে সমাধান চাওয়া।\n\nউদাহরণ:\n\n> \"Python ব্যবহার করব নাকি Java?\"\n\nকিন্তু আসল কাজটাই বলা হয়নি।\n\n✅ ভালো উপস্থাপন:\n\n> \"আমি একটি অনলাইন পরীক্ষার সিস্টেম তৈরি করতে চাই। ৫০০০ ব্যবহারকারী একসাথে ব্যবহার করবে। কোন প্রযুক্তি উপযুক্ত হতে পারে?\"\n\n---\n\n❌ অপ্রয়োজনীয় দীর্ঘ বিবরণ।\n\n✅ প্রয়োজনীয় তথ্য + পরিষ্কার উদ্দেশ্য।\n\n---\n\n❌ \"সবকিছু বলে দিন।\"\n\n✅ \"নির্দিষ্ট এই অংশে পরামর্শ দিন।\"\n\n---\n\n### আমার কাছে সহযোগিতা চাইলে আদর্শ ফরম্যাট\n\n```text\nবিষয়:\nকিসের সাহায্য প্রয়োজন\n\nউদ্দেশ্য:\nকী অর্জন করতে চান\n\nবর্তমান অবস্থা:\nএখন কোথায় আছেন\n\nসমস্যা:\nকোথায় আটকে গেছেন\n\nপ্রত্যাশিত সহযোগিতা:\nআপনি আমার কাছ থেকে কী চান\n```\n\nউদাহরণ:\n\n```text\nবিষয়:\nএকটি অনলাইন শিক্ষা প্ল্যাটফর্ম তৈরি\n\nউদ্দেশ্য:\nশিক্ষার্থীদের জন্য ভিডিও কোর্স প্রদান\n\nবর্তমান অবস্থা:\nডোমেইন ও হোস্টিং আছে\n\nসমস্যা:\nকোন প্রযুক্তি ব্যবহার করব বুঝতে পারছি না\n\nপ্রত্যাশিত সহযোগিতা:\nটেকনোলজি নির্বাচন, আর্কিটেকচার ও খরচের ধারণা\n```\n\nএভাবে উপস্থাপন করলে সাধারণত ৭০-৮০% ভুল বোঝাবুঝি দূর হয়ে যায় এবং সহযোগিতার মান অনেক বেড়ে যায়।\n\nএবং একটি কথা, সহযোগিতা চাওয়ার সবচেয়ে শক্তিশালী সূত্র হলো:\n\n> **\"আমি কী চাই\" বলার আগে \"আমি কী সমস্যা সমাধান করতে চাই\" বলুন।**\n\nকারণ একজন দক্ষ সহযোগী বা বিশেষজ্ঞ সাধারণত সমস্যার ভিত্তিতে সমাধান নির্বাচন করেন, সমাধানের ভিত্তিতে সমস্যা নয়।\n\nএখন আপনি যে বিষয়ে সহযোগিতা চাচ্ছেন, সেটি সরাসরি লিখে দিন। আমি সেটিকে আগে Agenda, Objective, Requirements ও Action Plan আকারে সাজিয়ে তারপর সহযোগিতা দেব।\n\n---",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000013",
+            "registry": "REG-000013",
+            "dhaka_time": "2026-11-27 15:44:54.916",
+            "utc_time": "2026-11-27 09:44:54.916",
+            "category": "work",
+            "mood": null,
+            "heading": "Self Readme",
+            "description": "# নিজের খাতা · Nijer Khata (Self Ledger, mj-ahmad)\n\nশেখা, কাজ, স্বাস্থ্য, ইমান ও আত্মবিশ্লেষণের একটি শান্ত, উত্তরাধিকারযোগ্য খাতা।\nকোনো বিল্ড স্টেপ নেই। বাংলা, English ও العربية তিন ভাষায় চলে।\n\n## শুরু করুন\n\n```bash\n./khata doctor            # ফাইলগুলো ঠিক আছে কি না দেখুন\n./khata start             # ডেটা যাচাই করে http://127.0.0.1:8000 এ ড্যাশবোর্ড চালু করুন\n```\n\n## কমান্ড (khata)\n\n| কাজ | কমান্ড |\n|---|---|\n| সার্ভ ও খোলা | `./khata start [PORT]` · `./khata open` |\n| অগ্রগতি লেখা | `./khata log \"আজকের পড়া\" --category learning --mood 4` |\n| পূর্ণ এন্ট্রি | `./khata add \"Heading\" \"Description\" --body-file notes.md --tag a,b` |\n| ফাইল যুক্ত | `./khata add \"Heading\" \"Desc\" --add-file ./proof.pdf` |\n| শেষ এন্ট্রি | `./khata list --limit 10` |\n| অবস্থা ও সারসংক্ষেপ | `./khata status` |\n| সময় (ঢাকা + UTC) | `./khata time` |\n| শেখার বিষয় | `./khata learn list` · `./khata learn open geojson` |\n| শেখার পেজ তৈরি | `./khata learn build` |\n| শেয়ার লিংক বদলান | `./khata url https://your-address/nijer-khata` |\n| ব্যাকআপ | `./khata backup` |\n| সাহায্য | `./khata help` |\n\n## ফোল্ডারের গঠন\n\n```\nindex.html          ড্যাশবোর্ড (splash + হোম পেজ, লাইভ ঢাকা ঘড়ি, last update)\nkhata               কমান্ড শেল\nlife.py             এন্ট্রি, ID, চেকসাম, ভ্যালিডেশন\ndata.json           সব এন্ট্রি (নতুনটা আগে)\nregistry.json       LIFE ও REG ID কাউন্টার\nsite.json           শেয়ার লিংকের মূল ঠিকানা\nlearn/              শেখার হাব\n  subjects.json     বিষয় ও ধাপের তালিকা (এটি সম্পাদনা করুন)\n  build.py          subjects.json থেকে পেজ তৈরি করে\n  index.html        শেখার হাব\n  <slug>/index.html প্রতিটি বিষয়ের আলাদা পেজ\nterminal/           ব্রাউজার টার্মিনাল (help, time, status, open …)\nattachments/        --add-file দিয়ে যুক্ত ফাইল\nassets/             লোগো, আইকন, OG ছবি (সব branding ফাইল এখানে)\n```\n\n## নতুন বিষয় যোগ করা\n\n1. `learn/subjects.json` এর `subjects` তালিকায় একটি ব্লক যোগ করুন (`slug`, `group`, `name`, `summary`, `phases`)।\n2. `./khata learn build` চালান। নতুন পেজ `learn/<slug>/` এ তৈরি হবে এবং হাবে দেখা যাবে।\n3. শেখার অগ্রগতি লিখতে: `./khata log \"...\" --category learning --tag <slug>`\n\nগ্রুপ বদলাতে বা নতুন গ্রুপ যোগ করতে `groups` অংশটি সম্পাদনা করুন।\n\n## শেয়ার প্রিভিউ (WhatsApp, Messenger, Telegram)\n\nপ্রিভিউ ছবি `assets/branding/og/og-1200x630.png`। সম্পূর্ণ ঠিকানা লাগে বলে প্রথমবার আপনার আসল ঠিকানা দিন:\n\n```bash\n./khata url https://mj-ahmad.github.io/mjportal/\n```\n\nএটি `index.html` ও সব `learn/` পেজের লিংক বদলে দেয়।\n\n## MJ Ahmad সাইটের সাথে সম্পর্ক\n\nএই ফোল্ডারটি `mj` সাইটের ভেতরে `nijer-khata/` নামে রাখা হয়েছে। তাই mj সাইটের প্রজেক্ট কার্ড থেকে এখানে আসা যায়, আর এখান থেকে \"← MJ Ahmad\" লিংকে ফেরা যায়। আলাদা জায়গায় রাখলে `learn/build.py` ও `index.html` এর মূল-সাইট লিংক (`../`) ঠিক করে নিতে হবে।\n\n## আসল Bash টার্মিনাল (Ubuntu)\n\nব্রাউজারের `terminal/` পেজ একটি **ডেমো**। সেখানে শুধু কয়েকটি কমান্ড চলে, আসল bash চলে না। আসল shell পেতে দুটি পথ আছে।\n\n### পথ ১: নিজের কম্পিউটারে (Ubuntu বা WSL)\n\nWindows হলে আগে Ubuntu ইন্সটল করুন (PowerShell, administrator হিসেবে):\n\n```powershell\nwsl --install -d Ubuntu\n```\n\nতারপর Ubuntu-র ভেতরে প্রজেক্টে যান (Windows ড্রাইভ `/mnt/c/...` হিসেবে থাকে) এবং:\n\n```bash\n./khata setup              # git, Python 3 + pip + venv + pipx, Node.js LTS, .NET SDK 8\n./khata doctor             # কোন টুল আছে তার তালিকা\n./khata shell              # প্রজেক্ট ফোল্ডারে bash শেল\n./khata start              # ড্যাশবোর্ড চালু করুন\n```\n\n`khata setup` বারবার চালালেও সমস্যা নেই। .NET অন্য ভার্সনে চাইলে: `DOTNET_CHANNEL=9.0 ./khata setup --no-node`।\n\n### পথ ২: Docker দিয়ে ব্রাউজারে Ubuntu bash\n\nএটি একটি আলাদা Ubuntu 24.04 কন্টেইনার বানায় এবং ttyd দিয়ে ব্রাউজারে bash দেখায়। আপনার computer-এই শুধু চলে।\n\n```bash\ncd setup\ncp .env.example .env       # TTYD_PASS-এ লম্বা পাসওয়ার্ড দিন\ndocker compose up -d --build\n```\n\n- ব্রাউজারে খুলুন: `http://127.0.0.1:7681` (TTYD_USER / TTYD_PASS দিয়ে লগইন)\n- কন্টেইনারের ভেতরে `./khata setup` দিলে সব টুল ইন্সটল হবে।\n- ড্যাশবোর্ড: কন্টেইনারে `./khata start`, তারপর `http://127.0.0.1:8000`।\n- প্রজেক্ট ফোল্ডার কন্টেইনারের `/root/nijer-khata`-এ mount করা, তাই `data.json` ও `attachments/` আপনার কম্পিউটারেই থাকে।\n\n**নিরাপত্তা:** এই শেল পুরো কন্টেইনারের নিয়ন্ত্রণ দেয়। পোর্ট শুধু `127.0.0.1`-এ খোলা থাকে। এটি কখনো public ইন্টারনেটে বা GitHub Pages-এর লিংকে দেবেন না। দূর থেকে ব্যবহার করতে হলে SSH tunnel ব্যবহার করুন (`ssh -L 7681:127.0.0.1:7681 user@server`)। `setup/.env` কখনো git-এ commit করবেন না।\n\nGitHub Pages স্ট্যাটিক সাইট, তাই সেখানে আসল shell চালানো যায় না। ওয়েবসাইটে শুধু ডেমো টার্মিনাল থাকবে।\n\n## ইনহেরিট করা\n\nসম্পূর্ণ ফোল্ডার কপি করুন। `data.json`, `registry.json` ও `attachments/` একসাথে রাখতে হবে। `./khata backup` দিয়ে সময়-সিলযুক্ত আর্কাইভ বানানো যায়।\n\nPlain files, no build step, Bangla · English · Arabic.\n\n## নিচের বার ও মেনু (সম্পূর্ণ ম্যানুয়াল)\n\nপ্রতিটি পেজের নিচে পাঁচটি আইকন: **মূল সাইট · ড্যাশবোর্ড · শেখার হাব · টার্মিনাল · মেনু**। মেনু আইকনে চাপলে মেনু, সাব মেনু ও সাব-সাব মেনুর শুধু তালিকা উঠে আসে (কোনো বিস্তারিত লেখা নয়)।\n\nমেনুতে কিছু যোগ বা বাদ দেওয়ার সাথে টার্মিনাল বা কোনো কমান্ডের সম্পর্ক নেই। শুধু `menu.json` ফাইলটি হাতে সম্পাদনা করুন:\n\n```json\n{ \"menu\": [\n  { \"title\": \"projects\", \"children\": [\n      { \"title\": \"My App\", \"href\": \"projects/my-app/\" },\n      { \"title\": { \"en\": \"Group\", \"bn\": \"গ্রুপ\", \"ar\": \"مجموعة\" }, \"children\": [\n          { \"title\": \"Deep page\", \"href\": \"projects/group/deep.html\" } ] } ] }\n] }\n```\n\n- `children` থাকলে সেটি খোলা-বন্ধ হওয়া ফোল্ডার; `href` থাকলে সেটি লিংক। যত স্তর খুশি নেওয়া যায়।\n- `title` সাধারণ লেখা, অথবা `{en, bn, ar}` দিলে ভাষা অনুযায়ী বদলায়।\n- `href` প্রজেক্টের মূল ফোল্ডার থেকে লেখা হয় (যেমন `tools/calc.html`); পুরো `https://...` ঠিকানাও চলে।\n- বাদ দিতে সেই লাইনটি মুছুন (বা পেজ রেখে তালিকা থেকে সরান)। নতুন পেজে নিচের বার চাইলে পেজের শেষে `<script src=\"../assets/menu.js\" defer></script>` দিন (`../` ফোল্ডারের গভীরতা অনুযায়ী)।\n\n## ব্যক্তিগত ভল্ট (ফটো, ভিডিও, অডিও, ডকুমেন্ট)\n\nহোম পাতার **ব্যক্তিগত** বোতামে গেলে পাসওয়ার্ড চাওয়া হয়। ভেতরের সব ফাইল এনক্রিপ্টেড থাকে; পাসওয়ার্ড ছাড়া কিছু দেখা যায় না।\n\n**কীভাবে ফাইল যোগ করবেন**\n\n1. কম্পিউটারে প্রজেক্ট ফোল্ডারের `private-inbox/` এ zip ফাইল রাখুন (যেকোনো নাম: `photos.zip`, `videos.zip`, `audio.zip`, `documents.zip`)। zip এর ভেতরে ফোল্ডার থাকলেও চলবে।\n2. টার্মিনালে চালান:\n\n```bash\npip install cryptography          # প্রথমবার একবার\npython3 private_vault.py          # পাসওয়ার্ড চাইবে, তারপর সব এনক্রিপ্ট করবে\npython3 private_vault.py status   # কী আছে তার হিসাব দেখুন\n```\n\n3. ফাইল চিনে ঠিক জায়গায় রাখা হয়: ছবি → ফটো, mp4/mov → ভিডিও, mp3/m4a → অডিও, pdf/docx/xlsx/txt → ডকুমেন্ট। চেনা না গেলে তালিকায় দেখানো হয়।\n4. সব ঠিক থাকলে `private-inbox/` এর zip গুলো মুছে ফেলুন।\n\n**যা মনে রাখবেন**\n\n- পাসওয়ার্ড কোথাও লেখা থাকে না। ভুলে গেলে ভল্ট খোলা যাবে না।\n- এনক্রিপ্টেড ফাইল GitHub-এ আপলোড হতে পারে; কিন্তু সাধারণ ফাইল (zip, ডিক্রিপ্ট করা কপি) কখনো আপলোড হবে না — `.gitignore` এ এগুলো বাদ দেওয়া আছে।\n- পাসওয়ার্ড যত লম্বা, ততই নিরাপদ। ৮ সংখ্যার পাসওয়ার্ড সহজে অনুমান হতে পারে, তাই বড় বাক্যাংশ বা অনেক অক্ষরের পাসওয়ার্ড ব্যবহার করুন।\n- ৫ মিনিট ব্রাউজার ব্যাকগ্রাউন্ডে থাকলে ভল্ট নিজে থেকে লক হয়ে যায়।\n- `robots.txt` সার্চ ইঞ্জিনকে `/private/` না ঘাঁটতে বলে, কিন্তু নিরাপত্তার জন্য আসল ভরসা এনক্রিপশন।\n- পাসওয়ার্ড বদলাতে: নতুন ভল্ট বানাতে `private/vault/` এর ভেতরের সব ফাইল মুছে আবার চালান।\n\n## Android-এ অ্যাপ হিসেবে ইন্সটল\n\nএই সাইট একটি Progressive Web App (PWA)। ফোনে একবার খুলুন, তারপর:\n\n1. **Chrome** দিয়ে `https://mj-ahmad.github.io/mjportal/` খুলুন।\n2. স্ক্রিনের নিচে \"📲 অ্যাপ হিসেবে ইন্সটল\" বোতামে চাপুন। বোতাম না এলে Chrome মেনু (⋮) → **Install app** / **Add to Home screen** বেছে নিন।\n3. হোম স্ক্রিনে \"নিজের খাতা\" আইকন আসবে। এটি পূর্ণ স্ক্রিনে খোলে, ঠিকানা-বার ছাড়া।\n\nইন্টারনেট ছাড়াও খাতার মূল পাতা ও টার্মিনাল খোলা যায়; ব্যক্তিগত ভল্টের ফাইল শুধু অনলাইনে লোড হয়।\n\n## শেখার টার্মিনাল\n\nওয়েবসাইটের টার্মিনালে `help` লিখে শুরু করুন। `lesson 1` থেকে `lesson 5` পর্যন্ত ধাপে ধাপে শিখুন। Tab চাপলে কমান্ড পূর্ণ হয়, ↑ ↓ দিয়ে আগের কমান্ড আনা যায়।",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000012",
+            "registry": "REG-000012",
+            "dhaka_time": "2026-11-27 15:34:46.632",
+            "utc_time": "2026-11-27 09:34:46.632",
+            "category": "work",
+            "mood": null,
+            "heading": "Self README",
+            "description": "Readme of own this page",
+            "tags": [],
+            "links": [],
+            "attachment": {
+                "file": "attachments/REG-000012.md",
+                "original": "README.md",
+                "size": 15019,
+                "type": "text/markdown",
+                "sha256": "0e00da48556ea1b41912b0072a9c79f5552cbf73627fbe00f99bb8277fafb36b"
+            }
+        },
+        {
+            "tracking_id": "LIFE-000011",
+            "registry": "REG-000011",
+            "dhaka_time": "2026-10-15 13:35:02.652",
+            "utc_time": "2026-10-15 07:35:02.652",
+            "category": "other",
+            "mood": null,
+            "heading": "Task create helping",
+            "description": "deriction from ai",
+            "tags": [],
+            "links": [],
+            "attachment": {
+                "file": "attachments/REG-000011.md",
+                "original": "chat.md",
+                "size": 5898,
+                "type": "text/markdown",
+                "sha256": "63a2dc86bad311ed4e647a0241bf552f28a9e2527fe656ac937bbf4858128fd0",
+                "missing": true
+            }
+        },
+        {
+            "tracking_id": "LIFE-000010",
+            "registry": "REG-000010",
+            "dhaka_time": "2026-10-15 13:30:24.147",
+            "utc_time": "2026-10-15 07:30:24.147",
+            "category": "other",
+            "mood": null,
+            "heading": "Starting crete task",
+            "description": "chating with ai - আপনি আমাকে এটির অনুকরণে একটি Tasks system দেরি করে দিন, যেখানে একটি index.html data.json add_task.py track_task.py complete_task.py validate.py _lib.py  run.sh সহ প্রয়োজনীয় অন্যান্য ফাইলগুলো সহ সম্পূর্ণ যথাযথ একটি inheritable টাস্ক সিস্টেম তৈরি করতে সহযোগিতা করুন, \nadd_task.py টি হবে অত্যন্ত সুপরিকল্পিত, যা একাধিক ফিচার এর অন্যান্য সমন্বয় যথাযথ ভাবে পূরণ করবে। যেমন,\nrun.sh task এর মাধ্যমে শুধু মাত্র হেডিং বর্ননা বা সাথে --add-file file_location/link বা সাথে আরো কিছু --add-note  বা সাথে আরো --steps ,,,,,, \nযতটুকু ই রান করুক তা ঐ অনুযায়ী টাস্ক লিপিবদ্ধ হবে, ঢাকা টাইম, ইউ টি সি টাইম সহ অন্যান্য টাস্ক আইডি রেজিঃ আইডি যুক্ত হবে, এবং --steps  দিয়ে কমা দিয়ে দিয়ে যত গুলো শব্দ বাক্য বা যেভাবে যুক্ত করবে সেই ক্ষেত্রে টাস্ক এর নিচে অত্যন্ত সুশৃঙ্খল ও প্রোফেশনাল ভঙ্গিতে> > > এই ধরনের বা উন্নত উপস্থাপনায় স্টেপস গুলো উপস্থাপিত হবে, \nপরবর্তীতে টাস্ক আইডি ব্যবহার করে track_task.py এর মাধ্যমে যে স্টেপ পরিপূর্ণ হয়েছে সেই স্টেপ কমপ্লিট চিহ্নিত করবে যা টাইম স্টেম্প সহ যুক্ত হবে অটোমেটিক, এবং পূর্ন ও বাকি এর হিসাব থাকবে। সম্পূর্ণ হ‌ওয়ার পর টাস্ক আইডি ব্যবহার করে complete_task.py রান করলে তা নিজের থেকে যথাযথ ওভারভিউ তৈরি করে একটি ওভারভিউ ও যথাযথ মূল্যায়ন তৈরি করে যুক্ত করবে তা হবে একটি এআই এজেন্ট এর শক্তিশালী বহিঃপ্রকাশ।\nএই ভাবে একটি টাস্ক সিস্টেম তৈরি করতে সহযোগিতা করুন,",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000009",
+            "registry": "REG-000009",
+            "dhaka_time": "2026-10-15 12:57:31.259",
+            "utc_time": "2026-10-15 06:57:31.259",
+            "category": "other",
+            "mood": null,
+            "heading": "Task system setup",
+            "description": "Create a complete task registry system",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000008",
+            "registry": "REG-000008",
+            "dhaka_time": "2026-10-15 06:37:46.015",
+            "utc_time": "2026-10-15 00:37:46.015",
+            "category": "other",
+            "mood": null,
+            "heading": ".bashrc of kali nethunter",
+            "description": "Initial .bashrc for kali-nethunter",
+            "tags": [],
+            "links": [],
+            "attachment": {
+                "file": "attachments/REG-000008.kali-nethunter",
+                "original": ".bashrc.kali-nethunter",
+                "size": 2546,
+                "type": "application/octet-stream",
+                "sha256": "0781ce22f8340e8054fb408067a0e98eb251f7e7aeb635696e95b8a69bc33388",
+                "missing": true
+            }
+        },
+        {
+            "tracking_id": "LIFE-000007",
+            "registry": "REG-000007",
+            "dhaka_time": "2026-10-15 06:36:25.845",
+            "utc_time": "2026-10-15 00:36:25.845",
+            "category": "other",
+            "mood": null,
+            "heading": ".bashrc of Debian",
+            "description": "Initial .bashrc for Debian",
+            "tags": [],
+            "links": [],
+            "attachment": {
+                "file": "attachments/REG-000007.debian",
+                "original": ".bashrc.debian",
+                "size": 2030,
+                "type": "application/octet-stream",
+                "sha256": "34f9846f7c64d297fd001943af4cb661c0b18f0eca39cf28eff4c4f7ea944d58",
+                "missing": true
+            }
+        },
+        {
+            "tracking_id": "LIFE-000006",
+            "registry": "REG-000006",
+            "dhaka_time": "2026-10-15 06:34:58.037",
+            "utc_time": "2026-10-15 00:34:58.037",
+            "category": "other",
+            "mood": null,
+            "heading": ".bashrc of Ubuntu",
+            "description": "Initial .bashrc for Ubuntu",
+            "tags": [],
+            "links": [],
+            "attachment": {
+                "file": "attachments/REG-000006.ubuntu",
+                "original": ".bashrc.ubuntu",
+                "size": 1916,
+                "type": "application/octet-stream",
+                "sha256": "6e70c02f48d3b7b07e4bfc23f8eb635365c61f9f11847daedefcde9e5ec5143f",
+                "missing": true
+            }
+        },
+        {
+            "tracking_id": "LIFE-000005",
+            "registry": "REG-000005",
+            "dhaka_time": "2026-10-15 06:31:55.134",
+            "utc_time": "2026-10-15 00:31:55.134",
+            "category": "other",
+            "mood": null,
+            "heading": ".bashrc of Termux",
+            "description": "Initial .bashrc for Termux",
+            "tags": [],
+            "links": [],
+            "attachment": {
+                "file": "attachments/REG-000005.termux",
+                "original": ".bashrc.termux",
+                "size": 4449,
+                "type": "application/octet-stream",
+                "sha256": "2bf85cdd1a10aa3d181d798cbffcf51871061c43d6729f3894d81f9bd284a5aa",
+                "missing": true
+            }
+        },
+        {
+            "tracking_id": "LIFE-000004",
+            "registry": "REG-000004",
+            "dhaka_time": "2026-10-15 06:09:04.561",
+            "utc_time": "2026-10-15 00:09:04.561",
+            "category": "other",
+            "mood": null,
+            "heading": ".bashrc Initial setup completed",
+            "description": ".bashrc এর প্রাথমিক সেটআপ Termux, Ubuntu, Debian, Kali nethunter এই চারটির মধ্যেই প্রাথমিক ভাবে সেটাপ সম্পূর্ণ করা হয়েছে, প্রাথমিক কোড গুলো ধারাবাহিক ভাবে .bashrc.termux, .bashrc.ubuntu, .bashrc.debian, .bashrc.kali-nethunter হিসেবে যুক্ত করা হবে",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000003",
+            "registry": "REG-000003",
+            "dhaka_time": "2026-10-15 05:46:25.928",
+            "utc_time": "2026-10-14 23:46:25.928",
+            "category": "other",
+            "mood": null,
+            "heading": "Next Objective: .bashrc",
+            "description": "Comprehensive .bashrc Customization and Environment Standardization. The next objective is to create a fully customized and feature-rich .bashrc configuration that provides a unified user experience across Termux, Ubuntu, Debian, and Kali NetHunter.",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000002",
+            "registry": "REG-000002",
+            "dhaka_time": "2026-10-15 05:42:37.299",
+            "utc_time": "2026-10-14 23:42:37.299",
+            "category": "other",
+            "mood": null,
+            "heading": "Initial Environment Provisioning Completed.",
+            "description": "Ubuntu, Debian, and Kali NetHunter have been successfully deployed within the Termux environment. Distribution access, shell transition, and session exit mechanisms have been validated. The platform is ready for subsequent configuration and integration tasks.",
+            "tags": [],
+            "links": []
+        },
+        {
+            "tracking_id": "LIFE-000001",
+            "registry": "REG-000001",
+            "dhaka_time": "2026-10-15 05:19:05.499",
+            "utc_time": "2026-10-14 23:19:05.499",
+            "category": "other",
+            "mood": null,
+            "heading": ".bashrc",
+            "description": ".bashrc setup completed",
+            "tags": [],
+            "links": [],
+            "attachment": {
+                "file": "attachments/REG-000001",
+                "original": ".bashrc",
+                "size": 1916,
+                "type": "unknown",
+                "sha256": "6e70c02f48d3b7b07e4bfc23f8eb635365c61f9f11847daedefcde9e5ec5143f",
+                "missing": true
+            }
+        }
+    ]
+}
